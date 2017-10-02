@@ -1,7 +1,7 @@
 <template>
 	<div class="content">
 	    <span>你怎么说嘛</span>
-        <Input type="number"></Input> 
+        <vut-input type="number"></vut-input> 
 	</div>
 </template>
 <script>
