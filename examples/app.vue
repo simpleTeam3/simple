@@ -1,5 +1,8 @@
 <template>
-	<div class="content">你怎么说嘛</div>
+	<div class="content">
+	    <span>你怎么说嘛</span>
+        <Input type="number"></Input> 
+	</div>
 </template>
 <script>
 	export default {
