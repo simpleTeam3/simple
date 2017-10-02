@@ -33,7 +33,7 @@ module.exports = merge(webpackBaseConfig, {
 		new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendors.bundle.js'}),
 		new HtmlWebpackPlugin({
 			inject: true,
-			filename: path.join(__dirname, '../examples.dist/index.html'),
+			filename: path.join(__dirname, '../examples/dist/index.html'),
 			template: path.join(__dirname, '../examples/index.html')
 		}),
 		new FriendlyErrorsPlugin()
