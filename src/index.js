@@ -1,7 +1,7 @@
 import Input from './components/input/input';
 
 const Simple = {
-	'vut-input': Input
+	Input
 };
 
 const install = function(Vue){
