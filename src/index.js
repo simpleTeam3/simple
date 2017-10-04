@@ -1,12 +1,14 @@
 import Input from './components/input/input';
+import Button from './components/button'
 
 const Simple = {
-	Input
+	Input,
+	Button
 };
 
 const install = function(Vue){
 	Object.keys(Simple).forEach(function(key){
-		Vue.component(key, Simple[key]);
+		Vue.component(Simple[key].name, Simple[key]);
 	})
 }
 

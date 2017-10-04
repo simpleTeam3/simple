@@ -10,21 +10,21 @@
 ## list (0.1.0)
 
 #### from
-	* input  ---小兴 last:2017.10.04
-	* button ---酱油 遥遥无期
-	* switch
-	* radio
-	* switch
-	* checkBox
-	* select
-	* slide
-	* datePicker
-	* upload
+	- input  ---小兴 last:2017.10.04
+	- button ---酱油 遥遥无期
+	- switch
+	- radio
+	- switch
+	- checkBox
+	- select
+	- slide
+	- datePicker
+	- upload
 
 #### view
-	* Message
-	* Tooltip
+	- Message
+	- Tooltip
 
 #### Navigation
-	* Menu
-	* Page
+	- Menu
+	- Page
