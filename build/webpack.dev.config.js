@@ -30,7 +30,7 @@ module.exports = merge(webpackBaseConfig, {
 	// 	}
 	// },
 	plugins: [
-		new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendors.bundle.js'}),
+		new webpack.optimize.CommonsChunkPlugin({ name: 'simple', filename: 'simple.min.js'}),
 		new HtmlWebpackPlugin({
 			inject: true,
 			filename: path.join(__dirname, '../examples/dist/index.html'),

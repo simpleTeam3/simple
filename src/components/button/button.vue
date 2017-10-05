@@ -1,5 +1,5 @@
 <template>
-	<button></button>
+	<button class="test">试一下热更新</button>
 </template>
 
 <script>
@@ -7,7 +7,7 @@
 		name: 'vutButton',
 		data(){
 			return {
-				
+
 			}
 		}
 	}
