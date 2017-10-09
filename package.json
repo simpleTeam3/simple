@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "title": "simple",
   "description": "一个简单的Vue组件库，由simple出品",
-  "homepage":"对不起，没有主页",
+  "homepage": "对不起，没有主页",
   "keywords": [
     "simple",
     "vue",
@@ -63,6 +63,8 @@
     "less-loader": "^2.2.3",
     "lolex": "^1.5.2",
     "mocha": "^3.5.3",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
     "sinon": "^3.3.0",
     "sinon-chai": "^2.13.0",
     "style-loader": "^0.13.1",
