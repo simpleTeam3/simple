@@ -1,7 +1,10 @@
+<style lang="sass">
+    @import "../src/style/index.scss";
+</style>
 <template>
 	<div class="content">
 	    <span>你怎么说嘛</span>
-        <Input type="number"></Input> 
+        <vut-input type="number"></vut-input> 
         <vutButton></vutButton>
 	</div>
 </template>

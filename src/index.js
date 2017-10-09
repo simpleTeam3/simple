@@ -1,4 +1,4 @@
-import Input from './components/input/input';
+import Input from './components/input';
 import Button from './components/button'
 
 const Simple = {
