@@ -1,13 +1,24 @@
-.vut-input-wrap{
+.#{$class-prefix}input-wrap{
     display: inline-block;
     position: relative;
 }
-.vut-input{
-    display: inline-block;
-    position: relative;
+.#{$class-prefix}input{
     width: 100%;
-    height: 30px;
+    height: 32px;
     background-color: #fff;
     border: 1px solid #dddee1;
     border-radius: 4px;
+    font-size: $font-size-normal;
+    color: $text-color-noraml;
+    padding: 6px;
+}
+.#{$class-prefix}input:hover{
+    border-color: #3d91d8;
+}
+.#{$class-prefix}input-large{
+    height: 39px;
+    font-size: $font-size-large;
+}
+.#{$class-prefix}input-small{
+    height: 25px;
 }

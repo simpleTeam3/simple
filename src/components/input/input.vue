@@ -15,6 +15,10 @@
 			type: {
 				type: String,
 				default: 'text'
+			},
+			size: {
+				type: String,
+				default: 'default'
 			}
 		},
 		data () {
@@ -23,16 +27,22 @@
 			}
 		},
 		computed: {
-			wrapClass: function() {
+			wrapClass() {
 				return [
 					`${prefixClass}-wrap`
 				];
 			},
-			getClass: function() {
+			getClass() {
 				return [
-					prefixClass
+					prefixClass,
+					{
+						[`${prefixClass}-${this.size}`]: !!this.size
+					}
 				];
 			}
+		},
+		watch: {
+			
 		}
 	}
 </script>
