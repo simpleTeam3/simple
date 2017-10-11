@@ -10,7 +10,7 @@
 
 **组件规范**
 
- * 命名：简单，表意，export出的对象统一使用大驼峰式的命名规则，如：**Input**，**DatePicker**。html中引入的组件标签名的前缀统一使用“**vut-**”，比如：**<vut-button></vut-button>**
+ * 命名：简单，表意，export出的对象统一使用大驼峰式的命名规则，如：**Input**，**DatePicker**。html中引入的组件标签名的前缀统一使用“**vut-**”，比如：```<vut-button></vut-button>```
 * 目录： 待讨论。
 * 事件命名：统一使用 “**on-**”前缀，比如： **on-click**。
 
