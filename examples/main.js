@@ -4,15 +4,31 @@
 */
 
 import Vue from 'vue';
-// import VueRouter from 'vue-router';
+import VueRouter from 'vue-router';
 import App from './app.vue';
 import Simple from '../src/index';
+
+Vue.use(VueRouter);
 Vue.use(Simple);
 
 //开启debug
 Vue.config.debug = true;
 
+const router = new VueRouter({
+	routes: [
+		{
+			path: '/input',
+			component: require('./routers/input.vue')
+		},
+		{
+			path: '/button',
+			component: require('./routers/button.vue')
+		}
+	]
+});
+
 new Vue({
 	el: '#app',
+	router,
 	render: h => h(App)
 })
