@@ -8,17 +8,32 @@
     background-color: #fff;
     border: 1px solid #dddee1;
     border-radius: 4px;
-    font-size: $font-size-normal;
+    font-size: $font-size-small;
     color: $text-color-noraml;
     padding: 6px;
 }
 .#{$class-prefix}input:hover{
     border-color: #3d91d8;
 }
+.#{$class-prefix}input[disabled]{
+        background-color: #f3f3f3;
+        opacity: 1;
+        cursor: not-allowed;
+        color: #ccc;
+}
+.#{$class-prefix}input[disabled]:hover{
+    border-color: initial;
+}
 .#{$class-prefix}input-large{
     height: 39px;
-    font-size: $font-size-large;
+    font-size: $font-size-normal;
 }
 .#{$class-prefix}input-small{
     height: 25px;
+}
+textarea.#{$class-prefix}input{
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    font-size: $font-size-normal;
 }
