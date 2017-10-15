@@ -37,3 +37,10 @@ textarea.#{$class-prefix}input{
     vertical-align: bottom;
     font-size: $font-size-normal;
 }
+.#{$class-prefix}input-hide-border{
+    border-width: 0px 0px 1px 0px;
+    outline: none;
+}
+.#{$class-prefix}input-hide-border:focus{
+    box-shadow: none;
+}
