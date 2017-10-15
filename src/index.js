@@ -1,9 +1,11 @@
 import Input from './components/input';
-import Button from './components/button'
+import Button from './components/button';
+import Table from './components/table';
 
 const Simple = {
 	Input,
-	Button
+	Button,
+	Table
 };
 
 const install = function(Vue){
