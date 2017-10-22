@@ -1,5 +1,5 @@
 <template>
-	<button class="test">试一下热更新</button>
+	<button class="test"><slot></slot></button>
 </template>
 
 <script>
