@@ -1,11 +1,13 @@
-$padding-table: 7px 0px;
+$padding-table: 12px 0px;
+$padding-table-large: 18px 0px;
+$padding-table-small: 6px 0px;
+
 $line-height-table: 20px;
-$padding-table-large: 14px 0px;
 
 .#{$class-prefix}table-wrap{
     position: relative;
     max-width: 100%;
-    font-size: $font-size-small;
+    font-size: $font-size-normal;
     border: 1px solid #dddee1;
     border-bottom: 0;
 }
@@ -38,8 +40,17 @@ $padding-table-large: 14px 0px;
     word-break: break-all;
     box-sizing: border-box;
 }
-.#{$class-prefix}table-wrap.#{$class-prefix}table-large th,
-.#{$class-prefix}table-wrap.#{$class-prefix}table-large td
+.#{$class-prefix}table-large th,
+.#{$class-prefix}table-large td
 {
     padding: $padding-table-large;
 }
+.#{$class-prefix}table-small th,
+.#{$class-prefix}table-small td
+{
+    padding: $padding-table-small;
+}
+.#{$class-prefix}table-small{
+    font-size: $font-size-small;
+}
+

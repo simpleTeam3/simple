@@ -26,6 +26,9 @@
     	border-width: 1px 1px 1px 5px;
 	}
 	.demo-input{width: 200px;}
+	.api-label{
+		margin-bottom: 10px;
+	}
 </style>
 <template>
 	<div class="content-wrap">
