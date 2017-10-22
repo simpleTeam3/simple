@@ -1,41 +1,63 @@
 <template>
     <div :class="wrapClass">
-        <table>
+        <!--<table>
             <thead>
                 <th>1</th>
                 <th>2</th>
                 <th>3</th>
                 <th>4</th>
             </thead>
-        </table>
+        </table>-->
         <vut-table-head
-        :columns="data"
+        :columns="columns"
+        :prefixClass="prefixClass"
         ></vut-table-head>
+
+        <vut-table-body
+        :columns="columns"
+        :data="data"
+        :prefixClass="prefixClass"
+        >
+        </vut-table-body>
     </div>
 </template>
 <script>
-import tableHead from './table-head.vue';
+import tableHead from './tableHead.vue';
+import tableBody from './tableBody.vue';
 
 const prefixClass = "vut-table";
 export default {
   name: 'vut-table',
   components: {
-      'vut-table-head': tableHead
+      'vut-table-head': tableHead,
+      'vut-table-body': tableBody
   },
   props: {
       data: {
-          type: Array
+          type: Array,
+          default: []
+      },
+      columns: {
+          type: Array,
+          default: []
+      },
+      size: {
+          type: String,
+          default: 'default'
       }
   },
   data () {
       return {
-          
+         prefixClass: prefixClass
       }
   },
   computed: {
     wrapClass() {
         return [
-            `${prefixClass}-wrap`
+            `${this.prefixClass}-wrap`,
+            {
+                [`${this.prefixClass}-${this.size}`]: this.size!== 'default' && !!this.size
+            }
         ];
     }
   }

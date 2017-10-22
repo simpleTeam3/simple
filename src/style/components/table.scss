@@ -1,4 +1,45 @@
+$padding-table: 7px 0px;
+$line-height-table: 20px;
+$padding-table-large: 14px 0px;
+
 .#{$class-prefix}table-wrap{
     position: relative;
     max-width: 100%;
+    font-size: $font-size-small;
+    border: 1px solid #dddee1;
+    border-bottom: 0;
+}
+.#{$class-prefix}table-head table,
+.#{$class-prefix}table-body table
+{
+    width: 100%;
+    table-layout: fixed;
+}
+.#{$class-prefix}table-wrap th{
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: #f8f8f9;
+}
+.#{$class-prefix}table-wrap th,
+.#{$class-prefix}table-wrap td{
+    padding: $padding-table;
+    box-sizing: border-box;
+    text-align: left;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    border-bottom: 1px solid #e9eaec;
+}
+.#{$class-prefix}table-cell{
+    padding: 0px 15px;
+    line-height: $line-height-table;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    box-sizing: border-box;
+}
+.#{$class-prefix}table-wrap.#{$class-prefix}table-large th,
+.#{$class-prefix}table-wrap.#{$class-prefix}table-large td
+{
+    padding: $padding-table-large;
 }
