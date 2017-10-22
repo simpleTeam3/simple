@@ -1,5 +1,5 @@
 <template>
-    <div :class="prefixClass + '-head'">
+    <div :class="prefixClass + '-header'">
         <table cellspacing="0" cellpadding="0" border="0">
             <colgroup>
                 <col v-for="(column, index) in columns" :width="getCellWidth(column, index)">

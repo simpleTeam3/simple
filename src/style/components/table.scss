@@ -6,12 +6,21 @@ $line-height-table: 20px;
 
 .#{$class-prefix}table-wrap{
     position: relative;
-    max-width: 100%;
-    font-size: $font-size-normal;
-    border: 1px solid #dddee1;
+    border: 1px solid #e9eaec;
     border-bottom: 0;
 }
-.#{$class-prefix}table-head table,
+.#{$class-prefix}table{
+    width: inherit;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    color: #495060;
+    font-size: $font-size-normal;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: relative;
+}
+.#{$class-prefix}table-header table,
 .#{$class-prefix}table-body table
 {
     width: 100%;
@@ -53,4 +62,12 @@ $line-height-table: 20px;
 .#{$class-prefix}table-small{
     font-size: $font-size-small;
 }
+.#{$class-prefix}table-border th,
+.#{$class-prefix}table-border td
+{
+    border-right: 1px solid #e9eaec;
+}
 
+.#{$class-prefix}table-stripe .#{$class-prefix}table-body tr:nth-child(2n) td{
+    background-color: #fafafa;
+}

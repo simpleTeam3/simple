@@ -1,24 +1,19 @@
 <template>
     <div :class="wrapClass">
-        <!--<table>
-            <thead>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-            </thead>
-        </table>-->
-        <vut-table-head
-        :columns="columns"
-        :prefixClass="prefixClass"
-        ></vut-table-head>
+        <div :class="getClass">
+            <vut-table-head
+            :columns="columns"
+            :prefixClass="prefixClass"
+            v-if="showHeader"
+            ></vut-table-head>
 
-        <vut-table-body
-        :columns="columns"
-        :data="data"
-        :prefixClass="prefixClass"
-        >
-        </vut-table-body>
+            <vut-table-body
+            :columns="columns"
+            :data="data"
+            :prefixClass="prefixClass"
+            >
+            </vut-table-body>
+        </div>
     </div>
 </template>
 <script>
@@ -44,6 +39,18 @@ export default {
       size: {
           type: String,
           default: 'default'
+      },
+      border: {
+          type: Boolean,
+          default: false
+      },
+      stripe: {
+          type: Boolean,
+          default: false
+      },
+      showHeader: {
+          type: Boolean,
+          default: true
       }
   },
   data () {
@@ -54,9 +61,16 @@ export default {
   computed: {
     wrapClass() {
         return [
-            `${this.prefixClass}-wrap`,
+            `${this.prefixClass}-wrap`
+        ];
+    },
+    getClass() {
+        return [
+            this.prefixClass,
             {
-                [`${this.prefixClass}-${this.size}`]: this.size!== 'default' && !!this.size
+                [`${this.prefixClass}-${this.size}`]: this.size!== 'default' && !!this.size,
+                [`${this.prefixClass}-border`]: this.border,
+                [`${this.prefixClass}-stripe`]: this.stripe
             }
         ];
     }
