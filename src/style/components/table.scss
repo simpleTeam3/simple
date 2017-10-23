@@ -49,6 +49,12 @@ $line-height-table: 20px;
     word-break: break-all;
     box-sizing: border-box;
 }
+.#{$class-prefix}table-tip table{
+    width: 100%;
+}
+.#{$class-prefix}table-tip td{
+    text-align: center;
+}
 .#{$class-prefix}table-large th,
 .#{$class-prefix}table-large td
 {

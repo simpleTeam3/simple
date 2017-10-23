@@ -8,7 +8,7 @@
                 <tr>
                     <th v-for="(column, index) in columns" :class="column.className">
                         <div :class="prefixClass + '-cell'">
-                            <span v-html="column.label"></span>
+                            <span v-html="column.label || '#' "></span>
                         </div>
                     </th>
                 </tr>

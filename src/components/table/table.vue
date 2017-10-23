@@ -7,12 +7,22 @@
             v-if="showHeader"
             ></vut-table-head>
 
-            <vut-table-body
-            :columns="columns"
-            :data="data"
-            :prefixClass="prefixClass"
-            >
-            </vut-table-body>
+                <vut-table-body
+                v-show="data.length>0"
+                :columns="columns"
+                :data="data"
+                :prefixClass="prefixClass"
+                >
+                </vut-table-body>
+            <div :class="prefixClass + '-tip' " v-show="(!data || data.length < 1)">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><span>{{emptyDataText}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>
@@ -55,7 +65,8 @@ export default {
   },
   data () {
       return {
-         prefixClass: prefixClass
+         prefixClass,
+         emptyDataText: '暂无数据'
       }
   },
   computed: {

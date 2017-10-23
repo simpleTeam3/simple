@@ -12,7 +12,7 @@
 			<p>
 				<vut-input 
 				placeholder="按回车键试试" 
-				hideborder 
+				border 
 				@on-enter="enterFn" 
 				@on-focus="focusFn"
 				@on-blur="blurFn"
