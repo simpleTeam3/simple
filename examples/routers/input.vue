@@ -12,7 +12,7 @@
 			<p>
 				<vut-input 
 				placeholder="按回车键试试" 
-				border 
+				:hide-border=true 
 				@on-enter="enterFn" 
 				@on-focus="focusFn"
 				@on-blur="blurFn"
@@ -22,13 +22,23 @@
 		</div>
 		<div class="demo-list">
 			<div class="title">API</div>
+			<h3 class="api-label">Input props</h3>
+			<vut-table :columns="props" :data="propsData" border></vut-table>
+			<h3 class="api-label">Input events</h3>
+			<vut-table :columns="events" :data="eventsData" border></vut-table>
 		</div>
 	</div>
 </template>
 <script>
+    import {APIprops, APIevents} from '../common/common'
+	import {propsData, eventsData} from '../data/API/components/input'
 	export default {
 		data(){
 			return {
+				props: APIprops,
+				propsData: propsData,
+				events: APIevents,
+				eventsData: eventsData
 			}
 		},
 		methods: {
