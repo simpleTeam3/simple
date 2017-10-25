@@ -53,9 +53,9 @@
 			},
 			rows: {
 				type: Number,
-				default: 3
+				default: 2
 			},
-			border: {
+			hideBorder: {
 				type: Boolean,
 				default: false
 			}
@@ -76,7 +76,7 @@
 					prefixClass,
 					{
 						[`${prefixClass}-${this.size}`]: !!this.size,
-						[`${prefixClass}-hide-border`]: this.border 
+						[`${prefixClass}-hide-border`]: this.hideBorder 
 					}
 				];
 			}
