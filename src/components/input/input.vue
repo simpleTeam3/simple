@@ -1,6 +1,9 @@
 <template>
     <div :class="wrapClass">
     	<template v-if="type!=='textarea'">
+			<div :class="prefixClass + '-group-prepend' " v-if="prepend">
+				<slot name="prepend"></slot>
+			</div>
 			<input
 			:type="type"
 			:class="getClass"
@@ -8,17 +11,31 @@
 			:disabled="disabled"
 			:readonly="readonly"
 			:maxlength="maxlength"
+			:value="value"
+			:style="inputStyle"
 			@keyup.enter="handleEnterFn"
 			@focus="handleFocusFn"
 			@blur="handleBlurFn"
+			@input="handleInputFn"
 			>
+			<div :class="prefixClass + '-group-append' " v-if="append">
+				<slot name="append"></slot>
+			</div>
 		</template>
 		<textarea
 		v-else
 		:class="getClass"
 		:placeholder="placeholder"
 		:disabled="disabled"
+		:readonly="readonly"
+		:maxlength="maxlength"
+		:value="value"
+		:style="inputStyle"
 		:rows="rows"
+		@keyup.enter="handleEnterFn"
+		@focus="handleFocusFn"
+		@blur="handleBlurFn"
+		@input="handleInputFn"
 		></textarea>
     </div>
 </template>
@@ -33,8 +50,7 @@
 				default: 'text'
 			},
 			size: {
-				type: String,
-				default: 'default'
+				type: String
 			},
 			placeholder: {
 				type: String,
@@ -58,17 +74,28 @@
 			hideBorder: {
 				type: Boolean,
 				default: false
-			}
+			},
+			value: String,
+			inputStyle: String
 		},
 		data () {
 			return {
-				prefixClass
+				prefixClass,
+				prepend: true,
+				append: true
 			}
 		},
 		computed: {
 			wrapClass() {
 				return [
-					`${prefixClass}-wrap`
+					`${prefixClass}-wrap`,
+					{
+						[`${prefixClass}-wrap-${this.size}`]: (!!this.size && this.size !== 'default'),
+						[`${prefixClass}-group`]: this.prepend || this.append,
+						[`${prefixClass}-prepend`]: this.prepend,
+						[`${prefixClass}-append`]: this.append
+
+					}
 				];
 			},
 			getClass() {
@@ -81,8 +108,14 @@
 				];
 			}
 		},
-		watch: {
-			
+		mounted() {
+			if(this.type !== 'textarea'){
+				this.prepend = !!this.$slots.prepend;
+				this.append = !!this.$slots.append;
+			}else{
+				this.prepend = false;
+				this.append = false;
+			}
 		},
 		methods: {
 			handleEnterFn(event) {
@@ -93,6 +126,11 @@
 			},
 			handleBlurFn(event) {
 				this.$emit('on-blur', event);
+			},
+			handleInputFn(event) {
+				let value = event.target.value;
+				this.$emit('input', value);
+				this.$emit('on-change', event);
 			}
 		}
 	}

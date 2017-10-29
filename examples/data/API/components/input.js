@@ -55,22 +55,45 @@ export const propsData = [
         "option": "true、false", 
         "default": "false"
     },
+    {
+        "props": "input-style", 
+        "describe": "设置输入框的的样式。有时候在某些情况下需要给输入框设置不一样的样式。值就是css的样式写法，比如：input-style='width:200px;'", 
+        "type": "String", 
+        "option": "—", 
+        "default": "—"
+    },
+];
+
+export const slotData = [
+    {
+        "slot": "prepend",
+        "describe": "前置内容，仅在 text 类型下有效"
+    },
+    {
+        "slot": "append",
+        "describe": "后置内容，仅在 text 类型下有效"
+    }
 ];
 
 export const eventsData = [
     {
         "events": "on-enter", 
         "describe": "按下回车键时触发", 
-        "returnValue": "无"
+        "returnValue": "event"
     },
     {
         "events": "on-focus", 
         "describe": "输入框聚焦时触发", 
-        "returnValue": "无"
+        "returnValue": "event"
     },
     {
         "events": "on-blur", 
         "describe": "输入框失去焦点时触发", 
-        "returnValue": "无"
+        "returnValue": "event"
+    },
+    {
+        "events": "on-change", 
+        "describe": "数据改变时触发", 
+        "returnValue": "event"
     }
 ];

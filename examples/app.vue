@@ -27,7 +27,7 @@
 	}
 	.demo-input{width: 200px;}
 	.api-label{
-		margin-bottom: 10px;
+		margin: 10px 0px;;
 	}
 </style>
 <template>

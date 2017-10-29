@@ -1,8 +1,38 @@
-//class prefix
+/*
+ * class prefix
+*/
 $class-prefix: vut-;
 
-//base
+/*
+ * base style 
+*/
+//小号字体
 $font-size-small: 12px;
+//正常字体
 $font-size-normal: 14px;
+//大号字体
 $font-size-large: 16px;
-$text-color-noraml: #616269;
+// $text-color-noraml: #616269;
+$border-radius: 4px;
+
+/*
+ * color色彩
+*/
+//主色
+$primary-color: #2d8cf0;
+$light-primary-color: #5cadff;
+$dark-primary-color: #2b85e4;
+
+//辅助色
+$info-color: #2d8cf0;
+$success-color: #19be6b;
+$warning-color: #ff9900;
+$error-color: #ed3f14;
+
+//中性色
+$border-color: #dddee1;
+$background-color: #f8f8f9;
+$divider-color: #e9eaec;
+$disabled-color: #bbbec4;
+$title-color: #1c2438;
+$content-color: #495060;
