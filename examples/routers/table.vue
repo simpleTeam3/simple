@@ -1,4 +1,8 @@
 <style>
+    img{
+		width: 100px;
+		height: 100px;
+	}
 </style>
 <template>
 	<div>
@@ -9,12 +13,13 @@
 		<div class="demo-list">
 			<div class="title">API</div>
 			<h3 class="api-label">Table props</h3>
-			<vut-table :columns="APIcolumns" :data="APIData" border></vut-table>
+			<vut-table :columns="props" :data="propsData" border></vut-table>
 		</div>
 	</div>
 </template>
 <script>
-    import dataJson from '../data/API/components/table';
+    import {APIprops, APIevents} from '../common/common'
+    import {propsData} from '../data/API/components/table';
 	export default {
 		data(){
 			return {
@@ -30,6 +35,35 @@
 					{
 						prop: "author",
 						label: "作者"
+					},
+					{
+						prop: "logo",
+						label: "logo",
+						render: (h, params) => {
+							return h("div", [
+								h("img", {
+									domProps: {
+										src: "../../../logo-vue.png"
+									}
+								})
+							])
+						}
+					},
+					{
+						prop: "action",
+						label: "操作",
+						render: (h, params) => {
+							return h("div", [
+								h("vut-button", {
+									on: {
+										click: () => {
+											alert("操作按钮");
+										}
+									}
+								},"编辑"),
+								h("vut-button", "删除")
+							])
+						}
 					}
 				],
 				tableData: [
@@ -59,14 +93,8 @@
 						author: "老黄，老烨，小兴"
 					}
 				],
-				APIcolumns: [
-					{prop: "props", label: "参数"},
-					{prop: "describe", label: "说明"},
-					{prop: "type", label: "类型"},
-					{prop: "option", label: "可选值"},
-					{prop: "default", label: "默认值"},
-				],
-				APIData: dataJson
+				props: APIprops,
+				propsData: propsData
 			}
 		}
 	}

@@ -8,7 +8,12 @@
                 <tr v-for="item in data">
                     <td v-for="(column, index) in columns">
                         <div :class="prefixClass + '-cell'">
-                            <span>{{item[column.prop]}}</span>
+                            <template v-if="column.render">
+                                <Cell :render="column.render" :index="index" :row="item" :column="column"></Cell>
+                            </template>
+                            <template v-else>
+                                <span>{{item[column.prop]}}</span>
+                            </template>
                         </div>
                     </td>
                 </tr>
@@ -17,8 +22,13 @@
     </div>
 </template>
 <script>
+import Cell from './render';
+
 export default {
   name: "vut-table-body",
+  components: {
+      Cell
+  },
   props: {
       data: Array,
       columns: Array,

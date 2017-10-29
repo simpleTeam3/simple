@@ -1,4 +1,4 @@
-const data = [
+export const propsData = [
     {
         "props": "columns", 
         "describe": "表格列的配置描述，具体项见后文", 
@@ -40,6 +40,12 @@ const data = [
         "type": "Boolean", 
         "option": "true，false", 
         "default": "true"
+    },
+    {
+        "props": "empty-data-text", 
+        "describe": "数据为空时显示的提示内容", 
+        "type": "String", 
+        "option": "—", 
+        "default": "暂无数据"
     }
 ];
-export default data;

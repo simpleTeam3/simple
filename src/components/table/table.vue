@@ -61,12 +61,15 @@ export default {
       showHeader: {
           type: Boolean,
           default: true
+      },
+      emptyDataText: {
+          type: String,
+          default: '暂无数据'
       }
   },
   data () {
       return {
-         prefixClass,
-         emptyDataText: '暂无数据'
+         prefixClass
       }
   },
   computed: {
