@@ -1,6 +1,14 @@
 <template>
   <span :class="wrapClass" @click="handleToggleFn" ref="core">
     <input type="hidden" :value="currentValue">
+    <span :class="innerClass" v-show="textActive">
+        <slot name="on" v-if="currentValue"></slot>
+        <slot name="off" v-else></slot>
+    </span>
+    <span :class="outClass">
+      <template v-if="currentValue">{{ onText }}</template>
+      <template v-else>{{ offText }}</template>
+    </span>
   </span>
 </template>
 
@@ -21,11 +29,14 @@ export default {
       type: String
     },
     onColor: String,
-    offColor: String
+    offColor: String,
+    onText: String,
+    offText: String
   },
   data () {
     return {
-      currentValue: this.value
+      currentValue: this.value,
+      textActive: true
     }
   },
   computed: {
@@ -38,6 +49,12 @@ export default {
           [`${prefixClass}-${this.size}`]: this.size
         }
       ]
+    },
+    innerClass() {
+      return `${prefixClass}-inner`
+    },
+    outClass() {
+      return `${prefixClass}-out`
     }
   },
   watch: {
@@ -46,6 +63,7 @@ export default {
     }
   },
   mounted() {
+    this.textActive = this.size!=="small";
     this.setBackgroundColor();
   },
   methods: {

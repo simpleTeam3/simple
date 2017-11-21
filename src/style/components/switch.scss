@@ -11,6 +11,7 @@ $smal-size: 16px;
     border-radius: 25px;
     position: relative;
     cursor: pointer;
+    font-size: $font-size-small;
 }
 
 .#{$switch-class-prefix}:after{
@@ -23,7 +24,7 @@ $smal-size: 16px;
     left: 1px;
     top: 2px;
     cursor: pointer;
-    transition: left .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .#{$switch-class-prefix}-checked{
@@ -58,4 +59,27 @@ $smal-size: 16px;
   width: $smal-size;
   height: $smal-size;
   border-radius: $smal-size;
+}
+
+.#{$switch-class-prefix}-inner{
+    color: #fff;
+    position: absolute;
+    left: 25px;
+}
+.#{$switch-class-prefix}-disabled .#{$switch-class-prefix}-inner{
+    color: inherit;
+}
+.#{$switch-class-prefix}-checked .#{$switch-class-prefix}-inner{
+    left: 10px;
+}
+
+.#{$switch-class-prefix}-out{
+    position: absolute;
+    left: 55px;
+}
+.#{$switch-class-prefix}-large.#{$switch-class-prefix}-out{
+    left: 65px;
+}
+.#{$switch-class-prefix}-small.#{$switch-class-prefix}-out{
+    left: 45px;
 }
