@@ -1,0 +1,61 @@
+$switch-class-prefix: #{$class-prefix}switch;
+$normal-size: 20px;
+$smal-size: 16px;
+
+.#{$switch-class-prefix}{
+    width: 50px;
+    height: 24px;
+    background-color: #ccc;
+    line-height: 23px;
+    display: inline-block;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+}
+
+.#{$switch-class-prefix}:after{
+    width: $normal-size;
+    height: $normal-size;
+    border-radius: $normal-size;
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    left: 1px;
+    top: 2px;
+    cursor: pointer;
+    transition: left .3s ease-in-out;
+}
+
+.#{$switch-class-prefix}-checked{
+    background-color: $primary-color;
+}
+
+.#{$switch-class-prefix}-checked:after{
+    left: 29px;
+}
+
+.#{$switch-class-prefix}-disabled{
+    @include disabled-state;
+}
+
+.#{$switch-class-prefix}-large{
+    width: 60px;
+}
+.#{$switch-class-prefix}-large.#{$switch-class-prefix}-checked:after{
+    left: 39px;
+}
+
+.#{$switch-class-prefix}-small{
+    width: 40px;
+    height: 20px;
+}
+
+.#{$switch-class-prefix}-small.#{$switch-class-prefix}-checked:after{
+  left: 23px;
+}
+
+.#{$switch-class-prefix}-small:after{
+  width: $smal-size;
+  height: $smal-size;
+  border-radius: $smal-size;
+}

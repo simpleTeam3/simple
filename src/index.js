@@ -1,11 +1,13 @@
 import Input from './components/input';
 import Button from './components/button';
 import Table from './components/table';
+import Switch from './components/switch';
 
 const Simple = {
 	Input,
 	Button,
-	Table
+	Table,
+	Switch
 };
 
 const install = function(Vue){
@@ -18,4 +20,4 @@ if(window && window.Vue){
 	install(window.Vue);
 }
 
-export default Object.assign(Simple, {install}); 
+export default Object.assign(Simple, {install});

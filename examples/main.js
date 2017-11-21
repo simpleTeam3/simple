@@ -27,6 +27,10 @@ const router = new VueRouter({
 		{
 			path: '/table',
 			component: require('./routers/table.vue')
+		},
+		{
+			path: '/switch',
+			component: require('./routers/switch.vue')
 		}
 	]
 });

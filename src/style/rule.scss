@@ -4,7 +4,7 @@
 $class-prefix: vut-;
 
 /*
- * base style 
+ * base style
 */
 //小号字体
 $font-size-small: 12px;
@@ -36,3 +36,11 @@ $divider-color: #e9eaec;
 $disabled-color: #bbbec4;
 $title-color: #1c2438;
 $content-color: #495060;
+
+//禁用状态
+@mixin disabled-state{
+  background-color: #f3f3f3;
+  opacity: 1;
+  cursor: not-allowed;
+  color: #ccc;
+}
