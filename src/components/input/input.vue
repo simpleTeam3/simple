@@ -41,7 +41,7 @@
 </template>
 
 <script>
-    const prefixClass = "vut-input";
+  const prefixClass = "vut-input";
 	export default {
 		name: 'vut-input',
 		props: {
@@ -103,7 +103,7 @@
 					prefixClass,
 					{
 						[`${prefixClass}-${this.size}`]: !!this.size,
-						[`${prefixClass}-hide-border`]: this.hideBorder 
+						[`${prefixClass}-hide-border`]: this.hideBorder
 					}
 				];
 			}

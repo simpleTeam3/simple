@@ -25,7 +25,9 @@ ul, ol {
 input::-ms-clear, input::-ms-reveal {
     display: none;
 }
-input:focus {
+input:focus,
+textarea:focus
+{
     box-shadow: none;
     outline: 0;
 }

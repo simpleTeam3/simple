@@ -73,6 +73,10 @@ $line-height-table: 20px;
 {
     border-right: 1px solid #e9eaec;
 }
+.#{$class-prefix}table-border th:last-child,
+.#{$class-prefix}table-border td:last-child{
+  border-right: 0px;
+}
 
 .#{$class-prefix}table-stripe .#{$class-prefix}table-body tr:nth-child(2n) td{
     background-color: #fafafa;

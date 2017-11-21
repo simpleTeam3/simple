@@ -5,6 +5,7 @@ $input-class-prefix: #{$class-prefix}input;
     position: relative;
     font-size: $font-size-small;
 }
+
 .#{$input-class-prefix}{
     width: 100%;
     height: 32px;
@@ -14,48 +15,42 @@ $input-class-prefix: #{$class-prefix}input;
     color: $content-color;
     padding: 6px;
 }
-.#{$input-class-prefix}:hover,
-.#{$input-class-prefix}:focus
-{
-    border-color: $primary-color;
-}
-.#{$input-class-prefix}[disabled]{
-        background-color: #f3f3f3;
-        opacity: 1;
-        cursor: not-allowed;
-        color: #ccc;
-}
-.#{$input-class-prefix}[disabled]:hover{
-    border-color: $border-color;
-}
+
 .#{$input-class-prefix}-wrap-large{
     font-size: $font-size-normal;
 }
+
 .#{$input-class-prefix}-large{
     height: 36px;
 }
+
 .#{$input-class-prefix}-small{
     height: 25px;
 }
+
 textarea.#{$input-class-prefix}{
     max-width: 100%;
     height: auto;
     vertical-align: bottom;
     font-size: $font-size-normal;
 }
+
 .#{$input-class-prefix}-hide-border{
     border-width: 0px 0px 1px 0px;
     outline: none;
 }
+
 .#{$input-class-prefix}-hide-border:focus{
     box-shadow: none;
 }
+
 .#{$input-class-prefix}-group{
     display: table;
     width: 100%;
     border-collapse: separate;
     position: relative;
 }
+
 .#{$input-class-prefix}-group-prepend,
 .#{$input-class-prefix}-group-append
 {
@@ -69,27 +64,33 @@ textarea.#{$input-class-prefix}{
     border-radius: 6px;
     width: 1px;
 }
+
 .#{$input-class-prefix}-group > .vut-input{
     width: 100%;
     position: relative;
 }
+
 .#{$input-class-prefix}-group-prepend,
 .#{$input-class-prefix}-group-append,
 .#{$input-class-prefix}-group > .vut-input{
     display: table-cell;
 }
+
 .#{$input-class-prefix}-group-prepend{
     border-bottom-right-radius: 0!important;
     border-top-right-radius: 0!important;
 }
+
 .#{$input-class-prefix}-group-append{
     border-bottom-left-radius: 0!important;
     border-top-left-radius: 0!important;
 }
+
 .#{$input-class-prefix}-prepend > .vut-input{
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
 .#{$input-class-prefix}-append > .vut-input{
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -98,6 +99,24 @@ textarea.#{$input-class-prefix}{
 .#{$input-class-prefix}-group-prepend{
     border-right: 0;
 }
+
 .#{$input-class-prefix}-group-append{
     border-left: 0px;
+}
+
+.#{$input-class-prefix}:hover,
+.#{$input-class-prefix}:focus
+{
+    border-color: $primary-color;
+}
+
+.#{$input-class-prefix}[disabled]{
+        background-color: #f3f3f3;
+        opacity: 1;
+        cursor: not-allowed;
+        color: #ccc;
+}
+
+.#{$input-class-prefix}[disabled]:hover{
+    border-color: $border-color;
 }
