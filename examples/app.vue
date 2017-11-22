@@ -38,6 +38,7 @@
 				<li><router-link to="/button">Button</router-link></li>
 				<li><router-link to="/table">Table</router-link></li>
         <li><router-link to="/switch">Switch</router-link></li>
+        <li><router-link to="/inputNumber">inputNumber</router-link></li>
 			</ul>
 		</nav>
 		<router-view></router-view>

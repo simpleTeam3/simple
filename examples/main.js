@@ -31,6 +31,10 @@ const router = new VueRouter({
 		{
 			path: '/switch',
 			component: require('./routers/switch.vue')
+		},
+		{
+			path: '/inputNumber',
+			component: require('./routers/inputNumber.vue')
 		}
 	]
 });

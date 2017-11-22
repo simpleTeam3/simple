@@ -2,12 +2,14 @@ import Input from './components/input';
 import Button from './components/button';
 import Table from './components/table';
 import Switch from './components/switch';
+import InputNumber from './components/inputNumber';
 
 const Simple = {
 	Input,
 	Button,
 	Table,
-	Switch
+	Switch,
+	InputNumber
 };
 
 const install = function(Vue){
