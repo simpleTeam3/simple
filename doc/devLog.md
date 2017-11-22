@@ -11,6 +11,7 @@
 
 #### from
 	- input  ---小兴 last:2017.10.04
+	- inputNumber ---小兴
 	- button ---酱油 遥遥无期
 	- switch ---小兴
 	- radio
