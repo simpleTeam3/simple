@@ -38,6 +38,9 @@ $smal-size: 16px;
 .#{$switch-class-prefix}-disabled{
     @include disabled-state;
 }
+.#{$switch-class-prefix}-disabled:after{
+  background-color: #ccc;
+}
 
 .#{$switch-class-prefix}-large{
     width: 60px;
