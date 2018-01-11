@@ -25,7 +25,8 @@
     "deepmerge": "^1.5.1",
     "element-resize-detector": "^1.1.12",
     "popper.js": "^0.6.4",
-    "tinycolor2": "^1.4.1"
+    "tinycolor2": "^1.4.1",
+    "vue-markdown-loader": "^2.3.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",

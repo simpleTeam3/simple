@@ -9,6 +9,9 @@
 
 ## list (0.1.0)
 
+#### basic
+	- icon ---小兴
+
 #### from
 	- input  ---小兴 last:2017.10.04
 	- inputNumber ---小兴

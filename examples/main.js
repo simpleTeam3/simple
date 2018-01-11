@@ -35,6 +35,10 @@ const router = new VueRouter({
 		{
 			path: '/inputNumber',
 			component: require('./routers/inputNumber.vue')
+		},
+		{
+			path: '/icon',
+			component: require('./routers/icon.vue')
 		}
 	]
 });
