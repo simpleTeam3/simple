@@ -8,7 +8,7 @@
 	<div>
 		<div class="demo-list">
 			<div class="title">table组件实例</div>
-            <vut-table :columns="columns" :data="tableData" size="large" stripe :show-header=true></vut-table>
+            <vut-table :columns="columns" :data="tableData" size="large" stripe height="260"></vut-table>
 		</div>
 		<div class="demo-list">
 			<div class="title">API</div>
@@ -52,18 +52,19 @@
 					{
 						prop: "action",
 						label: "操作",
-						render: (h, params) => {
-							return h("div", [
-								h("vut-button", {
-									on: {
-										click: () => {
-											alert("操作按钮");
-										}
-									}
-								},"编辑"),
-								h("vut-button", "删除")
-							])
-						}
+						align: 'center'
+						// render: (h, params) => {
+						// 	return h("div", [
+						// 		h("vut-button", {
+						// 			on: {
+						// 				click: () => {
+						// 					alert("操作按钮");
+						// 				}
+						// 			}
+						// 		},"编辑"),
+						// 		h("vut-button", "删除")
+						// 	])
+						// }
 					}
 				],
 				tableData: [

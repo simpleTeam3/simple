@@ -20,6 +20,12 @@ $line-height-table: 20px;
     box-sizing: border-box;
     position: relative;
 }
+.#{$class-prefix}table-header{
+    overflow: hidden;
+}
+.#{$class-prefix}table-body{
+    overflow: auto;
+} 
 .#{$class-prefix}table-header table,
 .#{$class-prefix}table-body table
 {
@@ -80,4 +86,16 @@ $line-height-table: 20px;
 
 .#{$class-prefix}table-stripe .#{$class-prefix}table-body tr:nth-child(2n) td{
     background-color: #fafafa;
+}
+
+td.#{$class-prefix}table-column-center,
+th.#{$class-prefix}table-column-center
+{
+    text-align: center;
+}
+
+td.#{$class-prefix}table-column-right,
+th.#{$class-prefix}table-column-right
+{
+    text-align: right;
 }

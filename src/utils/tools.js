@@ -11,3 +11,28 @@ export function insideOf(value, list) {
 	}
 	return false;
 }
+
+/**
+ * 
+ * 将横线分隔式的字符转换成驼峰式字符
+ * @param {any} data 
+ * @returns 
+ */
+function camelCase(data) {
+	if(!data) return null;
+	const REGEXP_KEBAB_CASE = /[\:\-]+(.)/g;
+	return data.replace(REGEXP_KEBAB_CASE, function(match, $1, offset){
+		return offset ? $1.toUpperCase() : $1;
+	})
+}
+
+export function getOneStyle(element, cssParam) {
+	if(!element || !cssParam) return null;	
+	element = typeof element == 'string' ? document.querySelector(element) : element;
+	cssParam = camelCase(cssParam);
+	if(cssParam == 'flot') {
+		cssParam = 'cssFloat';
+	}
+	const allStyle = document.defaultView.getComputedStyle(element, null);
+	return element.style[cssParam] || allStyle ? allStyle[cssParam] : null;
+}

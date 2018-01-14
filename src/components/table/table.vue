@@ -1,10 +1,11 @@
 <template>
-    <div :class="wrapClass">
+    <div :class="wrapClass" :style="getStyles" ref="xxx">
         <div :class="getClass">
             <vut-table-head
             :columns="columns"
             :prefixClass="prefixClass"
             v-if="showHeader"
+            ref="header"
             ></vut-table-head>
 
                 <vut-table-body
@@ -12,6 +13,8 @@
                 :columns="columns"
                 :data="data"
                 :prefixClass="prefixClass"
+                ref="body"
+                :style="bodyStyles"
                 >
                 </vut-table-body>
             <div :class="prefixClass + '-tip' " v-show="(!data || data.length < 1)">
@@ -27,6 +30,7 @@
     </div>
 </template>
 <script>
+import {getOneStyle} from '../../utils/tools';
 import tableHead from './tableHead.vue';
 import tableBody from './tableBody.vue';
 
@@ -65,11 +69,16 @@ export default {
       emptyDataText: {
           type: String,
           default: '暂无数据'
-      }
+      },
+      width: [Number, String],
+      height: [Number, String]
   },
   data () {
       return {
-         prefixClass
+         prefixClass,
+         bodyStyles: {
+             height: null
+         }
       }
   },
   computed: {
@@ -87,6 +96,36 @@ export default {
                 [`${this.prefixClass}-stripe`]: this.stripe
             }
         ];
+    },
+    getStyles() {
+        let styles = {};
+        if(this.width) {
+            styles.width = `${this.width}px`;
+        }
+
+        if(this.height) {
+            styles.height = `${this.height}px`;
+        }
+
+        return styles;
+    }
+  },
+  watch: {
+      height() {
+          this.getBodyStyles();
+      }
+  },
+  mounted () {
+      this.getBodyStyles();
+  },
+  methods: {
+    getBodyStyles() {
+        this.$nextTick(() => {
+            if(this.height) {
+                const headerHeight = getOneStyle(this.$refs.header.$el, "height");
+                this.bodyStyles.height = `${this.height - parseInt(headerHeight)}px`;
+            }
+        })
     }
   }
 }

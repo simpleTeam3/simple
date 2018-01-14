@@ -6,7 +6,7 @@
             </colgroup>
             <thead>
                 <tr>
-                    <th v-for="(column, index) in columns" :class="column.className">
+                    <th v-for="(column, index) in columns" :class="alignClass(column)">
                         <div :class="prefixClass + '-cell'">
                             <span v-html="column.label || '#' "></span>
                         </div>
@@ -17,8 +17,11 @@
     </div>
 </template>
 <script>
+import Mixins from './mixins';
+
 export default {
   name: 'vut-table-head',
+  mixins: [Mixins],
   props: {
       columns: Array,
       prefixClass: String
