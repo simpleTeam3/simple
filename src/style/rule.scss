@@ -31,6 +31,7 @@ $error-color: #ed3f14;
 
 //中性色
 $border-color: #dddee1;
+$line-color: #e9eaec;
 $background-color: #f8f8f9;
 $divider-color: #e9eaec;
 $disabled-color: #bbbec4;
@@ -40,7 +41,7 @@ $content-color: #495060;
 //禁用状态
 @mixin disabled-state{
   background-color: #f3f3f3;
-  opacity: 1;
+  opacity: .9;
   cursor: not-allowed;
   color: #ccc;
 }

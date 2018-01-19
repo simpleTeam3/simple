@@ -1,19 +1,29 @@
 <template>
   <div :class="wrapClass">
-    <div :class="handlerClass">
+    <!-- <div :class="handlerClass" v-if="!hideControls">
       <span :class="upClass" @click="handleUpFn">
         <vut-icon type="top-arrow"></vut-icon>
       </span>
       <span :class="downClass" @click="handleDownFn">
         <vut-icon type="bottom-arrow"></vut-icon>
       </span>
-    </div>
+    </div> -->
+    <span :class="upClass" @click="handleUpFn">
+      <vut-icon type="top-arrow"></vut-icon>
+    </span>
+    <span :class="downClass" @click="handleDownFn">
+      <vut-icon type="bottom-arrow"></vut-icon>
+    </span>
     <div :class="innerClass">
       <input
       :class="inputClass"
       :value="precisionValue"
+      :disabled="disabled"
+      :readonly="readonly"
       @input="handleInputFn"
       @change="handleChangeFn"
+      @blur="handleBlurFn"
+      @focus="handleFocusFn"
       >
     </div>
   </div>
@@ -23,11 +33,10 @@
 const prefixClass = "vut-input-number";
 export default {
   name: "vut-input-number",
-
   props: {
     value: {
       type: Number,
-      default: 1
+      default: 0
     },
     max: {
       type: Number,
@@ -41,24 +50,41 @@ export default {
       type: Number,
       default: 1
     },
+    disabled: {
+        type: Boolean,
+        default: false
+    },
+    readonly: {
+        type: Boolean,
+        default: false
+    },
+    hideControls: {
+        type: Boolean,
+        default: false
+    },
     size: String,
-    precision: Number
+    precision: Number,
+    controlsPosition: String
   },
-
   data() {
     return {
       upDisabled: false,
       downDisabled: false,
-      currentValue: this.value
+      currentValue: this.value,
+      focused: false
     }
   },
-
   computed: {
     wrapClass() {
       return [
         `${prefixClass}-wrap`,
         {
-          [`${prefixClass}-wrap-${this.size}`]: !!this.size
+          [`${prefixClass}-wrap-${this.size}`]: !!this.size,
+          [`${prefixClass}-focused`]: this.focused,
+          [`${prefixClass}-disabled`]: this.disabled,
+          [`${prefixClass}-readonly`]: this.readonly,
+          [`${prefixClass}-hide-controls`]: this.hideControls,
+          [`${prefixClass}-edge-controls`]: this.controlsPosition == "edge"
         }
       ];
     },
@@ -77,7 +103,7 @@ export default {
         `${prefixClass}-action`,
         `${prefixClass}-up`,
         {
-          [`${prefixClass}-disabled`]: this.upDisabled
+          [`${prefixClass}-handler-disabled`]: this.upDisabled
         }
       ]
     },
@@ -86,7 +112,7 @@ export default {
         `${prefixClass}-action`,
         `${prefixClass}-down`,
         {
-          [`${prefixClass}-disabled`]: this.downDisabled
+          [`${prefixClass}-handler-disabled`]: this.downDisabled
         }
       ]
     },
@@ -95,44 +121,61 @@ export default {
         `${prefixClass}-inner`
       ]
   },
-  precisionValue() {
-      if(!isNaN(this.precision)) {
-          return this.currentValue.toFixed(this.precision);
+  precisionValue: {
+      get() {
+          return !isNaN(this.precision) ? this.currentValue.toFixed(this.precision) : this.currentValue;
       }
-      return this.currentValue;
   }
   },
-
   mounted() {
     this.changeState();
   },
-
   methods: {
     handleUpFn() {
         if(this.upDisabled) return;
         const value = this.calculateStep(this.currentValue, this.step, "up");
-        this.setCurrentValue(value);
+        this.setCurrentValue(value, "input");
     },
     handleDownFn(event) {
         if(this.downDisabled) return;
         const value = this.calculateStep(this.currentValue, this.step, "down");
-        this.setCurrentValue(value);
+        this.setCurrentValue(value, "input");
     },
     handleInputFn(event) {
         let value = event.target.value.trim();
         if(value.match(/^\-?\.?$|\.$/)) return;
-        this.currentValue = Number(value);
         if(!isNaN(this.precision)) {
             value = this.toPrecision(value, this.precision);
         }
+        value = Number(value);
         if(!isNaN(value)) {
-            this.setCurrentValue(value);
+            this.setCurrentValue(value, "input");
         }else {
-            this.setCurrentValue(this.currentValue);
+            this.setCurrentValue(this.currentValue, "input");
         }
+        this.currentValue = value;
     },
     handleChangeFn(event) {
-        console.log(1);
+        let value = event.target.value.trim();
+        if(value.match(/^\-?\.?$|\.$/)) return;
+        if(!isNaN(this.precision)) {
+            value = this.toPrecision(value, this.precision);
+        }
+        value = Number(value);
+        if(!isNaN(value)) {
+            this.setCurrentValue(value, "change");
+        }else {
+            this.setCurrentValue(this.currentValue, "change");
+        }
+        this.currentValue = value;
+    },
+    handleBlurFn() {
+        this.focused = false;
+        this.setCurrentValue(this.currentValue, "on-blur");
+    },
+    handleFocusFn() {
+        this.focused = true;
+        this.setCurrentValue(this.currentValue, "on-focus");
     },
     toPrecision(data, currentPrecision) {
         if (currentPrecision === undefined) currentPrecision = 0;
@@ -160,7 +203,8 @@ export default {
             return this.toPrecision((val * expandPrecision - step * expandPrecision) / expandPrecision, currentPrecision);
         }
     },
-    setCurrentValue(value) {
+    setCurrentValue(value, events) {
+        if(this.readonly) return;
         if(value > this.max) {
             value = this.max;
         }
@@ -169,7 +213,11 @@ export default {
         }
         this.$nextTick(() => {
             this.currentValue = value;
-            this.$emit("input", value);
+            if(events === "input" || events === "on-change") {
+                this.$emit(events, value);
+            }else {
+                this.$emit(events);
+            }
         })
     },
     changeState() {
@@ -186,7 +234,6 @@ export default {
       }
     }
   },
-
   watch: {
     value: {
         immediate: true,

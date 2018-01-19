@@ -7,6 +7,15 @@ export default {
                     [`${this.prefixClass}-column-${column.align}`]: column.align
                 }
             ]
+        },
+        getCellWidth(column, index) {
+            let width = "";
+            if(column.width){
+                width = `${column.width}px`;
+            }else{
+                //
+            }
+            return width;
         }
     }
 }

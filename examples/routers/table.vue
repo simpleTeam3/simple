@@ -8,12 +8,12 @@
 	<div>
 		<div class="demo-list">
 			<div class="title">table组件实例</div>
-            <vut-table :columns="columns" :data="tableData" size="large" stripe height="260"></vut-table>
+            <vut-table :columns="columns" :data="tableData" size="large" stripe border></vut-table>
 		</div>
 		<div class="demo-list">
 			<div class="title">API</div>
 			<h3 class="api-label">Table props</h3>
-			<vut-table :columns="props" :data="propsData" border></vut-table>
+			<vut-table :columns="props" :data="propsData" border stripe></vut-table>
 		</div>
 	</div>
 </template>
@@ -26,24 +26,28 @@
 				columns: [
 					{
 						prop: "name",
-						label: "名称"
+						label: "名称",
+						width: 100
 					},
 					{
 						prop: "age",
-						label: "年龄"
+						label: "年龄",
+						width: 100
 					},
 					{
 						prop: "author",
-						label: "作者"
+						label: "作者",
+						width: 300
 					},
 					{
 						prop: "logo",
 						label: "logo",
+						width: 200,
 						render: (h, params) => {
 							return h("div", [
-								h("img", {
+								h("span", {
 									domProps: {
-										src: "../../../logo-vue.png"
+										innerHTML: "../../../logo-vue.png"
 									}
 								})
 							])
@@ -91,7 +95,7 @@
 					{
 						name: "Simple",
 						age: 1,
-						author: "老黄，老烨，小兴"
+						author: "老黄，老烨，小兴老黄，老烨，小兴老黄，老烨，小兴老黄，老烨，小兴"
 					}
 				],
 				props: APIprops,

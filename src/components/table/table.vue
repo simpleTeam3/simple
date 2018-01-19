@@ -1,5 +1,5 @@
 <template>
-    <div :class="wrapClass" :style="getStyles" ref="xxx">
+    <div :class="wrapClass" :style="getStyles">
         <div :class="getClass">
             <vut-table-head
             :columns="columns"
@@ -116,6 +116,7 @@ export default {
       }
   },
   mounted () {
+      this.handleResize();
       this.getBodyStyles();
   },
   methods: {
@@ -126,7 +127,8 @@ export default {
                 this.bodyStyles.height = `${this.height - parseInt(headerHeight)}px`;
             }
         })
-    }
+    },
+    handleResize() {}
   }
 }
 </script>

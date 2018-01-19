@@ -1,7 +1,12 @@
 <style>
+    .icon-item {
+        display: block;
+        cursor: pointer;
+    }
     .icon-item label {
         display: block;
     }
+    .v-copy-link{width:0; height:0;position: absolute;opacity: 0;}
 </style>
 
 <template>
@@ -9,6 +14,13 @@
 		<div class="demo-list">
 			<div class="title">icon组件实例</div>
 			<vut-icon type="friendfamous" size=30 color="blue"></vut-icon>
+            <vut-icon type="roundcheck" size=30 color="#ee0606"></vut-icon>
+            <vut-icon type="collection_fill" size=30 color="#e83c1f"></vut-icon>
+
+            <vut-icon type="roundclosefill" size=30 color="#ed3f14"></vut-icon>
+            <vut-icon type="roundcheckfill" size=30 color="#19be6b"></vut-icon>
+            <vut-icon type="infofill" size=30 color="#0a8dea"></vut-icon>
+            <vut-icon type="warning-fill" size=30 color="#f89807"></vut-icon>
 		</div>
 		<!-- API -->
         <div class="demo-list">
@@ -20,6 +32,7 @@
         <div class="demo-list">
             <div class="title">所有图标</div>
             <vut-table :columns="iconColumns" :data="allIconData" border></vut-table>
+            <textarea type="text" id="v-copy-link-id" class="v-copy-link" v-model="copyContent"></textarea>
         </div>
 	</div>
 </template>
@@ -31,16 +44,26 @@
 		data(){
             const vm = this;
 			return {
+                copyContent: "",
                 props: APIprops,
 			    propsData: propsData,
                 iconColumns: [
                     {
                         prop: "icon1",
                         label: "图标",
+                        align: "center",
                         render: (h, params) => {
                             return h("span", {
                                 class: {
                                     "icon-item": !!1
+                                },
+                                on: {
+                                    click: function() {
+                                        vm.copyContent = `<vut-icon type="${params.row.icon1}"></vut-icon>`;
+                                        setTimeout(()=>{
+                                            vm.copyFn("v-copy-link-id");
+                                        })
+                                    }
                                 }
                             }, [
                                 h("vut-icon", {
@@ -60,10 +83,19 @@
                     {
                         prop: "icon2",
                         label: "图标",
+                        align: "center",
                         render: (h, params) => {
                             return h("span", {
                                 class: {
                                     "icon-item": !!1
+                                },
+                                on: {
+                                    click: function() {
+                                        vm.copyContent = `<vut-icon type="${params.row.icon2}"></vut-icon>`;
+                                        setTimeout(()=>{
+                                            vm.copyFn("v-copy-link-id");
+                                        })
+                                    }
                                 }
                             }, [
                                 h("vut-icon", {
@@ -83,10 +115,19 @@
                     {
                         prop: "icon3",
                         label: "图标",
+                        align: "center",
                         render: (h, params) => {
                             return h("span", {
                                 class: {
                                     "icon-item": !!1
+                                },
+                                on: {
+                                    click: function() {
+                                        vm.copyContent = `<vut-icon type="${params.row.icon3}"></vut-icon>`;
+                                        setTimeout(()=>{
+                                            vm.copyFn("v-copy-link-id");
+                                        })
+                                    }
                                 }
                             }, [
                                 h("vut-icon", {
@@ -106,10 +147,19 @@
                     {
                         prop: "icon4",
                         label: "图标",
+                        align: "center",
                         render: (h, params) => {
                             return h("span", {
                                 class: {
                                     "icon-item": !!1
+                                },
+                                on: {
+                                    click: function() {
+                                        vm.copyContent = `<vut-icon type="${params.row.icon4}"></vut-icon>`;
+                                        setTimeout(()=>{
+                                            vm.copyFn("v-copy-link-id");
+                                        })
+                                    }
                                 }
                             }, [
                                 h("vut-icon", {
@@ -129,10 +179,19 @@
                     {
                         prop: "icon5",
                         label: "图标",
+                        align: "center",
                         render: (h, params) => {
                             return h("span", {
                                 class: {
                                     "icon-item": !!1
+                                },
+                                on: {
+                                    click: function() {
+                                        vm.copyContent = `<vut-icon type="${params.row.icon5}"></vut-icon>`;
+                                        setTimeout(()=>{
+                                            vm.copyFn("v-copy-link-id");
+                                        })
+                                    }
                                 }
                             }, [
                                 h("vut-icon", {
@@ -155,7 +214,12 @@
 			}
 		},
 		methods: {
-			
+			copyFn(id) {
+                document.getElementById(id).select(); // 选择对象
+                document.execCommand("Copy"); // 执行浏览器复制命令
+                // vm.$Message.success("已复制链接，可粘贴");
+                alert(`代码已复制到粘贴板，可粘贴`);
+            }
 		}
 	}
 </script>

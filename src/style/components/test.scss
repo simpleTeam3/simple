@@ -1,0 +1,43 @@
+$input-number-prefix: #{$class-prefix}input-number;
+
+.#{$input-number-prefix}{
+    &-wrap &-action{
+        position: absolute;
+        width: 26px;
+        text-align: center;
+        cursor: pointer;
+        height: auto;
+    }
+    &-wrap &-up{
+        right: 0px;
+        top:0px;
+        border-left: 1px solid $border-color;
+    }
+    &-wrap &-down{
+        right: 0px;
+        bottom: 0px;
+        border-left: 1px solid $border-color;
+    }
+
+
+    &-edge-controls &-action{
+        .vut-icon{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%) scale(0.7);
+        }
+    }
+    &-edge-controls &-up{
+        height: 100%;
+    }
+    &-edge-controls &-down{
+        left: 0px;
+        border-top: 0px;
+        border-right: 1px solid $border-color;
+        border-left: 0px;
+        height: 100%;
+    }
+    &-edge-controls &-inner{
+        padding-left: 26px;
+    }
+}

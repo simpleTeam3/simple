@@ -34,66 +34,87 @@ export const allIconData = [
         icon1: "roundclose",
         icon2: "timefill",
         icon3: "time",
-        icon4: "unfold",
-        icon5: "warnfill"
+        icon4: "warnfill",
+        icon5: "warn"
     },
     {
-        icon1: "warn",
-        icon2: "questionfill",
-        icon3: "question",
-        icon4: "pulldown",
-        icon5: "pullup"
+        icon1: "likefill",
+        icon2: "like",
+        icon3: "notificationfill",
+        icon4: "notification",
+        icon5: "questionfill"
     },
     {
-        icon1: "deletefill",
-        icon2: "delete",
-        icon3: "lock",
-        icon4: "unlock",
-        icon5: "friendadd"
+        icon1: "question",
+        icon2: "pulldown",
+        icon3: "pullup",
+        icon4: "deletefill",
+        icon5: "delete"
     },
     {
-        icon1: "friendfamous",
-        icon2: "friend",
-        icon3: "roundaddfill",
-        icon4: "roundadd",
-        icon5: "add"
+        icon1: "lock",
+        icon2: "unlock",
+        icon3: "friendadd",
+        icon4: "friendfamous",
+        icon5: "friend"
     },
     {
-        icon1: "infofill",
-        icon2: "info",
-        icon3: "female",
-        icon4: "male",
-        icon5: "add1"
+        icon1: "roundaddfill",
+        icon2: "roundadd",
+        icon3: "infofill",
+        icon4: "info",
+        icon5: "voice"
     },
     {
-        icon1: "move",
-        icon2: "my",
-        icon3: "myfill",
-        icon4: "emojifill",
-        icon5: "shangfan"
+        icon1: "voicefill",
+        icon2: "female",
+        icon3: "male",
+        icon4: "cloud-upload",
+        icon5: "o-warning-fill"
     },
     {
-        icon1: "xiafan",
-        icon2: "xiangshangjiantou",
-        icon3: "xiangxiajiantou",
-        icon4: "xiangyoujiantou",
-        icon5: "xiangzuojiantou"
+        icon1: "o-warning",
+        icon2: "add",
+        icon3: "move",
+        icon4: "my",
+        icon5: "myfill",
     },
     {
-        icon1: "emojilight",
-        icon2: "close_light",
+        icon1: "pull-up",
+        icon2: "pull-down",
+        icon3: "top-arrow",
+        icon4: "bottom-arrow",
+        icon5: "right-arrow"
+    },
+    {
+        icon1: "left-arrow",
+        icon2: "warning-fill",
+        icon3: "emojilight",
+        icon4: "cloud-download",
+        icon5: "download"
+    },
+    {
+        icon1: "upload",
+        icon2: "warning",
         icon3: "collection_fill",
         icon4: "collection",
         icon5: "coordinates_fill"
     },
     {
         icon1: "coordinates",
-        icon2: "people_fill",
-        icon3: "people",
-        icon4: "praise_fill",
-        icon5: "praise"
+        icon2: "offline_fill",
+        icon3: "offline",
+        icon4: "people_fill",
+        icon5: "people"
     },
     {
-        icon1: "tishi"
+        icon1: "praise_fill",
+        icon2: "praise",
+        icon3: "remind_fill",
+        icon4: "remind",
+        icon5: "search"
+    },
+    {
+        icon1: "emojifill"
     }
 ]

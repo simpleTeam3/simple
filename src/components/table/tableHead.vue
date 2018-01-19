@@ -37,15 +37,7 @@ export default {
   computed: {
   },
   methods: {
-      getCellWidth(column, index) {
-          let width = "";
-          if(column.width){
-              width = column.width;
-          }else{
-              //
-          }
-          return width;
-      }
+      
   }
 }
 </script>
