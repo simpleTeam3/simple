@@ -1,18 +1,10 @@
 <template>
   <div :class="wrapClass">
-    <!-- <div :class="handlerClass" v-if="!hideControls">
-      <span :class="upClass" @click="handleUpFn">
-        <vut-icon type="top-arrow"></vut-icon>
-      </span>
-      <span :class="downClass" @click="handleDownFn">
-        <vut-icon type="bottom-arrow"></vut-icon>
-      </span>
-    </div> -->
-    <span :class="upClass" @click="handleUpFn">
-      <vut-icon type="top-arrow"></vut-icon>
+    <span :class="upClass" @click="handleUpFn" v-if="!hideControls">
+      <vut-icon :type="upIcon"></vut-icon>
     </span>
-    <span :class="downClass" @click="handleDownFn">
-      <vut-icon type="bottom-arrow"></vut-icon>
+    <span :class="downClass" @click="handleDownFn" v-if="!hideControls">
+      <vut-icon :type="downIcon"></vut-icon>
     </span>
     <div :class="innerClass">
       <input
@@ -62,6 +54,10 @@ export default {
         type: Boolean,
         default: false
     },
+    debounce: {
+        type: Number,
+        default: 300
+    },
     size: String,
     precision: Number,
     controlsPosition: String
@@ -71,7 +67,8 @@ export default {
       upDisabled: false,
       downDisabled: false,
       currentValue: this.value,
-      focused: false
+      focused: false,
+      debounceTimeout: null
     }
   },
   computed: {
@@ -87,11 +84,6 @@ export default {
           [`${prefixClass}-edge-controls`]: this.controlsPosition == "edge"
         }
       ];
-    },
-    handlerClass() {
-      return [
-        `${prefixClass}-handler-wrap`
-      ]
     },
     innerClass() {
       return [
@@ -125,6 +117,18 @@ export default {
       get() {
           return !isNaN(this.precision) ? this.currentValue.toFixed(this.precision) : this.currentValue;
       }
+  },
+  upIcon() {
+      if(this.controlsPosition == "edge") {
+          return "add";
+      }
+      return "top-arrow";
+  },
+  downIcon() {
+      if(this.controlsPosition == "edge") {
+          return "move";
+      }
+      return "bottom-arrow";
   }
   },
   mounted() {
@@ -142,18 +146,21 @@ export default {
         this.setCurrentValue(value, "input");
     },
     handleInputFn(event) {
-        let value = event.target.value.trim();
-        if(value.match(/^\-?\.?$|\.$/)) return;
-        if(!isNaN(this.precision)) {
-            value = this.toPrecision(value, this.precision);
-        }
-        value = Number(value);
-        if(!isNaN(value)) {
-            this.setCurrentValue(value, "input");
-        }else {
-            this.setCurrentValue(this.currentValue, "input");
-        }
-        this.currentValue = value;
+        clearTimeout(this.debounceTimeout);
+        this.debounceTimeout = setTimeout(() => {
+            let value = event.target.value.trim();
+            if(value.match(/^\-?\.?$|\.$/)) return;
+            if(!isNaN(this.precision)) {
+                value = this.toPrecision(value, this.precision);
+            }
+            value = Number(value);
+            if(!isNaN(value)) {
+                this.setCurrentValue(value, "input");
+            }else {
+                this.setCurrentValue(this.currentValue, "input");
+            }
+            this.currentValue = value;
+        }, this.debounce) 
     },
     handleChangeFn(event) {
         let value = event.target.value.trim();

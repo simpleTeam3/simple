@@ -18,7 +18,7 @@
                 >
                 </vut-table-body>
             <div :class="prefixClass + '-tip' " v-show="(!data || data.length < 1)">
-                <table>
+                <table cellspacing="0" cellpadding="0" border="0">
                     <tbody>
                         <tr>
                             <td><span>{{emptyDataText}}</span></td>

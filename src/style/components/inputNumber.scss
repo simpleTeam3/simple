@@ -1,14 +1,17 @@
-@import "./test";
 $input-number-prefix: #{$class-prefix}input-number;
 
 $small-height: 28px;
-$small-width: 100px;
+$small-width: 120px;
 
 $normal-height: 34px;
-$normal-width: 120px;
+$normal-width: 140px;
 
 $large-height: 40px;
-$large-width: 140px;
+$large-width: 160px;
+
+$controls-width: 30px;
+
+$controls-disabled-color: #dedcdc;
 
 .#{$input-number-prefix}{
     &-wrap{
@@ -18,33 +21,34 @@ $large-width: 140px;
         height: $normal-height;
         width: $normal-width;
         [class^="vut-icon-"], [class*=" vut-icon-"]{
-            transform: scale(.7)
+            transform: scale(.8)
         }
     }
 
-    &-handler-wrap{
+    &-action{
         position: absolute;
-        right: 0px;
-        top: 0px;
-        width: 26px;
-        height: 100%;
+        width: $controls-width;
+        text-align: center;
         cursor: pointer;
+        height: auto;
+        display: block;
+        &:hover{
+            color: $primary-color;
+            opacity: .9;
+        }
+    }
+
+    &-up{
+        right: 0px;
+        top:0px;
         border-left: 1px solid $border-color;
     }
 
-    &-action{
-      width: 100%;
-      height: $normal-height / 2;
-      display: block;
-      text-align: center;
-      &:hover{
-          color: $primary-color;
-          opacity: .9;
-      }
-    }
-
     &-down{
-      border-top: 1px solid $border-color;
+        right: 0px;
+        bottom: 0px;
+        border-left: 1px solid $border-color;
+        border-top: 1px solid $border-color;
     }
 
     &-inner-wrap{
@@ -59,7 +63,7 @@ $large-width: 140px;
         border-radius: $border-radius;
         color: $content-color;
         padding: 6px;
-        padding-right: 26px;
+        padding-right: $controls-width + 6;
     }
 
     &-inner:hover,
@@ -71,31 +75,33 @@ $large-width: 140px;
     &-handler-disabled{
         @include disabled-state;
         background-color: initial;
-    }
-    &-handler-disabled:hover{
-        color: inherit;
+        color: $controls-disabled-color;
+        &:hover {
+            color: $controls-disabled-color;
+        }
     }
 
     &-wrap-small{
         height: $small-height;
         width: $small-width;
-        & .#{$input-number-prefix}-action{
-            height: $small-height / 2
+        .vut-icon{
+            font-size: 14px;
         }
     }
 
     &-wrap-large{
         height: $large-height;
         width: $large-width;
-        & .#{$input-number-prefix}-action{
-            height: $large-height / 2
-        }
     }
 
     &-disabled,
     &-disabled &-inner
     {
         @include disabled-state;
+    }
+
+    &-disabled &-action{
+        opacity: 0;
     }
 
     &-readonly &-inner:hover,
@@ -106,10 +112,38 @@ $large-width: 140px;
         border-color: $border-color;
     }
 
+    &-edge-controls &-action{
+        .vut-icon{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%) scale(.8);
+        }
+    }
+    &-edge-controls &-up{
+        height: 100%;
+    }
+
+    &-edge-controls &-down{
+        left: 0px;
+        border-top: 0px;
+        border-right: 1px solid $border-color;
+        border-left: 0px;
+        height: 100%;
+    }
+
+    &-edge-controls &-inner{
+        padding-left: ($normal-width - $controls-width *2) / 2;
+        padding-right: ($normal-width - $controls-width * 2) / 2;
+        text-align: center;
+    }
+
     &-hide-controls &-inner{
         padding-right: 6px;
     }
 
-    &-right-controls &-handler-wrap{}
+    &-edge-controls + &-hide-controls &-inner{
+        padding-left: 6px;
+        padding-right: 6px;
+    }
 
 }

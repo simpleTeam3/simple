@@ -38,6 +38,6 @@ $input-number-prefix: #{$class-prefix}input-number;
         height: 100%;
     }
     &-edge-controls &-inner{
-        padding-left: 26px;
+        padding-left: $normal-width / 2;
     }
 }
