@@ -1,0 +1,83 @@
+$message-prefix: #{$class-prefix}message;
+$top: 30px;
+
+.#{$message-prefix} {
+    &-group {
+        position: fixed;
+        width: 100%;
+        top: $top;
+        z-index: $min-z-index + 1;
+        pointer-events: none;
+    }
+    &-wrap {
+        position: relative;
+        padding: 8px;
+    }
+    &-con {
+        display: inline-block;
+        padding: 10px 15px;
+        border-radius: $border-radius;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        max-width: 100%;
+        position: relative;
+        pointer-events: all;
+    }
+    &-icon {
+        margin-right: 5px;
+    }
+    &-content {
+        font-size: $font-size-normal;
+    }
+    &-fade-enter {
+        opacity: 0;
+        transform: translateY(-$top);
+    }
+    &-fade-enter-active {
+        transition: transform .6s, opacity .3s;
+    }
+    &-fade-leave-active {
+        transition: padding .3s ease-in-out, transform .6s, opacity .6s;
+    }
+    &-fade-leave-to {
+        padding: 0;
+        opacity: 0;
+        transform: translateY(-$top - 35px);
+    }
+    &-info.#{$message-prefix}-diff-color {
+        background-color: #edf2fc;
+        color: #909399;
+    }
+    &-success.#{$message-prefix}-diff-color {
+        background-color: #e5fad9;
+        color: #3c8b0e;
+    }
+    &-warning.#{$message-prefix}-diff-color {
+        background-color: #fcecd3;
+        color: #b97a1c;
+    }
+    &-error.#{$message-prefix}-diff-color {
+        background: #fef0f0;
+        color: #fa6a6a;
+    }
+    @mixin same-color {
+        background-color: #fff;
+        box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    }
+    &-info,
+    &-success,
+    &-warning,
+    &-error
+     {
+        @include same-color;
+    }
+    &-closable &-content {
+        padding-right: 50px;
+    }
+    &-closable &-close-icon {
+        color: #999;
+        cursor: pointer;
+    }
+}

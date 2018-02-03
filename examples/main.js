@@ -39,6 +39,10 @@ const router = new VueRouter({
 		{
 			path: '/icon',
 			component: require('./routers/icon.vue')
+		},
+		{
+			path: '/message',
+			component: require('./routers/message.vue')
 		}
 	]
 });

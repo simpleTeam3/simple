@@ -213,12 +213,17 @@
                 iconSize: 25
 			}
 		},
+        mounted() {
+          //do something after mounting vue instance
+          window.Simple = this;
+      },
 		methods: {
 			copyFn(id) {
+                const vm = this;
                 document.getElementById(id).select(); // 选择对象
                 document.execCommand("Copy"); // 执行浏览器复制命令
-                // vm.$Message.success("已复制链接，可粘贴");
-                alert(`代码已复制到粘贴板，可粘贴`);
+                vm.$Message.success("已复制链接，可粘贴");
+                // alert(`代码已复制到粘贴板，可粘贴`);
             }
 		}
 	}

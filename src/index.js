@@ -4,6 +4,7 @@ import Table from './components/table';
 import Switch from './components/switch';
 import InputNumber from './components/inputNumber';
 import Icon from './components/icon';
+import Message from './components/message';
 
 const Simple = {
 	Input,
@@ -11,13 +12,16 @@ const Simple = {
 	Table,
 	Switch,
 	InputNumber,
-	Icon
+	Icon,
+	Message
 };
 
 const install = function(Vue){
 	Object.keys(Simple).forEach(function(key){
 		Vue.component(Simple[key].name, Simple[key]);
 	})
+
+	Vue.prototype.$Message = Message;
 }
 
 if(window && window.Vue){

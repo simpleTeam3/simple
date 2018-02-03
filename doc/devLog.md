@@ -18,7 +18,6 @@
 	- button ---酱油 遥遥无期
 	- switch ---小兴
 	- radio
-	- switch
 	- checkBox
 	- select
 	- slide
@@ -26,7 +25,7 @@
 	- upload
 
 #### view
-	- Message
+	- Message ---小兴
 	- Tooltip
 
 #### Navigation
