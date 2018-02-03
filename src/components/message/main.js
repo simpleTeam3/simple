@@ -22,7 +22,7 @@ function creatElementNode() {
     }).$mount();
     document.body.appendChild(messageGroup.instance.$el);
 }
-function messageFn(option, type = "info", diffColor = false) {
+function messageFn(option = {}, type = "info", diffColor = false) {
     let _option = {};
     if(typeof option == "string" || Number(option)) {
         _option.content = option;
