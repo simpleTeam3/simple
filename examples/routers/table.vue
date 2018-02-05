@@ -3,12 +3,16 @@
 		width: 100px;
 		height: 100px;
 	}
+    .table {
+        margin: 15px 0px;
+    }
 </style>
 <template>
 	<div>
 		<div class="demo-list">
 			<div class="title">table组件实例</div>
-            <vut-table :columns="columns" :data="tableData" size="large" stripe border></vut-table>
+            <vut-table :columns="columns" :data="tableData" size="large" stripe border class="table"></vut-table>
+            <vut-table :columns="columns" :data="tableData" size="small" stripe border class="table"></vut-table>
 		</div>
 		<div class="demo-list">
 			<div class="title">API</div>

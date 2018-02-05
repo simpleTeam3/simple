@@ -1,5 +1,7 @@
 $message-prefix: #{$class-prefix}message;
 $top: 30px;
+$spacing: 8px;
+$transition: height .3s ease-in-out, padding .3s ease-in-out, opacity .3s, transform .3s;
 
 .#{$message-prefix} {
     &-group {
@@ -11,7 +13,11 @@ $top: 30px;
     }
     &-wrap {
         position: relative;
-        padding: 8px;
+        padding: $spacing;
+        transition: $transition;
+    }
+    &-wrap:first-child {
+        margin-top: -$spacing;
     }
     &-con {
         display: inline-block;
@@ -35,16 +41,9 @@ $top: 30px;
         opacity: 0;
         transform: translateY(-$top);
     }
-    &-fade-enter-active {
-        transition: transform .6s, opacity .3s;
-    }
-    &-fade-leave-active {
-        transition: padding .3s ease-in-out, transform .6s, opacity .6s;
-    }
     &-fade-leave-to {
-        padding: 0;
         opacity: 0;
-        transform: translateY(-$top - 35px);
+        transform: translateY(-$top);
     }
     &-info.#{$message-prefix}-diff-color {
         background-color: #edf2fc;

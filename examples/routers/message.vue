@@ -1,7 +1,4 @@
 <style>
-	p{
-		margin: 10px 0px;
-	}
     .vut-button {
         display: inline-block;
         padding: 7px 10px;
@@ -36,13 +33,37 @@
 		<!-- API -->
 		<div class="demo-list">
 			<div class="title">API</div>
+			<h3 class="api-label">Message props</h3>
+			<div class="api">
+				<p>通过直接调用以下方法来使用组件：</p>
+				<ul>
+					<li>
+						<code>this.$Message.info(config)</code>
+					</li>
+					<li>
+						<code>this.$Message.success(config)</code>
+					</li>
+					<li>
+						<code>this.$Message.warning(config)</code>
+					</li>
+					<li>
+						<code>this.$Message.error(config)</code>
+					</li>
+				</ul>
+			</div>
+			<vut-table :columns="APIprops" :data="propsData"></vut-table>
 		</div>
 	</div>
 </template>
 <script>
+	import {APIprops} from '../common/common'
+	import {propsData} from '../data/API/components/Message.js'
+
 	export default {
 		data(){
 			return {
+				APIprops,
+				propsData
 			}
 		},
 		mounted() {

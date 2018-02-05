@@ -1,15 +1,17 @@
 <template>
-    <transition :name="transitionName">
+    <transition :name="transitionName" @enter="handleEnter"  @leave="handleLeave">
         <div :class="wrapClass" v-show="isShow">
             <div :class="conClass">
                 <vut-icon :class="iconClass" :type="messageIconType" :color="messageIconColor"></vut-icon>
-                <span :class="contentClass">{{ content }}</span>
+                <span :class="contentClass" v-html="content"></span>
                 <vut-icon type="close" :class="closeClass" v-if="closable" @click.native="close"></vut-icon>
             </div>
         </div>
     </transition>
 </template>
 <script>
+import {getOneStyle} from '../../utils/tools'
+
 const prefixClass = "vut-message";
 const iconType = {
     info: "infofill",
@@ -106,6 +108,14 @@ export default {
         }
     },
     methods: {
+        handleEnter(el) {
+            el.style.height = getOneStyle(el, "height");
+        },
+        handleLeave(el) {
+            el.style.height = 0;
+            el.style.paddingTop = 0;
+            el.style.paddingBottom = 0;
+        },
         autoDestory() {
             if(!isNaN(Number(this.duration))) {
                 if(this.duration > 0) {

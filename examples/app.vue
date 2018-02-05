@@ -29,6 +29,27 @@
 	.api-label{
 		margin: 10px 0px;;
 	}
+    .api ul {
+		padding-left: 40px;
+    	list-style-type: disc;
+	}
+	.api li{
+		margin-bottom: 5px;
+		font-size: 14px;
+	}
+	code {
+		display: inline-block;
+	    background: #f7f7f7;
+	    font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+	    margin: 0 3px;
+	    padding: 1px 5px;
+	    border-radius: 3px;
+	    color: #666;
+	    border: 1px solid #eee;
+	}
+    .api, p {
+		margin: 15px 0px;
+	}
 </style>
 <template>
 	<div class="content-wrap">
