@@ -50,7 +50,7 @@ $background-color-hover: #ecf5ff;
 }
 .#{$class-prefix}table-body{
     overflow: auto;
-} 
+}
 .#{$class-prefix}table-header table,
 .#{$class-prefix}table-body table
 {
@@ -70,6 +70,7 @@ $background-color-hover: #ecf5ff;
     text-overflow: ellipsis;
     vertical-align: middle;
     border-bottom: 1px solid $line-color;
+    line-height: 22px;
 }
 .#{$class-prefix}table-cell{
     padding: 0px 15px;
