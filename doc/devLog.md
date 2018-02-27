@@ -27,6 +27,9 @@
 #### view
 	- Message ---小兴
 	- Tooltip
+	- Poptip
+	- Tag
+	- Timeline
 
 #### Navigation
 	- Menu
