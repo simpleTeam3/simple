@@ -43,6 +43,10 @@ const router = new VueRouter({
 		{
 			path: '/message',
 			component: require('./routers/message.vue')
+		},
+		{
+			path: '/toolTip',
+			component: require('./routers/toolTip.vue')
 		}
 	]
 });

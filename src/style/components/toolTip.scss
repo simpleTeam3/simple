@@ -1,0 +1,36 @@
+$toolTip-prefix: #{$class-prefix}tooltip;
+
+.#{$toolTip-prefix} {
+    &-wrap {
+        display: inline-block;
+        position: relative;
+    }
+    &-rel {
+        display: inline-block;
+    }
+    &-popper {
+        display: block;
+        position: absolute;
+    }
+    &-arrow {
+        border-width: 0px 5px 5px;
+        border-bottom-color: #333;
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+    &-inner {
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border-radius: $border-radius;
+    }
+    &-placement-bottom &-arrow{
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #333;
+        top: -5px;
+        left: 50%;
+        margin-left: -5px;
+    }
+}

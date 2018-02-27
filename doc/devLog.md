@@ -26,7 +26,7 @@
 
 #### view
 	- Message ---小兴
-	- Tooltip
+	- Tooltip ---小兴
 	- Poptip
 	- Tag
 	- Timeline

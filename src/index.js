@@ -5,6 +5,7 @@ import Switch from './components/switch';
 import InputNumber from './components/inputNumber';
 import Icon from './components/icon';
 import Message from './components/message';
+import ToolTip from './components/toolTip';
 
 const Simple = {
 	Input,
@@ -13,7 +14,8 @@ const Simple = {
 	Switch,
 	InputNumber,
 	Icon,
-	Message
+	Message,
+	ToolTip
 };
 
 const install = function(Vue){
