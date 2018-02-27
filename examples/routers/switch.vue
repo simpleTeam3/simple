@@ -8,17 +8,16 @@
 			<vut-switch v-model="switchValue" @on-change="changeSwitch" size="large"></vut-switch>
 			<vut-switch v-model="switchValue" @on-change="changeSwitch"></vut-switch>
 			<vut-switch v-model="switchValue" @on-change="changeSwitch" size="small"></vut-switch>
+			<vut-switch disabled size="large">
+				<span slot="off">禁用</span>
+			</vut-switch>
 			<p>
 				<vut-switch @on-change="changeSwitch" on-color="#13ce66" off-color="#ff4949" size="large">
 					<span slot="on">开启</span>
 					<span slot="off">关闭</span>
 				</vut-switch>
-				<vut-switch size="small">
-					<span slot="on">开</span>
-					<span slot="off">关</span>
-				</vut-switch>
-				<vut-switch on-text="ON" off-text="OFF" disabled>
-				</vut-switch>
+				<!-- <vut-switch on-text="开启" off-text="关闭">
+				</vut-switch> -->
 			</p>
 		</div>
 		<!-- API -->

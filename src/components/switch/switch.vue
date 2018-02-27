@@ -1,5 +1,5 @@
 <template>
-  <span :class="wrapClass" @click="handleToggleFn" ref="core">
+  <span :class="wrapClass" @mouseup="handleToggleFn" ref="core">
     <input type="hidden" :value="currentValue">
     <span :class="innerClass" v-show="textActive">
         <slot name="on" v-if="currentValue"></slot>
@@ -67,6 +67,7 @@ export default {
     this.setBackgroundColor();
   },
   methods: {
+    handleDirection() {},
     handleToggleFn() {
       if(this.disabled){
         return false;

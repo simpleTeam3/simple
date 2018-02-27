@@ -12,6 +12,7 @@ $smal-size: 16px;
     position: relative;
     cursor: pointer;
     font-size: $font-size-small;
+    user-select: none;
 }
 
 .#{$switch-class-prefix}:after{
