@@ -8,7 +8,7 @@ $transition: height .3s ease-in-out, padding .3s ease-in-out, opacity .3s, trans
         position: fixed;
         width: 100%;
         top: $top;
-        z-index: $min-z-index + 1;
+        z-index: $min-z-index + 1000;
         pointer-events: none;
     }
     &-wrap {

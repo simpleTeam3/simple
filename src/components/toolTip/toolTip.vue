@@ -3,12 +3,14 @@
         <div :class="prefixClass+'-rel'" ref="effect">
             <slot></slot>
         </div>
-        <div :class="prefixClass+'-popper'" :style="getPopperStyle">
-            <div :class="prefixClass+'-content'">
-                <div :class="prefixClass+'-arrow'"></div>
-                <div :class="prefixClass+'-inner'" v-text="content"></div>
+        <transition :name="prefixClass+'-fade'">
+            <div :class="prefixClass+'-popper'" :style="popperStyle" v-show="visible" ref="popper">
+                <div :class="prefixClass+'-content'">
+                    <div :class="prefixClass+'-arrow'"></div>
+                    <div :class="prefixClass+'-inner'" v-text="content"></div>
+                </div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
 
@@ -27,7 +29,9 @@
         },
         data() {
             return {
-                prefixClass
+                prefixClass,
+                visible: false,
+                popperStyle: {}
             }
         },
         computed: {
@@ -38,21 +42,25 @@
                         [`${this.prefixClass}-placement-${this.placement}`]: this.placement
                     }
                 ];
-            },
-            getPopperStyle() {
-                let styles = {};
-                const height = getOneStyle(this.$refs.effect, 'height');
-                styles.top = `${height}px`;
-                return styles;
             }
         },
         methods: {
             handleMouseOver() {
-                console.log("鼠标移上来了");
+                this.visible = true;
+                this.getPopperStyle();
             },
             handleMouseOut() {
-                console.log("鼠标移出去了");
+                this.visible = false;
+            },
+            getPopperStyle() {
+                this.$nextTick(() => {
+                    const height = getOneStyle(this.$refs.effect, 'height');
+                    const width = getOneStyle(this.$refs.effect, 'width');
+                    const popperWidth = getOneStyle(this.$refs.popper, 'width');
+                    this.popperStyle.top = `${parseInt(height)+8}px`;
+                    this.popperStyle.left = `${(parseInt(width) - parseInt(popperWidth)) / 2}px`;
+                })
             }
-        }        
+        }
     }
 </script>
