@@ -6,6 +6,7 @@ import InputNumber from './components/inputNumber';
 import Icon from './components/icon';
 import Message from './components/message';
 import ToolTip from './components/toolTip';
+import Loading from './components/loading';
 
 const Simple = {
 	Input,
@@ -15,7 +16,8 @@ const Simple = {
 	InputNumber,
 	Icon,
 	Message,
-	ToolTip
+	ToolTip,
+	Loading
 };
 
 const install = function(Vue){

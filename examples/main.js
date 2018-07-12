@@ -47,6 +47,10 @@ const router = new VueRouter({
 		{
 			path: '/toolTip',
 			component: require('./routers/toolTip.vue')
+		},
+		{
+			path: '/loading',
+			component: require('./routers/loading.vue')
 		}
 	]
 });

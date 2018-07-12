@@ -16,3 +16,13 @@ npm install，可以使用cnpm代替npm
 #运行项目
 npm run dev
 ```
+
+# 项目目录结构
+
+```
+-doc		---文档
+-src		---源码
+	-components		---组件
+	-style			---样式
+	-utils			---工具库
+```

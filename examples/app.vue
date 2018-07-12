@@ -63,6 +63,7 @@
 				<li><router-link to="/icon">Icon</router-link></li>
                 <li><router-link to="/message">Message</router-link></li>
 				<li><router-link to="/toolTip">ToolTip</router-link></li>
+				<li><router-link to="/loading">Loading</router-link></li>
 			</ul>
 		</nav>
 		<router-view></router-view>
