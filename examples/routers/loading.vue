@@ -1,7 +1,12 @@
 <template>
     <div>
         <div class="demo-box">
-            <vut-loading></vut-loading>
+            <p>我就像这个世界</p>
+            <p>这个世界是不会变的</p>
+            <p>我就像这个世界</p>
+            <p>这个世界是不会变的</p>
+            <p>我就像这个世界,这个世界是不会变的</p>
+            <vut-loading :visible='true' text="世界和平" :fullscreen='false'></vut-loading>
         </div>
     </div>
 </template>
@@ -17,7 +22,6 @@ export default {
 </script>
 <style>
 .demo-box{
-    width:80px;
-    height:80px;
+    position:relative;
 }
 </style>

@@ -47,3 +47,12 @@ $content-color: #495060;
   cursor: not-allowed;
   color: #ccc;
 }
+
+
+// ----loading-----
+$loading-box-size: 42px;
+$loading-box-size-fullscreen: 50px;
+@mixin size($width, $height){
+  width: $width;
+  height: $height;
+}
