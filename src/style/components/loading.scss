@@ -40,6 +40,10 @@ $loading-class-prefix : #{$class-prefix}loading;
     stroke-linecap:round;
     animation:stretch 1.8s ease-in-out infinite,color 4.5s linear infinite;
 }
+.#{$loading-class-prefix}-fade-enter,
+.#{$loading-class-prefix}-fade-leave-active{
+    opacity:0;
+}
 @keyframes rotate{
     100%{
         transform:rotate(360deg);
