@@ -40,6 +40,10 @@ $loading-class-prefix : #{$class-prefix}loading;
     stroke-linecap:round;
     animation:stretch 1.8s ease-in-out infinite,color 4.5s linear infinite;
 }
+
+.#{$loading-class-prefix}-text{
+    color:$primary-color;
+}
 .#{$loading-class-prefix}-fade-enter,
 .#{$loading-class-prefix}-fade-leave-active{
     opacity:0;
@@ -66,11 +70,14 @@ $loading-class-prefix : #{$class-prefix}loading;
     0%,
     100%{
         stroke:$primary-color;
+        color:$primary-color;
     }
-    45%{
+    38%{
         stroke:$success-color;
+        color:$success-color;
     }
-    90%{
+    76%{
         stroke:$error-color;
+        color:$error-color;
     }
 }
