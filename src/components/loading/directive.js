@@ -6,17 +6,21 @@ export default {
     install: Vue => {
         if(Vue.prototype.$isServer) return;
         
-        let toggleLoading = function(el, binding){
+        let toggleLoading = (el, binding) => {
             if(binding.value){
                 Vue.nextTick(() => {
                     if(binding.modifiers.fullscreen){
+						el.originalPosition = getOneStyle(document.body, 'position');
+						el.originalOverflow = getOneStyle(document.body, 'overflow');
+
+						
 						insertDom(document.body, el, binding);
 					}else{
 						insertDom(el, el, binding);
 					}
                 })
             }
-        }
+        };
         let insertDom = (parent, el, binding) =>{
             if(!el.domVisible && getOneStyle(el, 'display') !== 'none' && getOneStyle(el, 'visibility') !== 'hidden'){
 			
