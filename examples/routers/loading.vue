@@ -13,7 +13,7 @@
             <vut-loading :visible='true' :fullscreen='false' text="皮呀皮呀皮"></vut-loading>
         </div>
         <div class="title">自定义指令调用</div>
-        <div class="demo-box">
+        <div class="demo-box" v-loading="true">
             <p>正是因为爱你，让我有了面对死亡的勇气</p>
             <p>正是因为爱你，让我有了面对死亡的勇气</p>
             <p>正是因为爱你，让我有了面对死亡的勇气</p>

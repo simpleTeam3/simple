@@ -17,13 +17,15 @@ const Simple = {
 	Icon,
 	Message,
 	ToolTip,
-	Loading
+	Loading:Loading.Loading
 };
 
 const install = function(Vue){
 	Object.keys(Simple).forEach(function(key){
 		Vue.component(Simple[key].name, Simple[key]);
 	})
+
+	Vue.use(Loading.directive);
 
 	Vue.prototype.$Message = Message;
 }
