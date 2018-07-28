@@ -1,6 +1,5 @@
 <template>
 	<button class="test" :type="htmlType">
-		<span v-if="showSlot" ref="slot"><slot></slot></span>
 	</button>
 </template>
 

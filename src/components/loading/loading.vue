@@ -2,13 +2,13 @@
  * @Author: Sauce 
  * @Date: 2018-06-09 09:51:25 
  * @Last Modified by: Sauce
- * @Last Modified time: 2018-07-26 20:16:28
+ * @Last Modified time: 2018-07-28 22:04:08
  */
 
 <template>
 	<transition :name='prefixClass + "-fade"'>
-		<div :class='[prefixClass + "-mask",{"is-fullscreen":fullscreen}]'>
-			<div v-show="visible" :class='prefixClass + "-box"'>
+		<div :class='[prefixClass + "-mask",{"is-fullscreen":fullscreen}]' v-show="visible">
+			<div  :class='prefixClass + "-box"'>
 				<svg :class='prefixClass + "-circular"' viewBox="0 0 50 50">
 					<circle :class='prefixClass + "-outline"' cx="25" cy="25" r="20" fill="none"></circle>
 				</svg>
@@ -39,6 +39,9 @@
 			return {
 				prefixClass
 			}
+		},
+		computed : {
+			
 		}
 	}
 </script>
