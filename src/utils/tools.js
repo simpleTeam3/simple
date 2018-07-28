@@ -2,7 +2,7 @@
 * @Author: liye
 * @Date:   2017-12-26 20:03:40
  * @Last Modified by: Sauce
- * @Last Modified time: 2018-07-28 17:47:50
+ * @Last Modified time: 2018-07-28 18:29:02
 */
 
 export function insideOf(value, list) {
@@ -27,10 +27,10 @@ function camelCase(data) {
 }
 
 export function hasClass(el, cls){
-	return el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)');)
+	return el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
 }
 export function addClass(el, cls){
-	if(!hasClass(el, cls)) el.className += ' ' + cls; 
+	if(!hasClass(el, cls)) el.className += ' ' + cls;
 }
 
 export function getOneStyle(element, cssParam) {
@@ -42,4 +42,10 @@ export function getOneStyle(element, cssParam) {
 	}
 	const allStyle = document.defaultView.getComputedStyle(element, null);
 	return element.style[cssParam] || allStyle ? allStyle[cssParam] : null;
+}
+export function removeClass(el, cls){
+	if(hasClass(el, cls)){
+		let reg = new RegExp('(//s|^)' + cls + '(//s|$)');
+		el.className = el.className.replace(reg, ' ');
+	}
 }
