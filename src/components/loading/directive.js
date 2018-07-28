@@ -64,6 +64,15 @@ export default {
 				if(binding.value !== binding.oldValue){
 					toggleLoading(el, binding);
 				}
+			},
+			unbind : function(el, binding) {
+				if(el.domInsert){
+					if(binding.modifiers.fullscreen){
+						document.body.removeChild(el.mask);
+					}else{
+						el.mask && el.mask.parentNode && el.mask.parentNode.removeChild(el.mask);
+					}
+				}
 			}
         })
     }
