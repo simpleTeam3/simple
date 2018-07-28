@@ -1,8 +1,8 @@
 /*
 * @Author: liye
 * @Date:   2017-12-26 20:03:40
-* @Last Modified by:   liye
-* @Last Modified time: 2017-12-26 20:06:45
+ * @Last Modified by: Sauce
+ * @Last Modified time: 2018-07-28 17:47:50
 */
 
 export function insideOf(value, list) {
@@ -24,6 +24,13 @@ function camelCase(data) {
 	return data.replace(REGEXP_KEBAB_CASE, function(match, $1, offset){
 		return offset ? $1.toUpperCase() : $1;
 	})
+}
+
+export function hasClass(el, cls){
+	return el.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)');)
+}
+export function addClass(el, cls){
+	if(!hasClass(el, cls)) el.className += ' ' + cls; 
 }
 
 export function getOneStyle(element, cssParam) {

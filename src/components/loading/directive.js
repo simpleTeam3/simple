@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {getOneStyle} from '../../utils/tools'
+import {getOneStyle, addClass} from '../../utils/tools'
 let Load = Vue.extend(require('./loading.vue'));
 
 export default {
@@ -13,7 +13,7 @@ export default {
 						el.originalPosition = getOneStyle(document.body, 'position');
 						el.originalOverflow = getOneStyle(document.body, 'overflow');
 
-						
+						addClass(el.mask, 'is-fullscreen')
 						insertDom(document.body, el, binding);
 					}else{
 						insertDom(el, el, binding);
