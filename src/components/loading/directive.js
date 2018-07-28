@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {getOneStyle, addClass} from '../../utils/tools'
+import {getOneStyle, addClass, removeClass} from '../../utils/tools'
 let Load = Vue.extend(require('./loading.vue'));
 
 export default {
@@ -16,10 +16,20 @@ export default {
 						addClass(el.mask, 'is-fullscreen')
 						insertDom(document.body, el, binding);
 					}else{
+						removeClass(el.mask, 'is-fullscreen');
+						el.originalPosition = getOneStyle(el, 'position');
 						insertDom(el, el, binding);
 					}
                 })
-            }
+            }else{
+				if(el.domVisible){
+					el.instance.$on('after-leave', _ => {
+						el.domVisible = false;
+					})
+
+					el.instance.visible = false;
+				}
+			}
         };
         let insertDom = (parent, el, binding) =>{
             if(!el.domVisible && getOneStyle(el, 'display') !== 'none' && getOneStyle(el, 'visibility') !== 'hidden'){
@@ -49,7 +59,12 @@ export default {
                 el.mask = load.$el;
 				
 				toggleLoading(el, binding)
-            } 
+			},
+			update : function(el, binding) {
+				if(binding.value !== binding.oldValue){
+					toggleLoading(el, binding);
+				}
+			}
         })
     }
 }
