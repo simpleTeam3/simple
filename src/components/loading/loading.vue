@@ -2,11 +2,11 @@
  * @Author: Sauce 
  * @Date: 2018-06-09 09:51:25 
  * @Last Modified by: Sauce
- * @Last Modified time: 2018-07-28 22:04:08
+ * @Last Modified time: 2018-07-29 13:22:16
  */
 
 <template>
-	<transition :name='prefixClass + "-fade"'>
+	<transition :name='prefixClass + "-fade"' @after-leave="handleAfterLeave">
 		<div :class='[prefixClass + "-mask",{"is-fullscreen":fullscreen}]' v-show="visible">
 			<div  :class='prefixClass + "-box"'>
 				<svg :class='prefixClass + "-circular"' viewBox="0 0 50 50">
@@ -20,8 +20,8 @@
 <script>
 	const prefixClass = "vut-loading"
 	export default {
-		name : 'vut-loading',
-		props : {
+		name: 'vut-loading',
+		props: {
 			visible:{
 				type : Boolean,
 				default : false
@@ -40,7 +40,12 @@
 				prefixClass
 			}
 		},
-		computed : {
+		methods: {
+			handleAfterLeave(){
+				this.$emit('after-leave');
+			}
+		},
+		computed: {
 			
 		}
 	}
