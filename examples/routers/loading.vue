@@ -14,7 +14,7 @@
         </div>
         <div class="title">自定义指令调用</div>
         <button @click="toggle">开始加载</button>
-        <div class="demo-box" v-loading="loadingShow">
+        <div class="demo-box" v-loading="loadingShow" vut-loading-text="我看看">
             <p>正是因为爱你，让我有了面对死亡的勇气</p>
             <p>正是因为爱你，让我有了面对死亡的勇气</p>
             <p>正是因为爱你，让我有了面对死亡的勇气</p>

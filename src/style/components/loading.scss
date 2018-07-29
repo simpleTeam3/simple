@@ -43,6 +43,7 @@ $loading-class-prefix : #{$class-prefix}loading;
 
 .#{$loading-class-prefix}-text{
     color:$primary-color;
+    animation: color 4.5s linear infinite;
 }
 .#{$loading-class-prefix}-fade-enter,
 .#{$loading-class-prefix}-fade-leave-active{

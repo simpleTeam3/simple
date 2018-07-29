@@ -52,6 +52,7 @@ export default {
                 let load = new Load({
                     el : document.createElement('div'),
                     data : {
+						attrText : el.getAttribute('vut-loading-text')
                     }
                 })
 
