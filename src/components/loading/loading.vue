@@ -2,12 +2,12 @@
  * @Author: Sauce 
  * @Date: 2018-06-09 09:51:25 
  * @Last Modified by: Sauce
- * @Last Modified time: 2018-07-29 13:44:34
+ * @Last Modified time: 2018-07-30 21:13:12
  */
 
 <template>
 	<transition :name='prefixClass + "-fade"' @after-leave="handleAfterLeave">
-		<div :class='[prefixClass + "-mask",{"is-fullscreen":fullscreen}]' v-show="visible">
+		<div :class='[prefixClass + "-mask",{"is-fullscreen":loadingFull}]' v-show="visible">
 			<div  :class='prefixClass + "-box"'>
 				<svg :class='prefixClass + "-circular"' viewBox="0 0 50 50">
 					<circle :class='prefixClass + "-outline"' cx="25" cy="25" r="20" fill="none"></circle>
@@ -26,7 +26,7 @@
 				type : Boolean,
 				default : false
 			},
-			fullscreen:{
+			full:{
 				type : Boolean,
 				default : false
 			},
@@ -38,6 +38,7 @@
 		data(){
 			return {
 				attrText:"",
+				fullscreen:false,
 				prefixClass
 			}
 		},
@@ -48,7 +49,10 @@
 		},
 		computed: {
 			loadingText(){
-				return this.text || this.attrText
+				return this.text || this.attrText;
+			},
+			loadingFull(){
+				return this.full || this.fullscreen;
 			}
 		}
 	}

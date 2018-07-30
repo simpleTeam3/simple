@@ -27,6 +27,7 @@ const install = function(Vue){
 
 	Vue.use(Loading.directive);
 
+	Vue.prototype.$loading = Loading.service;
 	Vue.prototype.$Message = Message;
 }
 
