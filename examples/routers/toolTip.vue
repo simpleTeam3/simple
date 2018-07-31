@@ -1,12 +1,3 @@
-<style>
-    .vut-button {
-        display: inline-block;
-        padding: 7px 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-</style>
 <template>
 	<div>
 		<div class="demo-list">

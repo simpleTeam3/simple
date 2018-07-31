@@ -22,7 +22,7 @@ const router = new VueRouter({
 		},
 		{
 			path: '/button',
-			component: require('./routers/ex-button.vue')
+			component: require('./routers/button.vue')
 		},
 		{
 			path: '/table',

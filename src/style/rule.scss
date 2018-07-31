@@ -31,6 +31,10 @@ $success-color: #19be6b;
 $warning-color: #ff9900;
 $error-color: #ed3f14;
 
+//原色
+$white-color: #ffffff;
+$black-color: #000000;
+
 //中性色
 $border-color: #dddee1;
 $line-color: #e9eaec;
@@ -39,6 +43,13 @@ $divider-color: #e9eaec;
 $disabled-color: #bbbec4;
 $title-color: #1c2438;
 $content-color: #495060;
+
+//border
+$border-width-base: 1px;
+$border-style-base: solid;
+$border-color-base: $border-color;
+$border-base: $border-width-base $border-style-base $border-color-base;
+$border-radius-base: 5px;
 
 //禁用状态
 @mixin disabled-state{
@@ -55,4 +66,24 @@ $loading-box-size-fullscreen: 50px;
 @mixin size($width, $height){
   width: $width;
   height: $height;
+}
+
+// -----Button------
+$button-default-color: $content-color;
+$button-default-border: $border-color;
+$button-default-fill: $white-color;
+
+$button-font-size: 14px;
+$button-padding-vertical: 10px;
+$button-padding-horizontal: 14px;
+
+@mixin button-color($color, $bg-color, $border-color){
+  color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
+}
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size){
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  // border-radius: $border-radius; //开发圆角按钮预备
 }

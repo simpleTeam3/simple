@@ -21,7 +21,7 @@ Load.prototype.close = function(){
         this.$el &&
         this.$el.parentNode &&
         this.$el.parentNode.removeChild(this.$el);
-        this.destroy();
+        this.$destroy();
     });
     this.visible = false;
 }
