@@ -2,7 +2,7 @@
 * @Author: liye
 * @Date:   2017-10-05 15:15:39
  * @Last Modified by: Sauce
- * @Last Modified time: 2018-07-31 22:23:05
+ * @Last Modified time: 2018-07-31 22:41:03
 */
 $button-class-prefix: #{$class-prefix}button;
 
@@ -19,5 +19,18 @@ $button-class-prefix: #{$class-prefix}button;
 	background: $button-default-fill;
 	color: $button-default-color;
 	
-	@include button-size($button-padding-vertical, $button-padding-horizontal, $button-font-size)
+	&-primary{
+		@include button-color($button-primary-color, $button-primary-border, $button-primary-fill);
+	}
+	&-success{
+		@include button-color($button-success-color, $button-success-border, $button-success-fill);
+	}
+	&-warning{
+		@include button-color($button-warning-color, $button-warning-border, $button-warning-fill);
+	}
+	&-error{
+		@include button-color($button-error-color, $button-error-border, $button-error-fill);
+	}
+
+	@include button-size($button-padding-vertical, $button-padding-horizontal, $button-font-size);
 }

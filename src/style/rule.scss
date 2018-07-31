@@ -73,14 +73,30 @@ $button-default-color: $content-color;
 $button-default-border: $border-color;
 $button-default-fill: $white-color;
 
+$button-primary-color: $white-color;
+$button-primary-border: $primary-color;
+$button-primary-fill: $primary-color;
+
+$button-success-color: $white-color;
+$button-success-border: $success-color;
+$button-success-fill: $success-color;
+
+$button-warning-color: $white-color;
+$button-warning-border: $warning-color;
+$button-warning-fill: $warning-color;
+
+$button-error-color: $white-color;
+$button-error-border: $error-color;
+$button-error-fill: $error-color;
+
 $button-font-size: 14px;
 $button-padding-vertical: 10px;
-$button-padding-horizontal: 14px;
+$button-padding-horizontal: 16px;
 
-@mixin button-color($color, $bg-color, $border-color){
+@mixin button-color($color, $border-color, $bg-color){
   color: $color;
-  background-color: $bg-color;
   border-color: $border-color;
+  background-color: $bg-color;
 }
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size){
   padding: $padding-vertical $padding-horizontal;
