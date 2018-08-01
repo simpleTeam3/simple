@@ -1,5 +1,5 @@
 <template>
-	<button :type="htmlType" :disabled="disabled" 
+	<button :type="htmlType" :disabled="disabled" @click="handleClick" 
 		:class="[
 			prefixClass,
 			type ? prefixClass + '-' + type : '',
@@ -37,6 +37,11 @@
 		data(){
 			return {
 				prefixClass
+			}
+		},
+		methods: {
+			handleClick: function(e){
+				this.$emit('click', e);
 			}
 		}
 	}
