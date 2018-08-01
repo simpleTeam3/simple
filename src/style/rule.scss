@@ -97,6 +97,17 @@ $button-padding-horizontal: 16px;
   color: $color;
   border-color: $border-color;
   background-color: $bg-color;
+
+  &:hover,
+  &:focus{
+    color: $color;
+    border-color: lighten($border-color, 15%);
+    background-color: lighten($bg-color, 15%);
+  }
+  &:active{
+    border-color: darken($border-color, 15%);
+    background-color: darken($bg-color, 15%);
+  }
 }
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size){
   padding: $padding-vertical $padding-horizontal;

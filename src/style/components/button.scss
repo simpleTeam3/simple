@@ -18,7 +18,20 @@ $button-class-prefix: #{$class-prefix}button;
 	border-color: $button-default-border;
 	background: $button-default-fill;
 	color: $button-default-color;
-	
+
+	@include button-size($button-padding-vertical, $button-padding-horizontal, $button-font-size);
+
+	&:hover,
+	&:focus{
+		color: lighten($primary-color, 10%);
+		border-color: lighten($button-primary-border,30%);
+		background-color: lighten($button-primary-fill, 43%);
+	}
+	&:active{
+		color: darken($primary-color, 10%);
+		border-color: darken($primary-color, 10%);
+	}
+
 	&-primary{
 		@include button-color($button-primary-color, $button-primary-border, $button-primary-fill);
 	}
@@ -32,5 +45,5 @@ $button-class-prefix: #{$class-prefix}button;
 		@include button-color($button-error-color, $button-error-border, $button-error-fill);
 	}
 
-	@include button-size($button-padding-vertical, $button-padding-horizontal, $button-font-size);
+	
 }
