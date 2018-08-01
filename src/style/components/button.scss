@@ -32,6 +32,13 @@ $button-class-prefix: #{$class-prefix}button;
 		border-color: darken($primary-color, 10%);
 	}
 
+	&.is-plain{
+		&:hover,
+		&:focus{
+			background-color: $white-color;
+		}
+	}
+
 	&-primary{
 		@include button-color($button-primary-color, $button-primary-border, $button-primary-fill);
 	}

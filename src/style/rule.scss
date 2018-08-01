@@ -108,6 +108,18 @@ $button-padding-horizontal: 16px;
     border-color: darken($border-color, 15%);
     background-color: darken($bg-color, 15%);
   }
+
+  &.is-plain{
+    color: $bg-color;
+    border-color: lighten($border-color, 20%);
+    background-color: lighten($bg-color, 42%);
+    &:hover,
+    &:focus{
+      color: $color;
+      border-color: $border-color;
+      background-color: $bg-color;
+    }
+  }
 }
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size){
   padding: $padding-vertical $padding-horizontal;

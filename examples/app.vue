@@ -14,7 +14,7 @@
 		margin: 30px auto;
 	}
 	.demo-list{
-		margin: 30px 0px;
+		margin: 10px 0px;
 	}
 	.title{
 		margin-bottom: 18px;
