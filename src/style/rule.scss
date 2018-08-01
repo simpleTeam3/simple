@@ -120,6 +120,16 @@ $button-padding-horizontal: 16px;
       background-color: $bg-color;
     }
   }
+
+  &.is-disabled{
+    &,
+    &:hover,
+    &:focus{
+      color: lighten($bg-color, 25%);
+      border-color: lighten($border-color, 42%);
+      background-color: lighten($bg-color, 45%);
+    }
+  }
 }
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size){
   padding: $padding-vertical $padding-horizontal;

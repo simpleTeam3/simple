@@ -22,6 +22,10 @@
 			<vut-button type="warning" disabled>警告按钮</vut-button>
 			<vut-button type="error" disabled>错误按钮</vut-button>
 		</div>
+		<div class="demo-list">
+			<vut-button type="text">文字按钮</vut-button>
+			<vut-button type="text" disabled>文字禁用按钮</vut-button>
+		</div>
 	</div>
 </template>
 <script>
