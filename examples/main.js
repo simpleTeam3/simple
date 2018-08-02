@@ -51,6 +51,10 @@ const router = new VueRouter({
 		{
 			path: '/loading',
 			component: require('./routers/loading.vue')
+		},
+		{
+			path: '/page',
+			component: require('./routers/page.vue')
 		}
 	]
 });
