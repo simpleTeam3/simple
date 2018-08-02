@@ -50,6 +50,10 @@ $button-class-prefix: #{$class-prefix}button;
 		}
 	}
 
+	&-large{
+		@include button-size($button-padding-vertical-large, $button-padding-horizontal-large, $button-font-size-large);
+	}
+
 	&-primary{
 		@include button-color($button-primary-color, $button-primary-border, $button-primary-fill);
 	}

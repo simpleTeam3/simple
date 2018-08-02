@@ -93,6 +93,10 @@ $button-font-size: 14px;
 $button-padding-vertical: 10px;
 $button-padding-horizontal: 16px;
 
+$button-font-size-large: 18px;
+$button-padding-vertical-large: 14px;
+$button-padding-horizontal-large: 22px;
+
 @mixin button-color($color, $border-color, $bg-color){
   color: $color;
   border-color: $border-color;

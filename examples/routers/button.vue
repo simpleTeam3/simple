@@ -7,6 +7,8 @@
 			<vut-button type="success">成功按钮</vut-button>
 			<vut-button type="warning">警告按钮</vut-button>
 			<vut-button type="error">错误按钮</vut-button>
+			<vut-button size="large">大的按钮</vut-button>
+			<vut-button type="primary" size="large">主要按钮</vut-button>
 		</div>
 		<div class="demo-list">
 			<vut-button plain>朴素按钮</vut-button>
