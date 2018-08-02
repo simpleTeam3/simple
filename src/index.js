@@ -8,6 +8,7 @@ import Icon from './components/icon';
 import Message from './components/message';
 import ToolTip from './components/toolTip';
 import Loading from './components/loading';
+import Page from './components/page';
 
 const Simple = {
 	Radio,
@@ -19,7 +20,8 @@ const Simple = {
 	Icon,
 	Message,
 	ToolTip,
-	Loading:Loading.Loading
+	Loading:Loading.Loading,
+	Page
 };
 
 const install = function(Vue){
