@@ -1,3 +1,4 @@
+import Radio from './components/radio'
 import Input from './components/input';
 import Button from './components/button';
 import Table from './components/table';
@@ -9,6 +10,7 @@ import ToolTip from './components/toolTip';
 import Loading from './components/loading';
 
 const Simple = {
+	Radio,
 	Input,
 	Button,
 	Table,

@@ -17,6 +17,10 @@ Vue.config.debug = true;
 const router = new VueRouter({
 	routes: [
 		{
+			path: '/radio',
+			component: require('./routers/radio.vue')
+		},
+		{
 			path: '/input',
 			component: require('./routers/input.vue')
 		},

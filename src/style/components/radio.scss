@@ -1,0 +1,68 @@
+$radio-class-prefix: #{$class-prefix}radio;
+
+.#{$radio-class-prefix}{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    line-height: 1;
+    white-space: nowrap;
+    color: $radio-color;
+    font-size: $radio-font-size;
+}
+.#{$radio-class-prefix}-input{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    &.is-checked{
+        .#{$radio-class-prefix}-inner{
+            border-color: $radio-input-border-color-checked;
+            background: $radio-input-icon-color;
+
+            &::after{
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    }
+}
+.#{$radio-class-prefix}-inner{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+    width: $radio-input-width;
+    height: $radio-input-height;
+    background-color: $radio-input-fill;
+    border:$radio-input-border;
+    border-radius: $radio-input-border-radius;
+
+    &:hover{
+        border-color: $radio-input-border-color-hover;
+    }
+
+    &::after{
+        width: 5px;
+        height: 5px;
+        border-radius: $radio-input-border-radius;
+        background-color: $radio-input-fill;
+        content:"";
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform .3s ease-in;
+    }
+}
+.#{$radio-class-prefix}-original{
+    opacity:0;
+    position: absolute;
+    z-index: -1;
+}
+.#{$radio-class-prefix}-label{
+
+}

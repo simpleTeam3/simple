@@ -50,6 +50,7 @@ $border-style-base: solid;
 $border-color-base: $border-color;
 $border-base: $border-width-base $border-style-base $border-color-base;
 $border-radius-base: 5px;
+$border-radius-circle: 100%;
 
 //禁用状态
 @mixin disabled-state{
@@ -140,3 +141,17 @@ $button-padding-horizontal-large: 22px;
   font-size: $font-size;
   // border-radius: $border-radius; //开发圆角按钮预备
 }
+
+// ------Radio-----
+$radio-font-size: 14px;
+$radio-color: $content-color;
+$radio-input-width: 14px;
+$radio-input-height: 14px;
+$radio-input-border: $border-base;
+$radio-input-border-radius: $border-radius-circle;
+$radio-input-fill: $white-color;
+
+$radio-input-border-color-hover: $primary-color;
+
+$radio-input-border-color-checked: $primary-color;
+$radio-input-icon-color: $primary-color;

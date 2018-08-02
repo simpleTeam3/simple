@@ -55,6 +55,7 @@
 	<div class="content-wrap">
 		<nav>
 			<ul class="nav-list">
+				<li><router-link to="/radio">radio</router-link></li>
 				<li><router-link to="/input">Input</router-link></li>
 				<li><router-link to="/button">Button</router-link></li>
 				<li><router-link to="/table">Table</router-link></li>
