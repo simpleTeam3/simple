@@ -11,6 +11,7 @@ var FriendlyErrorsPlugin = require('Friendly-errors-webpack-plugin');
 
 
 module.exports = merge(webpackBaseConfig, {
+	devtool: 'cheap-module-eval-source-map',
 	//入口
 	entry: {
 		main: './examples/main',
@@ -37,5 +38,5 @@ module.exports = merge(webpackBaseConfig, {
 			template: path.join(__dirname, '../examples/index.html')
 		}),
 		new FriendlyErrorsPlugin()
-	]
+	],
 })

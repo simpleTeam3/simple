@@ -7,7 +7,7 @@
             }
         ]">
             <span :class="prefix + '-inner'"></span>
-            <input type="radio" :class="prefix + '-original'" :value="label" @change="handleInput"/>
+            <input type="radio" :class="prefix + '-original'" :value="label" v-model="checkActive"/>
         </span>
         <span :class="prefix + '-label'">
             <slot></slot>
@@ -30,6 +30,16 @@ export default {
     methods: {
         handleInput: function(e){
             this.$emit('input', e.target.value);
+        }
+    },
+    computed: {
+        checkActive: {
+            get: function(){
+                return this.value;
+			},
+			set: function(newValue){
+				this.$emit('input', newValue);
+			}
         }
     }
 }
