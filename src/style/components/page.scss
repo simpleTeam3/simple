@@ -1,0 +1,23 @@
+$switch-class-prefix: #{$class-prefix}page;
+
+.#{$switch-class-prefix} li {
+    & {
+        display: inline-block;
+        height: 32px;
+        width: auto;
+        min-width: 32px;
+        line-height: 30px;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        text-align: center;
+        cursor: pointer;
+        background-color: #fff;
+        color: $content-color;
+        user-select: none;
+        margin: 0px 3px;
+    }
+    &:hover {
+        border: 1px solid $light-primary-color;
+        color: $light-primary-color;
+    }
+}
