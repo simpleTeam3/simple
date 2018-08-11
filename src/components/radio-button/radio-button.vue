@@ -8,7 +8,11 @@
 const prefix = "vut-radio-button";
 export default {
     name : 'vut-radio-button',
-
+    data() {
+        return {
+            
+        }
+    }
 }
 </script>
 
