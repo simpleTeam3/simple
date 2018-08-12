@@ -1,7 +1,9 @@
 <template>
-    <label>
-        <input />
-        <span></span>
+    <label :class="prefixs">
+        <input :class="prefix + '-original'" />
+        <span :class="prefix + '-inner'" >
+            <slot></slot>
+        </span>
     </label>
 </template>
 <script>
