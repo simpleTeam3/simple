@@ -19,7 +19,9 @@ const prefix = 'vut-radio'
 export default {
     name: 'vut-radio',
     props: {
-        value: {},
+        value: {
+            test: "",
+        },
         label: {}
     },
     data(){
