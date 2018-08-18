@@ -20,7 +20,7 @@ export default {
     name: 'vut-radio',
     props: {
         value: {
-            test: "",
+            test: "ggg",
         },
         label: {}
     },
