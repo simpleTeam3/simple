@@ -1,0 +1,25 @@
+$tag-class-prefix: #{$class-prefix}tag;
+
+.#{$tag-class-prefix}{
+	padding: 7px 12px;
+	display: inline-block;
+	border: $border-base;
+	border-radius: $border-radius-base;
+	font-size: 14px;
+
+	&-default{
+		@include tag-color($tag-default-color, $tag-default-border, $tag-default-fill);
+	}
+	&-success{
+		@include tag-color($tag-success-color, $tag-success-border, $tag-success-fill);
+	}
+	&-info{
+		@include tag-color($tag-info-color, $tag-info-border, $tag-info-fill);
+	}
+	&-warning{
+		@include tag-color($tag-warning-color, $tag-warning-border, $tag-warning-fill);
+	}
+	&-error{
+		@include tag-color($tag-error-color, $tag-error-border, $tag-error-fill);
+	}
+}
