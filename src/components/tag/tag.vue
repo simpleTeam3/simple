@@ -1,7 +1,7 @@
 <template>
     <span :class="[
             prefix,
-            prefix+'-'+type
+            type ? prefix+'-'+type : ''
         ]"
     >
         <slot></slot>
@@ -13,10 +13,7 @@ const prefix = "vut-tag";
 export default {
     name: "vut-tag",
     props: {
-        type: {
-            type: String,
-            default: "default"
-        }
+        type: String
     },
     data(){
         return {

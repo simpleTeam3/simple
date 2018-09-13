@@ -6,10 +6,8 @@ $tag-class-prefix: #{$class-prefix}tag;
 	border: $border-base;
 	border-radius: $border-radius-base;
 	font-size: 14px;
-
-	&-default{
-		@include tag-color($tag-default-color, $tag-default-border, $tag-default-fill);
-	}
+	@include tag-color($tag-default-color, $tag-default-border, $tag-default-fill);
+	
 	&-success{
 		@include tag-color($tag-success-color, $tag-success-border, $tag-success-fill);
 	}
