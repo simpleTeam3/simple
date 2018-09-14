@@ -1,13 +1,33 @@
 $tag-class-prefix: #{$class-prefix}tag;
 
 .#{$tag-class-prefix}{
-	padding: 7px 12px;
+	padding: 0 10px;
+	height: 32px;
+	line-height: 32px;
 	display: inline-block;
 	border: $border-base;
 	border-radius: $border-radius-base;
+	white-space: nowrap;
 	font-size: 14px;
 	@include tag-color($tag-default-color, $tag-default-border, $tag-default-fill);
-	
+
+	.vut-icon-close{
+		text-align: center;
+		font-size: 14px;
+		height: 16px;
+		width: 16px;
+		line-height: 16px;
+		cursor: pointer;
+		vertical-align: middle;
+		position: relative;
+		top: -1px;
+		right: 2px;
+		border-radius: $border-radius-circle;
+		&:hover{
+			background-color: $tag-default-border;
+		}
+	}
+
 	&-success{
 		@include tag-color($tag-success-color, $tag-success-border, $tag-success-fill);
 	}
@@ -19,5 +39,9 @@ $tag-class-prefix: #{$class-prefix}tag;
 	}
 	&-error{
 		@include tag-color($tag-error-color, $tag-error-border, $tag-error-fill);
+	}
+
+	&-small{
+		@include tag-size(24px, 12px);
 	}
 }
