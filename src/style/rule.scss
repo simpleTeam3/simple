@@ -26,7 +26,7 @@ $light-primary-color: #5cadff;
 $dark-primary-color: #2b85e4;
 
 //辅助色
-$info-color: #2d8cf0;
+$info-color: #8794a1;
 $success-color: #19be6b;
 $warning-color: #ff9900;
 $error-color: #ed3f14;
@@ -50,7 +50,7 @@ $border-style-base: solid;
 $border-color-base: $border-color;
 $border-base: $border-width-base $border-style-base $border-color-base;
 $border-radius-base: 5px;
-$border-radius-circle: 100%;
+$border-radius-circle: 50%;
 
 //禁用状态
 @mixin disabled-state{
@@ -142,6 +142,7 @@ $button-padding-horizontal-large: 22px;
   // border-radius: $border-radius; //开发圆角按钮预备
 }
 
+
 // ------Radio-----
 $radio-font-size: 14px;
 $radio-color: $content-color;
@@ -155,3 +156,51 @@ $radio-input-border-color-hover: $primary-color;
 
 $radio-input-border-color-checked: $primary-color;
 $radio-input-icon-color: $primary-color;
+
+
+// ------Tag---------
+$tag-default-color: $primary-color;
+$tag-default-border: lighten($primary-color, 30%);
+$tag-default-fill: lighten($primary-color, 40%);
+
+$tag-success-color: $success-color;
+$tag-success-border: lighten($success-color, 40%);
+$tag-success-fill: lighten($success-color, 52%);
+
+$tag-info-color: $info-color;
+$tag-info-border: lighten($info-color, 35%);
+$tag-info-fill: lighten($info-color, 39%);
+
+$tag-warning-color: $warning-color;
+$tag-warning-border: lighten($warning-color, 35%);
+$tag-warning-fill: lighten($warning-color, 45%);
+
+$tag-error-color: $error-color;
+$tag-error-border: lighten($error-color, 40%);
+$tag-error-fill: lighten($error-color, 45%);
+
+@mixin tag-color($color, $border-color, $background-color){
+  color: lighten($color, 12%);
+  border-color: $border-color;
+  background-color: $background-color;
+  .vut-icon-close{
+    &:hover{
+      color: #fff;
+      background-color: $color;
+    }
+  }
+}
+@mixin tag-size($height, $font-size){
+  height: $height;
+  line-height: $height;
+  font-size: $font-size;
+}
+
+
+//--------Badge-------
+$badge-fill: $error-color;
+$badge-radius: 10px;
+$badge-font-size: 12px;
+$badge-size: 20px;
+$badge-padding: 6px;
+$badge-size-dot: 10px;

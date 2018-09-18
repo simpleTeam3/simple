@@ -1,0 +1,36 @@
+$badge-class-prefix: #{$class-prefix}badge;
+
+.#{$badge-class-prefix}{
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+
+    .#{$badge-class-prefix}-content{
+        color: $white-color;
+        background-color: $badge-fill;
+        border-radius: $badge-radius;
+        display: inline-block;
+        height: $badge-size;
+        line-height: $badge-size;
+        padding: 0 $badge-padding;
+        text-align: center;
+        white-space: nowrap;
+        border: 1px solid $white-color;
+
+        &.#{$badge-class-prefix}-attach{
+            position: absolute;
+            top: 0;
+            right:0;
+            transform: translateX(50%) translateY(-50%);
+
+        }
+
+        &.#{$badge-class-prefix}-dot{
+            height: $badge-size-dot;
+            width: $badge-size-dot;
+            border-radius: 50%;
+            padding: 0;
+        }
+    }
+    
+}
