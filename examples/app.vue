@@ -81,6 +81,7 @@
 					{path: 'tag', name: 'Tag'},
 					{path: 'badge', name: 'Badge'},
 					{path: 'slider', name: 'Slider'},
+					{path: 'tabs', name: 'Tabs'}
 				]
 			}
 		}

@@ -1,3 +1,5 @@
+import global from './common/global';
+
 import Radio from './components/radio'
 import Input from './components/input';
 import Button from './components/button';
@@ -9,6 +11,11 @@ import Message from './components/message';
 import ToolTip from './components/toolTip';
 import Loading from './components/loading';
 import Page from './components/page';
+import Select from './components/select';
+import Tag from './components/tag';
+import Badge from './components/badge';
+import Slider from './components/slider';
+import Tabs from './components/tabs';
 
 const Simple = {
 	Radio,
@@ -21,7 +28,13 @@ const Simple = {
 	Message,
 	ToolTip,
 	Loading:Loading.Loading,
-	Page
+	Page,
+	Select,
+	Tag,
+	Badge,
+	Slider,
+	Tabs,
+	TabsPanel: Tabs.Panel
 };
 
 const install = function(Vue){
@@ -33,6 +46,8 @@ const install = function(Vue){
 
 	Vue.prototype.$loading = Loading.service;
 	Vue.prototype.$Message = Message;
+
+	Vue.prototype.global = global;
 }
 
 if(window && window.Vue){

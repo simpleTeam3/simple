@@ -185,7 +185,7 @@ $tag-error-fill: lighten($error-color, 45%);
   background-color: $background-color;
   .vut-icon-close{
     &:hover{
-      color: #fff;
+      color: $white-color;
       background-color: $color;
     }
   }
@@ -204,3 +204,16 @@ $badge-font-size: 12px;
 $badge-size: 20px;
 $badge-padding: 6px;
 $badge-size-dot: 10px;
+
+
+//--------Slider--------
+$slider-bar-height: 8px;
+$slider-button-wrap-height: 18px;
+$slider-button-height: 14px;
+$slider-button-border: ($slider-button-wrap-height - $slider-button-height)/2;
+$slider-color: $primary-color;
+$slider-fill: #E8EAEC;
+$slider-border-radius: 5px;
+
+
+//---------Tabs---------

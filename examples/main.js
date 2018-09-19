@@ -59,6 +59,26 @@ const router = new VueRouter({
 		{
 			path: '/page',
 			component: require('./routers/page.vue')
+		},
+		{
+			path: '/select',
+			component: require('./routers/select.vue')
+		},
+		{
+			path: '/tag',
+			component: require('./routers/tag.vue')
+		},
+		{
+			path: '/badge',
+			component: require('./routers/badge.vue')
+		},
+		{
+			path: '/slider',
+			component: require('./routers/slider.vue')
+		},
+		{
+			path: '/tabs',
+			component: require('./routers/tabs.vue')
 		}
 	]
 });
