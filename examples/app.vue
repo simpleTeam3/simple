@@ -55,17 +55,7 @@
 	<div class="content-wrap">
 		<nav>
 			<ul class="nav-list">
-				<li><router-link to="/radio">radio</router-link></li>
-				<li><router-link to="/input">Input</router-link></li>
-				<li><router-link to="/button">Button</router-link></li>
-				<li><router-link to="/table">Table</router-link></li>
-				<li><router-link to="/switch">Switch</router-link></li>
-				<li><router-link to="/inputNumber">inputNumber</router-link></li>
-				<li><router-link to="/icon">Icon</router-link></li>
-                <li><router-link to="/message">Message</router-link></li>
-				<li><router-link to="/toolTip">ToolTip</router-link></li>
-				<li><router-link to="/loading">Loading</router-link></li>
-				<li><router-link to="/page">Page</router-link></li>
+				<li v-for="(r, index) in routeList" :key="index"><router-link :to="'/'+ r.path">{{r.name}}</router-link></li>
 			</ul>
 		</nav>
 		<router-view></router-view>
@@ -75,7 +65,23 @@
 	export default {
 		data(){
 			return {
-				a: 1
+				routeList: [
+					{path: 'radio', name: 'Radio'},
+					{path: 'input', name: 'Input'},
+					{path: 'button', name: 'Button'},
+					{path: 'table', name: 'Table'},
+					{path: 'switch', name: 'Switch'},
+					{path: 'inputNumber', name: 'inputNumber'},
+					{path: 'icon', name: 'Icon'},
+					{path: 'message', name: 'Message'},
+					{path: 'tooltip', name: 'ToolTip'},
+					{path: 'loading', name: 'Loading'},
+					{path: 'page', name: 'Page'},
+					{path: 'select', name: 'Select'},
+					{path: 'tag', name: 'Tag'},
+					{path: 'badge', name: 'Badge'},
+					{path: 'slider', name: 'Slider'},
+				]
 			}
 		}
 	}
