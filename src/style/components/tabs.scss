@@ -1,1 +1,26 @@
 $tabs-class-prefix: #{$class-prefix}tabs;
+$tab-panel-class-prefix: #{$class-prefix}tab-panel;
+
+
+.#{$tabs-class-prefix}-nav{
+    padding: 0 10px;
+    border-bottom: 2px solid $border-color;
+}
+.#{$tabs-class-prefix}-nav-item{
+    padding: 6px 8px;
+    display: inline-block;
+    cursor: pointer;
+
+    + .#{$tabs-class-prefix}-nav-item{
+        margin-left: 15px;
+    }
+
+    &.active{
+        color: $primary-color;
+        border-bottom: 2px solid $primary-color;
+    }
+
+    &:hover{
+        color: $primary-color;
+    }
+}
