@@ -1,26 +1,40 @@
 $tabs-class-prefix: #{$class-prefix}tabs;
 $tab-panel-class-prefix: #{$class-prefix}tab-panel;
 
+.#{$tabs-class-prefix}{
+    position: relative;
 
-.#{$tabs-class-prefix}-nav{
-    padding: 0 10px;
-    border-bottom: 2px solid $border-color;
-}
-.#{$tabs-class-prefix}-nav-item{
-    padding: 6px 8px;
-    display: inline-block;
-    cursor: pointer;
+    &-nav{
+        padding: 10px 10px;
+        border-bottom: 2px solid $border-color;
+        position: relative;
 
-    + .#{$tabs-class-prefix}-nav-item{
-        margin-left: 15px;
-    }
+        &-item{
+            padding: 0 8px;
+            display: inline-block;
+            cursor: pointer;
 
-    &.active{
-        color: $primary-color;
-        border-bottom: 2px solid $primary-color;
-    }
+            + .#{$tabs-class-prefix}-nav-item{
+                margin-left: 15px;
+            }
 
-    &:hover{
-        color: $primary-color;
+            &-active{
+                color: $primary-color;
+            }
+
+            &:hover{
+                color: $primary-color;
+            }
+        }
+
+        &-ink-bar{
+            height: 2px;
+            width:20px;
+            box-sizing: border-box;
+            background-color: $primary-color;
+            position: absolute;
+            left:0;
+            bottom:1px;
+        }
     }
 }

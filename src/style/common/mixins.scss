@@ -1,0 +1,87 @@
+//Common
+//禁用状态
+@mixin disabled-state {
+    background-color: #f3f3f3;
+    opacity: .9;
+    cursor: not-allowed;
+    color: #ccc;
+}
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+@mixin clearfix {
+    zoom: 1;
+    &:before,
+    &:after{
+        content: "";
+        display: table;
+    }
+    &:after{
+        clear: both;
+        visibility: hidden;
+        font-size: 0;
+        height: 0;
+    }
+}
+
+
+//Button
+@mixin button-color($color, $border-color, $bg-color) {
+    color: $color;
+    border-color: $border-color;
+    background-color: $bg-color;
+    &:hover,
+    &:focus {
+        color: $color;
+        border-color: lighten($border-color, 15%);
+        background-color: lighten($bg-color, 15%);
+    }
+    &:active {
+        border-color: darken($border-color, 15%);
+        background-color: darken($bg-color, 15%);
+    }
+    &.is-plain {
+        color: $bg-color;
+        border-color: lighten($border-color, 20%);
+        background-color: lighten($bg-color, 42%);
+        &:hover,
+        &:focus {
+            color: $color;
+            border-color: $border-color;
+            background-color: $bg-color;
+        }
+    }
+    &.is-disabled {
+        &,
+        &:hover,
+        &:focus {
+            color: lighten($bg-color, 25%);
+            border-color: lighten($border-color, 42%);
+            background-color: lighten($bg-color, 45%);
+        }
+    }
+}
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size; // border-radius: $border-radius; //开发圆角按钮预备
+}
+
+//Tag
+@mixin tag-color($color, $border-color, $background-color) {
+    color: lighten($color, 12%);
+    border-color: $border-color;
+    background-color: $background-color;
+    .vut-icon-close {
+        &:hover {
+            color: $white-color;
+            background-color: $color;
+        }
+    }
+}
+
+@mixin tag-size($height, $font-size) {
+    height: $height;
+    line-height: $height;
+    font-size: $font-size;
+}

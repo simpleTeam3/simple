@@ -8,14 +8,10 @@
                 <div :class="[prefix + '-nav-wrap']">
                     <div :class="[prefix + '-nav-scroll']">
                         <div :class="prefix + '-nav'">
-                            <div></div>
+                            <div :class="inkClass"></div>
                             <div 
-                                :class="[
-                                    prefix + '-nav-item',
-                                    activeValue == nav.name ? 'active' : '' 
-                                ]"
-                                v-for="(nav, index) in navList"
-                                :key="index"
+                                :class="navItemClass(nav)"
+                                v-for="(nav, index) in navList" :key="index"
                                 @click="changeNav(nav.name)"
                             >{{nav.label}}</div>
                         </div>
@@ -37,6 +33,21 @@ export default {
             prefix: this.global.prefix + 'tabs',
             navList: [],
             activeValue: this.value
+        }
+    },
+    computed: {
+        inkClass(){
+            return [
+                this.prefix + '-nav-ink-bar',
+            ]
+        },
+        navItemClass(){
+            return function(item){
+                return [
+                    this.prefix + '-nav-item',
+                    this.activeValue == item.name ? this.prefix + '-nav-item-active' : '' 
+                ]
+            }
         }
     },
     methods: {
