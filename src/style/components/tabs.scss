@@ -2,17 +2,44 @@ $tabs-class-prefix: #{$class-prefix}tabs;
 $tab-panel-class-prefix: #{$class-prefix}tab-panel;
 
 .#{$tabs-class-prefix}{
+    box-sizing: border-box;
     position: relative;
+    overflow: hidden;
+    @include clearfix;
+
+    &-bar{
+        outline: none;
+        border-bottom: 1px solid $border-color;
+        margin-bottom: 10px;
+    }
+
+    &-nav-container{
+        box-sizing: border-box;
+        overflow: hidden;
+        margin-bottom: -1px;
+        position: relative;
+        @include clearfix;
+    }
 
     &-nav{
-        padding: 10px 10px;
-        border-bottom: 2px solid $border-color;
         position: relative;
 
+        &-ink-bar{
+            height: 2px;
+            box-sizing: border-box;
+            background-color: $primary-color;
+            position: absolute;
+            left: 0;
+            bottom: 0px;
+            z-index: 1;
+            transition: transform .3s ease-out, width .5s ease-out;
+        }
+
         &-item{
-            padding: 0 8px;
+            padding: 10px 16px;
             display: inline-block;
             cursor: pointer;
+            transition: color .2s ease-out;
 
             + .#{$tabs-class-prefix}-nav-item{
                 margin-left: 15px;
@@ -27,14 +54,17 @@ $tab-panel-class-prefix: #{$class-prefix}tab-panel;
             }
         }
 
-        &-ink-bar{
-            height: 2px;
-            width:20px;
-            box-sizing: border-box;
-            background-color: $primary-color;
-            position: absolute;
-            left:0;
-            bottom:1px;
-        }
+    }
+
+    &-content-animated{
+        display: flex;
+        flex-direction: row;
+        will-change: transform;
+        transition: transform .5s ease;
+    }
+
+    .#{$tab-panel-class-prefix}{
+        flex-shrink: 0;
+        width: 100%;
     }
 }
