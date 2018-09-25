@@ -79,6 +79,10 @@ const router = new VueRouter({
 		{
 			path: '/tabs',
 			component: require('./routers/tabs.vue')
+		},
+		{
+			path: '/breadcrumb',
+			component: require('./routers/breadcrumb.vue')
 		}
 	]
 });

@@ -1,0 +1,42 @@
+$breadcrumb-class-prefix: #{$class-prefix}breadcrumb;
+
+.#{$breadcrumb-class-prefix}{
+    line-height: 1;
+
+    &-item{
+        color: $title-color-second;
+
+        &-inner{
+            &.link, & a{
+
+                &:hover{
+                    color: $primary-color;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &-separator{
+            font-weight: bold;
+            color: $separator-color;
+        }
+
+        &:last-child{
+            color: $title-color;
+            font-weight: bold;
+
+            .#{$breadcrumb-class-prefix}-item-inner,
+            .#{$breadcrumb-class-prefix}-item-inner a{
+                &:hover{
+                    color: $title-color;
+                    cursor: text;
+                }
+            }
+
+            .#{$breadcrumb-class-prefix}-item-separator{
+                display: none;
+            }
+        }
+    }
+    
+}

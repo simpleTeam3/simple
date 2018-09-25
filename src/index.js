@@ -36,7 +36,8 @@ const Simple = {
 	Slider,
 	Tabs,
 	TabsPanel: Tabs.Panel,
-	Breadcrumb
+	Breadcrumb,
+	BreadcrumbItem: Breadcrumb.Item
 };
 
 const install = function(Vue){
