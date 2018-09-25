@@ -9,6 +9,7 @@
 <script>
 export default {
     name: 'vutTabPanel',
+    inject: ['activeValue', 'animated'],
     props: {
         label: String,
         name: String,
@@ -20,7 +21,7 @@ export default {
     },
     computed: {
         visibled(){
-            return (this.name == this.$parent.activeValue || this.$parent.animated);
+            return (this.name == this.activeValue || this.animated);
         }
     },
     mounted(){

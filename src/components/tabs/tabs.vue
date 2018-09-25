@@ -41,6 +41,12 @@ export default {
             }
         }
     },
+    provide(){
+        return {
+            activeValue: this.activeValue,
+            animated: this.animated
+        }
+    },
     computed: {
         inkClass(){
             return [
