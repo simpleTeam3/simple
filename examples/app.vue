@@ -82,7 +82,8 @@
 					{path: 'badge', name: 'Badge'},
 					{path: 'slider', name: 'Slider'},
 					{path: 'tabs', name: 'Tabs'},
-					{path: 'breadcrumb', name: 'Breadcrumb'}
+					{path: 'breadcrumb', name: 'Breadcrumb'},
+					{path: 'steps', name: 'Steps'}
 				]
 			}
 		}

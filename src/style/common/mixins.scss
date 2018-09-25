@@ -38,8 +38,8 @@
         background-color: lighten($bg-color, 15%);
     }
     &:active {
-        border-color: darken($border-color, 15%);
-        background-color: darken($bg-color, 15%);
+        border-color: darken($border-color, 8%);
+        background-color: darken($bg-color, 8%);
     }
     &.is-plain {
         color: $bg-color;

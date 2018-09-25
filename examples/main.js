@@ -83,6 +83,10 @@ const router = new VueRouter({
 		{
 			path: '/breadcrumb',
 			component: require('./routers/breadcrumb.vue')
+		},
+		{
+			path: '/steps',
+			component: require('./routers/steps.vue')
 		}
 	]
 });

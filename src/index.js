@@ -17,6 +17,7 @@ import Badge from './components/badge';
 import Slider from './components/slider';
 import Tabs from './components/tabs';
 import Breadcrumb from './components/breadcrumb';
+import Steps from './components/steps';
 
 const Simple = {
 	Radio,
@@ -37,7 +38,9 @@ const Simple = {
 	Tabs,
 	TabsPanel: Tabs.Panel,
 	Breadcrumb,
-	BreadcrumbItem: Breadcrumb.Item
+	BreadcrumbItem: Breadcrumb.Item,
+	Steps: Steps,
+	Step: Steps.Step,
 };
 
 const install = function(Vue){

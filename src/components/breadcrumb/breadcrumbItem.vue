@@ -1,8 +1,10 @@
 <template>
     <span :class="prefix">
+        <!-- main -->
         <span :class="innerClass" ref="link">
             <slot></slot>
         </span>
+        <!-- icon or separator -->
         <i v-if="separatorClass" :class="[ prefix+'-separator', separatorClass]"></i>
         <span v-else :class="prefix+'-separator'">{{this.separator}}</span>
     </span>
