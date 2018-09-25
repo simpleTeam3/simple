@@ -20,9 +20,18 @@ npm run dev
 # 项目目录结构
 
 ```
--doc		---文档
--src		---源码
-	-components		---组件
-	-style			---样式
-	-utils			---工具库
+-assets     ---静态资源
+-examples   ---用例展示
+-doc				---相关开发文档
+-src				---源码
+  -common       ---公共
+  -components		---组件
+  -mixins       ---混合方法
+  -style			  ---样式
+  -utils			  ---工具库
+  -index.js     ---组件库入口文件
 ```
+
+# 参考
+[Element](https://github.com/ElemeFE/element)
+[iview](https://github.com/iview/iview)
