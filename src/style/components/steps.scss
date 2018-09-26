@@ -1,0 +1,91 @@
+$steps-class-prefix: #{$class-prefix}steps;
+$step-class-prefix: #{$class-prefix}step;
+
+.#{$steps-class-prefix}{
+    display: flex;
+
+    &-horizontal{
+        white-space: nowrap;
+    }
+    &-vertical{
+        flex-flow: column;
+    }
+}
+
+.#{$step-class-prefix}{
+    position: relative;
+    flex-shrink: 1;
+    flex-basis: 50%;
+    &:last-child{
+        .#{$step-class-prefix}-line{
+            display: none
+        }
+    }
+    &.is-done{
+        color: $black-color;
+        .#{$step-class-prefix}-line-inner{
+            width: 100%;
+        }
+    }
+    &.is-active{
+        color: $black-color;
+    }
+    &.is-wait{
+        color: $disabled-color;
+    }
+
+    &-head{
+        position: relative;
+        width: 100%;
+    }
+    &-line{
+        position: absolute;
+        border-color: inherit;
+        background-color: $disabled-color;
+    }
+    &-horizontal{
+        .#{$step-class-prefix}-line{
+            height: 2px;
+            top: 13px;
+            left: 0;
+            right: 0;
+        }
+    }
+    &-line-inner{
+        display: block;
+        border-width: 1px;
+        border-style: solid;
+        border-color: inherit;
+        width: 0;
+        height: 0;
+        transition: width .3s ease-out;
+    }
+    &-icon{
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+        box-sizing: border-box;
+        border: $border-base;
+        border-width: 2px;
+        border-color: inherit;
+        border-radius: $border-radius-circle;
+        background-color: $white-color;
+        transition: .2s ease-out .3s;
+    }
+    
+    &-main{
+        color: inherit;
+    }
+    &-title{
+    
+    }
+    &-description{
+    
+    }
+}
+
