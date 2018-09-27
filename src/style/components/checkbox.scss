@@ -1,0 +1,43 @@
+$class-prefix-checkbox: #{$class-prefix}checkbox;
+
+.#{$class-prefix-checkbox}{
+    display: inline-block;
+    cursor: pointer;
+
+    &-input{
+        display: inline-block;
+
+        &.is-checked{
+            .#{$class-prefix-checkbox}-inner{
+                border-color: $primary-color;
+
+                &::after{
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+        }
+    }
+
+    &-inner{
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: $border-base;
+        position: relative;
+
+        &::after{
+            width: 10px;
+            height: 10px;
+            background-color: $primary-color;
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform .2s ease-out;
+        }
+    }
+    &-label{
+        display: inline-block;
+    }
+}

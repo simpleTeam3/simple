@@ -83,7 +83,8 @@
 					{path: 'slider', name: 'Slider'},
 					{path: 'tabs', name: 'Tabs'},
 					{path: 'breadcrumb', name: 'Breadcrumb'},
-					{path: 'steps', name: 'Steps'}
+					{path: 'steps', name: 'Steps'},
+					{path: 'checkBox', name: 'CheckBox'}
 				]
 			}
 		}

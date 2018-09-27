@@ -18,6 +18,7 @@ import Slider from './components/slider';
 import Tabs from './components/tabs';
 import Breadcrumb from './components/breadcrumb';
 import Steps from './components/steps';
+import Checkbox from './components/checkbox';
 
 const Simple = {
 	Radio,
@@ -41,6 +42,7 @@ const Simple = {
 	BreadcrumbItem: Breadcrumb.Item,
 	Steps: Steps,
 	Step: Steps.Step,
+	Checkbox: Checkbox
 };
 
 const install = function(Vue){
