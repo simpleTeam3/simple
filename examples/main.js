@@ -91,6 +91,10 @@ const router = new VueRouter({
 		{
 			path: '/checkbox',
 			component: require('./routers/checkbox')
+		},
+		{
+			path: '/progress',
+			component: require('./routers/progress')
 		}
 	]
 });

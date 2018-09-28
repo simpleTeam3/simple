@@ -107,6 +107,7 @@
 					data: [
 						{path: 'table', name: 'Table'},
 						{path: 'page', name: 'Page'},
+						{path: 'progress', name: 'Progress'}
 					],
 				}
 			}
