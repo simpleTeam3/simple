@@ -9,10 +9,11 @@ $class-prefix-checkbox: #{$class-prefix}checkbox;
 
         &.is-checked{
             .#{$class-prefix-checkbox}-inner{
+                background-color: $primary-color;
                 border-color: $primary-color;
 
                 &::after{
-                    transform: translate(-50%, -50%) scale(1);
+                    transform:rotate(45deg) scale(1.1);
                 }
             }
         }
@@ -20,21 +21,26 @@ $class-prefix-checkbox: #{$class-prefix}checkbox;
 
     &-inner{
         display: inline-block;
-        width: 14px;
-        height: 14px;
+        width: 13px;
+        height: 13px;
         border: $border-base;
+        border-radius: 3px;
         position: relative;
 
         &::after{
-            width: 10px;
-            height: 10px;
-            background-color: $primary-color;
+            width: 4px;
+            height: 9px;
+            border-color: $white-color;
+            border-width: 1px;
+            border-style: solid;
+            border-top: 0;
+            border-left: 0;
             content: "";
             position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform .2s ease-out;
+            left: 5px;
+            top: 1px;
+            transform: rotate(45deg) scale(0);
+            transition: transform .1s ease-out;
         }
     }
     &-label{

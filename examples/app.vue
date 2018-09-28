@@ -53,10 +53,23 @@
 </style>
 <template>
 	<div class="content-wrap">
-		<nav>
+		<nav class="nav">
 			<ul class="nav-list">
-				<li v-for="(r, index) in routeList" :key="index"><router-link :to="'/'+ r.path">{{r.name}}</router-link></li>
+				<li v-for="(r, index) in routeList.basic" :key="index"><router-link :to="'/'+ r.path">{{r.name}}</router-link></li>
 			</ul>
+			<ul class="nav-list">
+				<li v-for="(r, index) in routeList.navigation" :key="index"><router-link :to="'/'+ r.path">{{r.name}}</router-link></li>
+			</ul>
+			<ul class="nav-list">
+				<li v-for="(r, index) in routeList.form" :key="index"><router-link :to="'/'+ r.path">{{r.name}}</router-link></li>
+			</ul>
+			<ul class="nav-list">
+				<li v-for="(r, index) in routeList.notice" :key="index"><router-link :to="'/'+ r.path">{{r.name}}</router-link></li>
+			</ul>
+			<ul class="nav-list">
+				<li v-for="(r, index) in routeList.data" :key="index"><router-link :to="'/'+ r.path">{{r.name}}</router-link></li>
+			</ul>
+
 		</nav>
 		<router-view></router-view>
 	</div>
@@ -65,29 +78,53 @@
 	export default {
 		data(){
 			return {
-				routeList: [
-					{path: 'radio', name: 'Radio'},
-					{path: 'input', name: 'Input'},
-					{path: 'button', name: 'Button'},
-					{path: 'table', name: 'Table'},
-					{path: 'switch', name: 'Switch'},
-					{path: 'inputNumber', name: 'inputNumber'},
-					{path: 'icon', name: 'Icon'},
-					{path: 'message', name: 'Message'},
-					{path: 'tooltip', name: 'ToolTip'},
-					{path: 'loading', name: 'Loading'},
-					{path: 'page', name: 'Page'},
-					{path: 'select', name: 'Select'},
-					{path: 'tag', name: 'Tag'},
-					{path: 'badge', name: 'Badge'},
-					{path: 'slider', name: 'Slider'},
-					{path: 'tabs', name: 'Tabs'},
-					{path: 'breadcrumb', name: 'Breadcrumb'},
-					{path: 'steps', name: 'Steps'},
-					{path: 'checkBox', name: 'CheckBox'}
-				]
+				routeList: {
+					basic: [
+						{path: 'button', name: 'Button'},
+						{path: 'icon', name: 'Icon'},
+					],
+					navigation: [
+						{path: 'steps', name: 'Steps'},
+						{path: 'tabs', name: 'Tabs'},
+						{path: 'breadcrumb', name: 'Breadcrumb'},
+					],
+					form: [
+						{path: 'radio', name: 'Radio'},
+						{path: 'input', name: 'Input'},
+						{path: 'switch', name: 'Switch'},
+						{path: 'inputNumber', name: 'inputNumber'},
+						{path: 'select', name: 'Select'},
+						{path: 'slider', name: 'Slider'},
+						{path: 'checkBox', name: 'CheckBox'}
+					],
+					notice: [
+						{path: 'message', name: 'Message'},
+						{path: 'tooltip', name: 'ToolTip'},
+						{path: 'loading', name: 'Loading'},
+						{path: 'tag', name: 'Tag'},
+						{path: 'badge', name: 'Badge'},
+					],
+					data: [
+						{path: 'table', name: 'Table'},
+						{path: 'page', name: 'Page'},
+					],
+				}
 			}
 		}
 	}
 </script>
-<style></style>
+<style>
+.nav{
+	margin-bottom: 50px;
+}
+.nav-list{
+	zoom: 1;
+}
+.nav-list:after{
+	display: block;
+	clear: both;
+	content: "";
+	visibility: hidden;
+	height: 0;
+}
+</style>
