@@ -20,6 +20,7 @@ import Breadcrumb from './components/breadcrumb';
 import Steps from './components/steps';
 import Checkbox from './components/checkbox';
 import Progress from './components/progress';
+import Notification from './components/notification';
 
 const Simple = {
 	Radio,
@@ -44,7 +45,8 @@ const Simple = {
 	Steps: Steps,
 	Step: Steps.Step,
 	Checkbox: Checkbox,
-	Progress: Progress
+	Progress: Progress,
+	Notification: Notification
 };
 
 const install = function(Vue){

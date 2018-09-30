@@ -1,6 +1,7 @@
 $progress-class-prefix: #{$class-prefix}progress;
 
 .#{$progress-class-prefix}-wrap{
+    position: relative;
     display: inline-block;
     width: 88%;
     height: $progress-bar-height;
@@ -9,10 +10,15 @@ $progress-class-prefix: #{$class-prefix}progress;
 }
 
 .#{$progress-class-prefix}-bar{
+    position: absolute;
     background-color: $primary-color;
     height: $progress-bar-height;
     border-radius: $progress-border-radius;
 }
 .#{$progress-class-prefix}-label{
     display: inline-block;
+
+    &.is-success{
+        color: $success-color;
+    }
 }

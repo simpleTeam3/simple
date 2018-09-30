@@ -69,7 +69,6 @@
 			<ul class="nav-list">
 				<li v-for="(r, index) in routeList.data" :key="index"><router-link :to="'/'+ r.path">{{r.name}}</router-link></li>
 			</ul>
-
 		</nav>
 		<router-view></router-view>
 	</div>
@@ -103,6 +102,7 @@
 						{path: 'loading', name: 'Loading'},
 						{path: 'tag', name: 'Tag'},
 						{path: 'badge', name: 'Badge'},
+						{path: 'notification', name: 'Notification'}
 					],
 					data: [
 						{path: 'table', name: 'Table'},

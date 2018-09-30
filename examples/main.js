@@ -95,6 +95,10 @@ const router = new VueRouter({
 		{
 			path: '/progress',
 			component: require('./routers/progress')
+		},
+		{
+			path: '/notification',
+			component: require('./routers/notification')
 		}
 	]
 });
