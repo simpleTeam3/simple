@@ -1,0 +1,20 @@
+$notification-class-prefix: #{$class-prefix}notification;
+
+.#{$notification-class-prefix}{
+    display: flex;
+    position: fixed;
+    top: 20px;
+    width: 250px;
+    padding: $notification-padding;
+    border: $border-base;
+    border-radius: $border-radius-base;
+    box-shadow: $box-shadow-base;
+    overflow: hidden;
+
+    &.right{
+        right: 50px;
+    }
+    &.left{
+        left: 50px;
+    }
+}

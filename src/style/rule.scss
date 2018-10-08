@@ -54,7 +54,12 @@ $border-base: $border-width-base $border-style-base $border-color-base;
 $border-radius-base: 5px;
 $border-radius-circle: 50%;
 
+//box-shadow
+$box-shadow-base: 0 2px 3px $info-color;
 
+/*
+** 组件
+*/
 // ----loading-----
 $loading-box-size: 42px;
 $loading-box-size-fullscreen: 50px;
@@ -88,7 +93,6 @@ $button-padding-horizontal: 16px;
 $button-font-size-large: 18px;
 $button-padding-vertical-large: 14px;
 $button-padding-horizontal-large: 22px;
-
 
 
 // ------Radio-----
@@ -150,3 +154,8 @@ $slider-border-radius: 5px;
 //---------Progress---------
 $progress-bar-height: 5px;
 $progress-border-radius: 5px;
+
+
+//---------Notification------
+$notification-width: 250px;
+$notification-padding: 15px 30px;
