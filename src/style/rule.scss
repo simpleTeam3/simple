@@ -55,7 +55,7 @@ $border-radius-base: 5px;
 $border-radius-circle: 50%;
 
 //box-shadow
-$box-shadow-base: 0 2px 3px $info-color;
+$box-shadow-base: 0 2px 3px $border-color;
 
 /*
 ** 组件
@@ -158,4 +158,4 @@ $progress-border-radius: 5px;
 
 //---------Notification------
 $notification-width: 250px;
-$notification-padding: 15px 30px;
+$notification-padding: 20px 60px 20px 25px;

@@ -1,5 +1,14 @@
-// 动画scss
+/*
+ *动画scss
+ */
+
+
 .vut-tag-fade-enter-active,
 .vut-tag-fade-leave-active{
     transition: all 0.5s ease-out;
+}
+
+//notify
+.vut-notification-fade-enter{
+    
 }

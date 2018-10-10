@@ -4,17 +4,25 @@ $notification-class-prefix: #{$class-prefix}notification;
     display: flex;
     position: fixed;
     top: 20px;
-    width: 250px;
+    width: 220px;
     padding: $notification-padding;
     border: $border-base;
     border-radius: $border-radius-base;
     box-shadow: $box-shadow-base;
+    transition: all .3s ease-out;
     overflow: hidden;
 
-    &.right{
-        right: 50px;
+    &.top-right{
+        right: 30px;
     }
-    &.left{
-        left: 50px;
+    &.top-left{
+        left: 30px;
+    }
+
+    &-close{
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        cursor: pointer;
     }
 }
