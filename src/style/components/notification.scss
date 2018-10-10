@@ -9,13 +9,13 @@ $notification-class-prefix: #{$class-prefix}notification;
     border: $border-base;
     border-radius: $border-radius-base;
     box-shadow: $box-shadow-base;
-    transition: all .3s ease-out;
+    transition: transform .2s ease-out, left .2s, right .2s;
     overflow: hidden;
 
-    &.top-right{
+    &.right{
         right: 30px;
     }
-    &.top-left{
+    &.tleft{
         left: 30px;
     }
 

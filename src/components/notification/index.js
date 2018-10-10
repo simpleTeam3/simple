@@ -13,6 +13,9 @@ const Notification = function(options){
     })
     instance.$mount();
     document.body.appendChild(instance.$el);
+    Vue.nextTick(() => {
+        instance.visible = true;
+    })
 
     return instance;
 }
