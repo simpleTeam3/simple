@@ -102,7 +102,8 @@
 						{path: 'loading', name: 'Loading'},
 						{path: 'tag', name: 'Tag'},
 						{path: 'badge', name: 'Badge'},
-						{path: 'notification', name: 'Notification'}
+						{path: 'notification', name: 'Notification'},
+						{path: 'modal', name: 'Modal'}
 					],
 					data: [
 						{path: 'table', name: 'Table'},
