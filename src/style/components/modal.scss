@@ -1,0 +1,44 @@
+$modal-class-prefix: #{$class-prefix}modal;
+
+.#{$modal-class-prefix}-wrap{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0, .2);
+    z-index: 998;
+}
+
+.#{$modal-class-prefix}{
+    position: absolute;
+    padding: $modal-padding-base;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-60%);
+    background-color: #fff;
+    z-index: 999;
+
+    &-header{
+        font-weight: normal;
+        font-size: 18px;
+    }
+
+    &-content{
+        padding:15px 0;
+        color: $info-color;
+        font-size: 14px;
+    }
+
+    &-button-group{
+        text-align: right;
+    }
+
+    &-close{
+        position: absolute;
+        top: 18px;
+        right:25px;
+        cursor: pointer;
+    }
+
+}

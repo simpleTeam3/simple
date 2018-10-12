@@ -99,6 +99,10 @@ const router = new VueRouter({
 		{
 			path: '/notification',
 			component: require('./routers/notification')
+		},
+		{
+			path: '/modal',
+			component: require('./routers/modal')
 		}
 	]
 });
