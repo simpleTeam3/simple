@@ -61,6 +61,7 @@ const install = function(Vue){
 	Vue.prototype.$loading = Loading.service;
 	Vue.prototype.$Message = Message;
 	Vue.prototype.$notify = Notification;
+	Vue.prototype.$confirm = Modal.confirm;
 
 	Vue.prototype.global = global;
 }

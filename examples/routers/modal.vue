@@ -2,11 +2,12 @@
     <div>
         <vut-button @click="popModal">确认框</vut-button>
         <vut-modal
-            title="你知道吗"
-            content="你确认要删除吗?"
+            modalTitle="你知道吗"
+            modalContent="你确认要删除吗?"
             :visible.sync="show"
         >
         </vut-modal>
+        <vut-button type="warning" @click="confirm">服务调用</vut-button>
     </div>
 </template>
 
@@ -20,6 +21,19 @@ export default {
     methods: {
         popModal(){
             this.show = true;
+        },
+        confirm(){
+            let modal2 = this.$confirm({
+                title: '很久以前',
+                content: '乌卡西～乌卡西！',
+                onCancel: () => {
+                    console.log("cancel");
+                    modal2.close();
+                },
+                onOK: () => {
+                    console.log("ok");
+                }
+            });
         }
     }
 }

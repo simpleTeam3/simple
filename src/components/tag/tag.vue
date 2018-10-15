@@ -1,5 +1,5 @@
 <template>
-    <transition :name="transitionAbled ? '' : 'vut-tag-fade' ">
+    <transition :name="transitionAbled ? '' : 'vut-fade' ">
         <span :class="[
                 prefix,
                 type ? prefix+'-'+type : '',
