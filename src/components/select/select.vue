@@ -1,14 +1,26 @@
 <template>
-    <vut-input></vut-input>
+    <div :class="prefix">
+        <vut-input
+            :readonly="true"
+            :size="size"
+        >
+            <vut-icon slot="suffix" type="bottom-arrow"></vut-icon>
+        </vut-input>
+    </div>
 </template>
 <script>
     import VutInput from '../input';
-    const prefix = 'vut-select';
     export default {
-        name: 'vut-select',
+        name: 'vutSelect',
+        props: {
+            size: {
+                type: String,
+                default: 'smaller'
+            }
+        },
         data(){
             return{
-
+                prefix: this.global.prefix + 'select'
             }
         },
 

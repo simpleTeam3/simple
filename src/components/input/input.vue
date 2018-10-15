@@ -1,6 +1,7 @@
 <template>
     <div :class="wrapClass">
     	<template v-if="type!=='textarea'">
+			<!-- 前置块 -->
 			<div :class="prefixClass + '-group-prepend' " v-if="prepend">
 				<slot name="prepend"></slot>
 			</div>
@@ -18,6 +19,15 @@
 			@blur="handleBlurFn"
 			@input="handleInputFn"
 			>
+			<!-- 前置内容 -->
+			<!-- 后置内容 -->
+			<span
+				:class="prefixClass + '-suffix'"
+				v-if="$slots.suffix"
+			>
+				<slot name="suffix"></slot>
+			</span>
+			<!-- 后置块 -->
 			<div :class="prefixClass + '-group-append' " v-if="append">
 				<slot name="append"></slot>
 			</div>

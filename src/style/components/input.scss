@@ -4,6 +4,16 @@ $input-class-prefix: #{$class-prefix}input;
     display: inline-block;
     position: relative;
     font-size: $font-size-small;
+
+    &-smaller{
+        font-size: $font-size-smaller;
+    }
+    &-small{
+        font-size: $font-size-small
+    }
+    &-large{
+        font-size: $font-size-normal;
+    }
 }
 
 .#{$input-class-prefix}{
@@ -14,18 +24,17 @@ $input-class-prefix: #{$class-prefix}input;
     border-radius: $border-radius;
     color: $content-color;
     padding: 6px;
-}
 
-.#{$input-class-prefix}-wrap-large{
-    font-size: $font-size-normal;
-}
+    &-smaller{
+        height: 18px;
+    }
+    &-small{
+        height: 25px;
+    }
+    &-large{
+        height: 36px;
+    }
 
-.#{$input-class-prefix}-large{
-    height: 36px;
-}
-
-.#{$input-class-prefix}-small{
-    height: 25px;
 }
 
 textarea.#{$input-class-prefix}{
