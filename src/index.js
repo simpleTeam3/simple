@@ -36,6 +36,7 @@ const Simple = {
 	Loading:Loading.Loading,
 	Page,
 	Select,
+	SelectDropdown: Select.Dropdown,
 	Tag,
 	Badge,
 	Slider,

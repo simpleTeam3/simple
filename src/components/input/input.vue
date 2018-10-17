@@ -23,9 +23,12 @@
 			<!-- 后置内容 -->
 			<span
 				:class="prefixClass + '-suffix'"
-				v-if="$slots.suffix"
+				v-if="$slots.suffix || suffixIcon"
 			>
-				<slot name="suffix"></slot>
+				<span :class="prefixClass + '-suffix-inner'">
+					<slot name="suffix"></slot>
+					<vut-icon :type="suffixIcon" :class="prefixClass + '-icon'"></vut-icon>
+				</span>
 			</span>
 			<!-- 后置块 -->
 			<div :class="prefixClass + '-group-append' " v-if="append">
@@ -86,7 +89,8 @@
 				default: false
 			},
 			value: String,
-			inputStyle: String
+			inputStyle: String,
+			suffixIcon: String
 		},
 		data () {
 			return {
@@ -103,8 +107,7 @@
 						[`${prefixClass}-wrap-${this.size}`]: (!!this.size && this.size !== 'default'),
 						[`${prefixClass}-group`]: this.prepend || this.append,
 						[`${prefixClass}-prepend`]: this.prepend,
-						[`${prefixClass}-append`]: this.append
-
+						[`${prefixClass}-append`]: this.append,
 					}
 				];
 			},
@@ -113,7 +116,8 @@
 					prefixClass,
 					{
 						[`${prefixClass}-${this.size}`]: !!this.size,
-						[`${prefixClass}-hide-border`]: this.hideBorder
+						[`${prefixClass}-hide-border`]: this.hideBorder,
+						[`${prefixClass}-is-suffix`]: this.suffixIcon
 					}
 				];
 			}

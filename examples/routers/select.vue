@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <vut-select></vut-select>
+    <div class="select-box">
+        <vut-select ></vut-select>
     </div>
 </template>
 <script>
@@ -12,3 +12,8 @@
         }
     }
 </script>
+<style>
+.select-box{
+    width: 200px;
+}
+</style>

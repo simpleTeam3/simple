@@ -1,11 +1,15 @@
 <template>
-    <div :class="prefix">
+    <div :class="prefix" :style="{width: width + 'px'}">
         <vut-input
             :readonly="true"
             :size="size"
-        >
-            <vut-icon slot="suffix" type="bottom-arrow"></vut-icon>
-        </vut-input>
+            :suffixIcon="suffixIcon"
+        ></vut-input>
+        <transition>
+            <vut-select-dropdown>
+                <slot></slot>
+            </vut-select-dropdown>
+        </transition>
     </div>
 </template>
 <script>
@@ -16,18 +20,21 @@
             size: {
                 type: String,
                 default: 'smaller'
-            }
+            },
+            width: Number
         },
         data(){
             return{
-                prefix: this.global.prefix + 'select'
+                prefix: this.global.prefix + 'select',
+                suffixIcon: 'bottom-arrow'
             }
         },
+        computed: {
 
+        },
         components: {
             VutInput
         },
-
         method: {
 
         }

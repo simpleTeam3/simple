@@ -2,6 +2,7 @@ $input-class-prefix: #{$class-prefix}input;
 
 .#{$input-class-prefix}-wrap{
     display: inline-block;
+    width: 100%;
     position: relative;
     font-size: $font-size-small;
 
@@ -17,16 +18,23 @@ $input-class-prefix: #{$class-prefix}input;
 }
 
 .#{$input-class-prefix}{
+    box-sizing: border-box;
     width: 100%;
     height: 32px;
+    line-height: 32px;
+    padding: 0 6px;
     background-color: #fff;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     color: $content-color;
-    padding: 6px;
+
+    &-is-suffix{
+        padding-right: 35px;
+    }
 
     &-smaller{
-        height: 18px;
+        height: 38px;
+        line-height: 38px;
     }
     &-small{
         height: 25px;
@@ -35,6 +43,10 @@ $input-class-prefix: #{$class-prefix}input;
         height: 36px;
     }
 
+    &:hover,
+    &:focus{
+        border-color: $primary-color;
+    }
 }
 
 textarea.#{$input-class-prefix}{
@@ -47,10 +59,10 @@ textarea.#{$input-class-prefix}{
 .#{$input-class-prefix}-hide-border{
     border-width: 0px 0px 1px 0px;
     outline: none;
-}
 
-.#{$input-class-prefix}-hide-border:focus{
-    box-shadow: none;
+    &:focus{
+        box-shadow: none; 
+    }
 }
 
 .#{$input-class-prefix}-group{
@@ -58,65 +70,61 @@ textarea.#{$input-class-prefix}{
     width: 100%;
     border-collapse: separate;
     position: relative;
+
+    &-prepend,
+    &-append{
+        display: table-cell;
+        background-color: #eee;
+        white-space: nowrap;
+        vertical-align: middle;
+        padding: 0px 12px;
+        color: #495060;
+        text-align: center;
+        border: 1px solid $border-color;
+        border-radius: 6px;
+        width: 1px;
+    }
+
+    & > .vut-input{
+        display: table-cell;
+        width: 100%;
+        position: relative;
+    }
+
+    &-prepend{
+        border-bottom-right-radius: 0!important;
+        border-top-right-radius: 0!important;
+        border-right: 0;
+
+        & > .vut-input{
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+    &-append{
+        border-bottom-left-radius: 0!important;
+        border-top-left-radius: 0!important;
+        border-left: 0px;
+
+        & > .vut-input{
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
 }
 
-.#{$input-class-prefix}-group-prepend,
-.#{$input-class-prefix}-group-append
-{
-    background-color: #eee;
-    white-space: nowrap;
-    vertical-align: middle;
-    padding: 0px 12px;
-    color: #495060;
+.#{$input-class-prefix}-suffix{
+    position: absolute;
+    top: 0;
+    right: 5px;
+    height: 100%;
     text-align: center;
-    border: 1px solid $border-color;
-    border-radius: 6px;
-    width: 1px;
+    color: $info-color;
+    pointer-events: none;
 }
-
-.#{$input-class-prefix}-group > .vut-input{
-    width: 100%;
-    position: relative;
-}
-
-.#{$input-class-prefix}-group-prepend,
-.#{$input-class-prefix}-group-append,
-.#{$input-class-prefix}-group > .vut-input{
-    display: table-cell;
-}
-
-.#{$input-class-prefix}-group-prepend{
-    border-bottom-right-radius: 0!important;
-    border-top-right-radius: 0!important;
-}
-
-.#{$input-class-prefix}-group-append{
-    border-bottom-left-radius: 0!important;
-    border-top-left-radius: 0!important;
-}
-
-.#{$input-class-prefix}-prepend > .vut-input{
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.#{$input-class-prefix}-append > .vut-input{
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.#{$input-class-prefix}-group-prepend{
-    border-right: 0;
-}
-
-.#{$input-class-prefix}-group-append{
-    border-left: 0px;
-}
-
-.#{$input-class-prefix}:hover,
-.#{$input-class-prefix}:focus
-{
-    border-color: $primary-color;
+.#{$input-class-prefix}-icon{
+    width: 25px;
+    line-height: 40px;
 }
 
 .#{$input-class-prefix}[disabled]{

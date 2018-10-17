@@ -1,0 +1,8 @@
+$select-class-prefix: #{$class-prefix}select;
+
+.#{$select-class-prefix}{
+
+    .vut-input{
+        cursor: pointer;
+    }
+}
