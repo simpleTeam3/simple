@@ -1,13 +1,41 @@
 <template>
     <div class="select-box">
-        <vut-select ></vut-select>
+        <vut-select>
+            <vut-option
+            v-for="(o, index) in options"
+            :key="index"
+            :label="o.label"
+            :value="o.value"
+        ></vut-option>
+        </vut-select>
     </div>
 </template>
 <script>
     export default {
         data(){
             return {
-
+                options: [
+                    {
+                        value: 1,
+                        label: "睡觉"
+                    },
+                    {
+                        value: 2,
+                        label: "吃饭"
+                    },
+                    {
+                        value: 3,
+                        label: "打豆豆"
+                    },
+                    {
+                        value: 4,
+                        label: "随风"
+                    },
+                    {
+                        value: 5,
+                        label: "如画"
+                    }
+                ]
             }
         }
     }

@@ -40,7 +40,7 @@ $black-color: #000000;
 //中性色
 $border-color: #dddee1;
 $line-color: #e9eaec;
-$background-color: #f8f8f9;
+$background-color: #f6f6f9;
 $divider-color: #e9eaec;
 $disabled-color: #bbbec4;
 $title-color: #1c2438;
@@ -165,3 +165,6 @@ $notification-padding: 20px 60px 20px 25px;
 
 //---------Modal-------------
 $modal-padding-base: 15px 28px;
+
+//---------Select-------------
+$select-option-hover-fill: $background-color;

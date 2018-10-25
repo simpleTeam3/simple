@@ -37,6 +37,7 @@ const Simple = {
 	Page,
 	Select,
 	SelectDropdown: Select.Dropdown,
+	Option: Select.Option,
 	Tag,
 	Badge,
 	Slider,

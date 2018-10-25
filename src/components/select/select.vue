@@ -1,12 +1,13 @@
 <template>
-    <div :class="prefix" :style="{width: width + 'px'}">
+    <div :class="prefix" :style="{width: width + 'px'}" @blur="closeDropdown">
         <vut-input
             :readonly="true"
             :size="size"
             :suffixIcon="suffixIcon"
+            @click.stop.native="openDropdown"
         ></vut-input>
-        <transition>
-            <vut-select-dropdown>
+        <transition name="vut-zoom-in-top">
+            <vut-select-dropdown v-show="visible">
                 <slot></slot>
             </vut-select-dropdown>
         </transition>
@@ -26,7 +27,8 @@
         data(){
             return{
                 prefix: this.global.prefix + 'select',
-                suffixIcon: 'bottom-arrow'
+                suffixIcon: 'bottom-arrow',
+                visible: false
             }
         },
         computed: {
@@ -35,8 +37,13 @@
         components: {
             VutInput
         },
-        method: {
-
+        methods: {
+            openDropdown(){
+                this.visible = true;
+            },
+            closeDropdown(){
+                // this.visible = false;
+            }
         }
     }
 </script>

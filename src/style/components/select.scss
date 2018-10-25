@@ -1,8 +1,45 @@
 $select-class-prefix: #{$class-prefix}select;
+$dropdown-class-prefix: #{$select-class-prefix}-dropdown;
 
 .#{$select-class-prefix}{
+    position: relative;
 
     .vut-input{
         cursor: pointer;
+    }
+}
+
+.#{$dropdown-class-prefix}{
+    box-sizing: border-box;
+    min-width: 200px;
+    position: absolute;
+    top: 45px;
+    border: $border-base;
+    border-radius: $border-radius-base;
+    background-color: $white-color;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+
+    &-list{
+        list-style: none;
+        padding: 6px 0;
+    }
+
+
+    &-item{
+        padding: 0 20px;
+        position: relative;
+        height: 35px;
+        line-height: 35px;
+        font-size: 14px;
+        color: $content-color;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $select-option-hover-fill;
+        }
     }
 }
