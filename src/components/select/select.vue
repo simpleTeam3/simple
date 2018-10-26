@@ -5,6 +5,7 @@
             :size="size"
             :suffixIcon="suffixIcon"
             @click.stop.native="openDropdown"
+            :value="activeLabel"
         ></vut-input>
         <transition name="vut-zoom-in-top">
             <vut-select-dropdown v-show="visible">
@@ -28,11 +29,16 @@
             return{
                 prefix: this.global.prefix + 'select',
                 suffixIcon: 'bottom-arrow',
-                visible: false
+                visible: false,
+                activeLabel: "",
+                activeValue: ""
             }
         },
         computed: {
 
+        },
+        mounted(){
+            this.$on('select', this.beSelect)
         },
         components: {
             VutInput
@@ -43,6 +49,11 @@
             },
             closeDropdown(){
                 // this.visible = false;
+            },
+            beSelect(payload){ 
+                this.activeLabel = payload.label;
+                this.activeValue = payload.value;
+                this.visible = false;
             }
         }
     }

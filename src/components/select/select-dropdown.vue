@@ -1,5 +1,5 @@
 <template>
-    <div :class="prefix" @select="console.log('1')">
+    <div :class="prefix">
         <ul :class="prefix + '-list'">
             <slot></slot>
         </ul>

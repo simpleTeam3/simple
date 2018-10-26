@@ -1,6 +1,6 @@
 <template>
     <div class="select-box">
-        <vut-select>
+        <vut-select @select="handleSelect">
             <vut-option
             v-for="(o, index) in options"
             :key="index"
@@ -36,6 +36,10 @@
                         label: "如画"
                     }
                 ]
+            }
+        },
+        methods: {
+            handleSelect(obj){
             }
         }
     }

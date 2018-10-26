@@ -11,7 +11,8 @@ export default {
     mixins: [Emit],
     name: 'vutOption',
     props: {
-        label: [String, Number]
+        label: [String, Number],
+        value: [String, Number]
     },
     data(){
         return {
@@ -20,8 +21,11 @@ export default {
     },
     methods: {
         selectSelf(){
-            console.log("ss")
-            this.$emit('select');
+            let payload = {
+                label: this.label,
+                value: this.value
+            }
+            this.dispatch('vutSelect', 'select', payload)
         }
     }
 }

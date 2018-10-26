@@ -8,12 +8,12 @@ export default {
                 parent = parent.$parent;
 
                 if(parent){
-                    name = parent.$options.componentName;
+                    name = parent.$options.name;
                 }
             }
             
             if(name == componentName){
-                parent.$emit.apply(parent, eventName.concat(params));
+                parent.$emit.apply(parent, [eventName].concat(params));
             }
         },
         broadcast(componentName, eventName, params){
