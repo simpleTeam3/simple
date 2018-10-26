@@ -103,6 +103,10 @@ const router = new VueRouter({
 		{
 			path: '/modal',
 			component: require('./routers/modal')
+		},
+		{
+			path: '/carousel',
+			component: require('./routers/carousel')
 		}
 	]
 });

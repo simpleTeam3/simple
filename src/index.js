@@ -22,6 +22,7 @@ import Checkbox from './components/checkbox';
 import Progress from './components/progress';
 import Notification from './components/notification';
 import Modal from './components/modal';
+import Carousel from './components/carousel';
 
 const Simple = {
 	Radio,
@@ -50,7 +51,9 @@ const Simple = {
 	Checkbox,
 	Progress,
 	Notification: Notification,
-	Modal
+	Modal,
+	Carousel,
+	CarouselItem: Carousel.Item
 };
 
 const install = function(Vue){

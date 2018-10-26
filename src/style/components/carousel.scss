@@ -1,0 +1,29 @@
+$carousel-class-prefix: #{$class-prefix}carousel;
+$carousel-item-class-prefix: #{$carousel-class-prefix}-item;
+
+.#{$carousel-class-prefix}{
+    width: 400px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+
+    &-main{
+        width: 4200px;
+        height: 200px;
+        line-height: 200px;
+        position: absolute;
+        z-index: 1;
+        transition: left .3 ease-out;
+    }
+}
+
+.#{$carousel-item-class-prefix}{
+    width: 400px;
+    float: left;
+    background-color: $info-color;
+    z-index: 99;
+
+    &:nth-child(even){
+        background-color: $border-color;
+    }
+}
