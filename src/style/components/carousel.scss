@@ -13,7 +13,7 @@ $carousel-item-class-prefix: #{$carousel-class-prefix}-item;
         line-height: 200px;
         position: absolute;
         z-index: 1;
-        transition: left .3 ease-out;
+        transition: left .3s ease-out;
     }
 }
 
