@@ -86,7 +86,8 @@
 						{path: 'steps', name: 'Steps'},
 						{path: 'tabs', name: 'Tabs'},
 						{path: 'breadcrumb', name: 'Breadcrumb'},
-						{path: 'carousel', name: 'Carousel'}
+						{path: 'carousel', name: 'Carousel'},
+						{path: 'tree', name: 'Tree'}
 					],
 					form: [
 						{path: 'radio', name: 'Radio'},

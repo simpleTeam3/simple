@@ -23,6 +23,7 @@ import Progress from './components/progress';
 import Notification from './components/notification';
 import Modal from './components/modal';
 import Carousel from './components/carousel';
+import Tree from './components/tree';
 
 const Simple = {
 	Radio,
@@ -53,7 +54,8 @@ const Simple = {
 	Notification: Notification,
 	Modal,
 	Carousel,
-	CarouselItem: Carousel.Item
+	CarouselItem: Carousel.Item,
+	Tree
 };
 
 const install = function(Vue){
