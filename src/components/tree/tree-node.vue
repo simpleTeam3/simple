@@ -5,20 +5,12 @@
 </template>
 
 <script>
-import emitter from '../../mixins/emit'
 export default {
-    name: 'vutTree',
+    name: "vutTreeNode",
     data(){
         return {
-            prefix: this.global.prefix + 'tree'
+            prefix: this.global.prefix + 'tree-node'
         }
-    },
-    methods: {
-
     }
 }
 </script>
-
-<style>
-
-</style>
