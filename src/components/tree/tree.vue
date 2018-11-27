@@ -1,13 +1,18 @@
 <template>
     <div
         :class="[prefix]"
-    ></div>
+    >
+        <vut-tree-node v-for="(item, index) in data" :key="index" :item="item"></vut-tree-node>
+    </div>
 </template>
 
 <script>
 import emitter from '../../mixins/emit'
 export default {
     name: 'vutTree',
+    props: {
+        data: Array
+    },
     data(){
         return {
             prefix: this.global.prefix + 'tree'

@@ -55,7 +55,8 @@ const Simple = {
 	Modal,
 	Carousel,
 	CarouselItem: Carousel.Item,
-	Tree
+	Tree,
+	TreeNode: Tree.TreeNode
 };
 
 const install = function(Vue){
