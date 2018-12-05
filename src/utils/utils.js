@@ -13,7 +13,7 @@
  * 
  * @return :function	返回实际调用函数
  */
-export function debounce(func, wait = 1000, immediate = true){
+export function debounce(func, wait = 2000, immediate = true){
     let timer, context, args;
 
     const later = () => setTimeout(() => {

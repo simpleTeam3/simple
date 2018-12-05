@@ -2,7 +2,7 @@
     <div
         :class="[prefix]"
     >
-        <vut-tree-node v-for="(item, index) in data" :key="index" :item="item"></vut-tree-node>
+        <vut-tree-node v-for="(item, index) in data" :key="index" :node="item"></vut-tree-node>
     </div>
 </template>
 

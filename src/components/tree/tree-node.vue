@@ -3,10 +3,17 @@
         :class="[prefix]"
     >
         <div :class="prefix + '-content'">
-            <p>{{item.label}}</p>
+            <p>{{node.label}}</p>
         </div>
 
-        <div :class="prefix + '-children'"></div>
+        <div :class="prefix + '-children'">
+            <vut-tree-node
+                v-for="(item, index) in node.childNodes"
+                :node="item"
+                :key="index"
+            >
+            </vut-tree-node>
+        </div>
     </div>
 </template>
 
@@ -14,11 +21,18 @@
 export default {
     name: "vutTreeNode",
     props: {
-        item: Object
+        node: Object
     },
     data(){
         return {
             prefix: this.global.prefix + 'tree-node'
+        }
+    },
+    computed: {
+        contentStyle(){
+            return {
+                'padding-left': 1
+            }
         }
     }
 }
