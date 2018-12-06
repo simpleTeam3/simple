@@ -7,16 +7,34 @@
 </template>
 
 <script>
-import emitter from '../../mixins/emit'
+import TreeStore from './store/tree-store';
+import emitter from '../../mixins/emit';
+
 export default {
     name: 'vutTree',
     props: {
-        data: Array
+        data: {
+            type: Array
+        },
+        props: {
+            default(){
+                return {
+                    children: 'children',
+                    label: 'label'
+                }
+            }
+        }
     },
     data(){
         return {
             prefix: this.global.prefix + 'tree'
         }
+    },
+    created(){
+        this.store = new TreeStore({
+            data: this.data,
+            props: this.props
+        })
     },
     methods: {
 
