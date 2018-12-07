@@ -11,19 +11,27 @@ import { debounce } from '@/utils/utils'
 export default {
     data(){
         return {
-            tree: [{
-                label: '平安',
-                childNodes: [{
-                    label: '科技'
+            tree: [
+                {
+                    label: '一级1',
+                    children: [{
+                        label: '二级1-1',
+                        children: [
+                            {label: '三级1-1-1'},
+                            {label: '三级1-1-2'}
+                        ]
+                    },{
+                        label: '二级1-2'
+                    }]
                 },{
-                    label: '银行'
-                }]
-            },{
-                label: '一会是风'
-            }]
+                    label: '一级2'
+                }
+            ],
         }
     },
     created(){
+        this.isTree = true;                     //树，标志
+
         this.test2 = debounce(this.test2);
     },
     methods: {

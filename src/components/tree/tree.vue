@@ -2,7 +2,7 @@
     <div
         :class="[prefix]"
     >
-        <vut-tree-node v-for="(item, index) in data" :key="index" :node="item"></vut-tree-node>
+        <vut-tree-node v-for="(childNode, index) in rootNode.childNodes" :key="index" :node="childNode"></vut-tree-node>
     </div>
 </template>
 
@@ -14,15 +14,21 @@ export default {
     name: 'vutTree',
     props: {
         data: {
-            type: Array
+            type: Array,
+            rootNode: null
         },
-        props: {
+        dataAttr: {
             default(){
                 return {
+                    //这个是为了自定义渲染时取值的键值
                     children: 'children',
                     label: 'label'
                 }
             }
+        },
+        indent: {
+            type: Number,
+            default: 20
         }
     },
     data(){
@@ -31,10 +37,14 @@ export default {
         }
     },
     created(){
+        this.isTree = true;
+
         this.store = new TreeStore({
             data: this.data,
-            props: this.props
+            dataAttr: this.dataAttr
         })
+
+        this.rootNode = this.store.rootNode;
     },
     methods: {
 
