@@ -4,6 +4,7 @@ export default class Node {
     constructor(options){
         this.data = null;
         this.parent = null;
+        this.expanded = true;
 
         for(let opt in options){
             options.hasOwnProperty(opt) && (this[opt] = options[opt])
@@ -75,5 +76,15 @@ export default class Node {
         }
 
         return data[children];
+    }
+
+    //收起子节点
+    collapse(){
+        this.expanded = false;
+    }
+
+    //展开子节点
+    expand(){
+        this.expanded = true;
     }
 }

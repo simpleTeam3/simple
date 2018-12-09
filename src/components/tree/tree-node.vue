@@ -3,10 +3,15 @@
         :class="[prefix]"
     >
         <div :class="prefix + '-content'" :style="contentStyle">
-            <p>{{node.data.label}}</p>
+            <span
+                class="vut-icon vut-icon-caret-right"
+                v-if="node.childNodes.length"
+                @click="handleCollapse"
+            ></span>
+            <p class="vut-tree-label">{{node.data.label}}</p>
         </div>
 
-        <div :class="prefix + '-children'">
+        <div :class="prefix + '-children'" v-show="node.expanded">
             <vut-tree-node
                 v-for="(childNode, index) in node.childNodes"
                 :node="childNode"
@@ -22,12 +27,16 @@
 export default {
     name: "vutTreeNode",
     props: {
-        node: Object
+        node: {
+            default(){
+                return {};
+            }
+        }
     },
     data(){
         return {
             prefix: this.global.prefix + 'tree-node',
-            tree: null
+            tree: null,
         }
     },
     created(){
@@ -44,6 +53,30 @@ export default {
         contentStyle(){
             return {
                 paddingLeft: (this.node.level - 1) * this.tree.indent + 'px'
+            }
+        },
+        expanded(){
+            console.log(this.node)
+            return this.node.expanded;
+        }
+    },
+    watch: {
+        'node': {
+            deep: true,
+            handler(){
+            }
+        },
+        'node.expanded': function(newVal){
+            console.log(newVal);
+            this.$nextTick(() => this.expanded = newVal);
+        }
+    },
+    methods: {
+        handleCollapse(){
+            if(this.node.expanded){
+                this.node.collapse();
+            }else{
+                this.node.expand();
             }
         }
     }

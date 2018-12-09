@@ -94,6 +94,12 @@ export const allIconData = [
         icon5: "download"
     },
     {
+        icon1: "caret-up",
+        icon2: "caret-right",
+        icon3: "caret-down",
+        icon4: "caret-left"
+    },
+    {
         icon1: "upload",
         icon2: "warning",
         icon3: "collection_fill",

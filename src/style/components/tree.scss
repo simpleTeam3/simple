@@ -1,0 +1,9 @@
+$tree-class-prefix: #{$class-prefix}tree;
+
+.#{$tree-class-prefix}{
+
+
+    &-label{
+        display: inline-block;
+    }
+}
