@@ -1,7 +1,12 @@
-import { getPropertyFromData } from "./tools";
+import { getPropertyFromData, markNodeData } from "./tools";
+
+
+let nodeIdSeed = 0;                                 //可用作渲染key
 
 export default class Node {
     constructor(options){
+
+        this.id = nodeIdSeed++;
         this.data = null;
         this.parent = null;
         this.expanded = true;
@@ -23,6 +28,11 @@ export default class Node {
 
     //设置一个Node节点的数据
     setData(data){
+        //设置Node 的id
+        if(!Array.isArray(data)) {
+            markNodeData(this, data);
+        }
+        
         this.data = data;
         this.childNodes = [];
 

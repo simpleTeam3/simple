@@ -2,12 +2,17 @@
     <div
         :class="[prefix]"
     >
-        <vut-tree-node v-for="(childNode, index) in rootNode.childNodes" :key="index" :node="childNode"></vut-tree-node>
+        <vut-tree-node
+            v-for="childNode in rootNode.childNodes"
+            :key="getNodeKey(childNode)"
+            :node="childNode"
+        ></vut-tree-node>
     </div>
 </template>
 
 <script>
 import TreeStore from './store/tree-store';
+import { getNodeKey } from './store/tools';
 import emitter from '../../mixins/emit';
 
 export default {
@@ -15,7 +20,6 @@ export default {
     props: {
         data: {
             type: Array,
-            rootNode: null
         },
         dataAttr: {
             default(){
@@ -29,7 +33,8 @@ export default {
         indent: {
             type: Number,
             default: 20
-        }
+        },
+        nodeKey: String
     },
     data(){
         return {
@@ -47,7 +52,9 @@ export default {
         this.rootNode = this.store.rootNode;
     },
     methods: {
-
+        getNodeKey(node){
+            return getNodeKey(this.nodeKey, node.data)
+        }
     }
 }
 </script>

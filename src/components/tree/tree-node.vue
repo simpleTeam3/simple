@@ -1,6 +1,12 @@
 <template>
     <div
-        :class="[prefix]"
+        :class="[
+            prefix,
+            {
+                'is-expanded': expanded
+            }
+        ]"
+        :aria-expanded="expanded"
     >
         <div :class="prefix + '-content'" :style="contentStyle">
             <span
@@ -11,11 +17,15 @@
             <p class="vut-tree-label">{{node.data.label}}</p>
         </div>
 
-        <div :class="prefix + '-children'" v-show="node.expanded">
+        <div 
+            :class="prefix + '-children'"
+            v-show="expanded"
+            :aria-expanded="expanded"
+        >
             <vut-tree-node
-                v-for="(childNode, index) in node.childNodes"
+                v-for="childNode in node.childNodes"
                 :node="childNode"
-                :key="index"
+                :key="getNodeKey(childNode)"
             >
             </vut-tree-node>
         </div>
@@ -23,6 +33,7 @@
 </template>
 
 <script>
+import { getNodeKey } from './store/tools';
 
 export default {
     name: "vutTreeNode",
@@ -31,12 +42,13 @@ export default {
             default(){
                 return {};
             }
-        }
+        },
     },
     data(){
         return {
             prefix: this.global.prefix + 'tree-node',
             tree: null,
+            expanded: this.node.expanded
         }
     },
     created(){
@@ -47,6 +59,10 @@ export default {
         }else{
             this.tree = parent.tree;
         }
+
+        if(this.node.expanded){
+            this.expanded = true;
+        }
         
     },
     computed: {
@@ -54,28 +70,25 @@ export default {
             return {
                 paddingLeft: (this.node.level - 1) * this.tree.indent + 'px'
             }
-        },
-        expanded(){
-            console.log(this.node)
-            return this.node.expanded;
         }
     },
     watch: {
-        'node': {
-            deep: true,
-            handler(){
-            }
-        },
         'node.expanded': function(newVal){
             console.log(newVal);
             this.$nextTick(() => this.expanded = newVal);
         }
     },
     methods: {
+        getNodeKey(node){
+            console.log(getNodeKey(this.nodeKey, node.data));
+            return getNodeKey(this.nodeKey, node.data);
+        },
         handleCollapse(){
             if(this.node.expanded){
+                this.expanded = false;
                 this.node.collapse();
             }else{
+                this.expanded = true;
                 this.node.expand();
             }
         }
