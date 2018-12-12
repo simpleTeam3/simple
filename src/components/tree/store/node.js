@@ -24,6 +24,8 @@ export default class Node {
         if(this.data){
             this.setData(this.data);
         }
+
+        this.updateLeafState();
     }
 
     //设置一个Node节点的数据
@@ -96,5 +98,15 @@ export default class Node {
     //展开子节点
     expand(){
         this.expanded = true;
+    }
+
+    //更新树中的叶子状态
+    updateLeafState(){
+        const childNodes = this.childNodes;
+        if(childNodes.length == 0){
+            this.isLeaf = true;
+        }else{
+            this.isLeaf = false;
+        }
     }
 }

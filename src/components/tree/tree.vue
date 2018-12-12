@@ -34,7 +34,11 @@ export default {
             type: Number,
             default: 20
         },
-        nodeKey: String
+        nodeKey: String,
+        lazy: {                                            //懒加载
+            type: Boolean,
+            default: false
+        }
     },
     data(){
         return {
