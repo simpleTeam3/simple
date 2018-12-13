@@ -1,0 +1,11 @@
+$upload-class-prefix: #{$class-prefix}upload;
+$upload-basic-class-prefix: #{$class-prefix}upload-basic;
+
+
+.#{$upload-class-prefix}{
+    margin: 0;
+
+    .#{$upload-basic-class-prefix}{
+        display: none;
+    }
+}

@@ -1,6 +1,6 @@
 import Upload from './upload.vue'
-import Uploader from './src/uploader.vue'
+import UploadBasic from './src/uploadBasic.vue'
 
-Upload.Uploader = Uploader;
+Upload.UploadBasic = UploadBasic;
 
 export default Upload;
