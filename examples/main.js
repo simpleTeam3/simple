@@ -111,6 +111,10 @@ const router = new VueRouter({
 		{
 			path: '/tree',
 			component: require('./routers/tree')
+		},
+		{
+			path: '/upload',
+			component: require('./routers/upload')
 		}
 	]
 });

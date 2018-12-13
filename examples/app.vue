@@ -96,7 +96,8 @@
 						{path: 'inputNumber', name: 'inputNumber'},
 						{path: 'select', name: 'Select'},
 						{path: 'slider', name: 'Slider'},
-						{path: 'checkBox', name: 'CheckBox'}
+						{path: 'checkBox', name: 'CheckBox'},
+						{path: 'upload', name: 'Upload'}
 					],
 					notice: [
 						{path: 'message', name: 'Message'},

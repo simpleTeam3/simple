@@ -24,6 +24,7 @@ import Notification from './components/notification';
 import Modal from './components/modal';
 import Carousel from './components/carousel';
 import Tree from './components/tree';
+import Upload from './components/upload'
 
 const Simple = {
 	Radio,
@@ -56,7 +57,9 @@ const Simple = {
 	Carousel,
 	CarouselItem: Carousel.Item,
 	Tree,
-	TreeNode: Tree.TreeNode
+	TreeNode: Tree.TreeNode,
+	Upload: Upload,
+	Uploader: Upload.Uploader
 };
 
 const install = function(Vue){
