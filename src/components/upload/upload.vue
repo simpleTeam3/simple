@@ -1,6 +1,9 @@
 <template>
     <div :class="prefix">
-        <vut-uploadBasic>
+        <vut-uploadBasic
+            :uploadData="uploadData"
+            
+        >
             <slot name="trigger"></slot>
             <slot></slot>
         </vut-uploadBasic>
@@ -10,9 +13,15 @@
 <script>
 export default {
     name: "vutUpload",
+    props: {
+        multiple: Boolean
+    },
     data(){
         return {
-            prefix: this.global.prefix + 'upload'
+            prefix: this.global.prefix + 'upload',
+            uploadData: {
+                multiple: this.multiple
+            }
         }
     },
     methods: {
