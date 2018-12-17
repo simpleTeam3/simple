@@ -1,4 +1,5 @@
-export function upload(options){
+export default function upload(options){
+    console.log(options)
     let xhr;
 
     if(window.XMLHttpRequest){
@@ -23,11 +24,11 @@ export function upload(options){
         }
     }
 
-    xhr.open('POST', options.data, true);
+    xhr.open('POST', action, true);
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    xhr.send();
+    xhr.send(formData);
 
-    
+    return xhr;
 }

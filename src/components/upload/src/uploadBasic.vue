@@ -38,18 +38,29 @@ export default {
             this.$refs.input.click();
         },
         handleInputChange(event){
-            console.log(event);
-            const files = event.target.files ;
+            const files = event.target.files;
             if(!files) return;
+            this.uploadFiles(files);
         },
+        //整个文件列表处理
         uploadFiles(files){
-            
+            Array.isArray(files);
+            let postFiles = Array.prototype.slice.call(files);
+
+            postFiles.forEach(file => {
+                if(this.uploadData.autoUpload) this.uploadFile(file);
+            })
         },
+        //单个文件处理
+        uploadFile(file){
+            this.post(file);
+        },
+        //发送文件
         post(file){
             const options = {
-                action: this.action
+                action: this.uploadData.action
             }
-            this.http(options);
+            const req = this.http(options);
         }
     }
 }
