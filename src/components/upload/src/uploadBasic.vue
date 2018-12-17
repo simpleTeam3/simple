@@ -48,6 +48,7 @@ export default {
             let postFiles = Array.prototype.slice.call(files);
 
             postFiles.forEach(file => {
+                this.uploadData.onStart();
                 if(this.uploadData.autoUpload) this.uploadFile(file);
             })
         },

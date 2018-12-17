@@ -18,7 +18,9 @@ export default {
             type: Boolean,
             default: true
         },
-        action: String
+        action: String,
+        onSuccess: Function,
+        onStart: Function
     },
     data(){
         return {
@@ -26,11 +28,19 @@ export default {
             uploadData: {
                 multiple: this.multiple,
                 autoUpload: this.autoUpload,
-                action: this.action
+                action: this.action,
+                "on-start": this.handleStart
             }
         }
     },
     methods: {
+        handleStart(){
+            console.log('start');
+            this.onStart && this.onStart();
+        },
+        handleSuccess(){
+
+        },
     }
 }
 </script>
