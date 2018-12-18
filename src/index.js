@@ -59,7 +59,6 @@ const Simple = {
 	Tree,
 	TreeNode: Tree.TreeNode,
 	Upload: Upload,
-	uploadBasic: Upload.UploadBasic
 };
 
 const install = function(Vue){

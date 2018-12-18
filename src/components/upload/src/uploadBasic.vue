@@ -30,7 +30,7 @@ export default {
     },
     data(){
         return {
-            prefix: this.global.prefix + 'upload-basic'
+            prefix: this.global.prefix + 'upload-basic',
         }
     },
     methods: {
@@ -48,7 +48,7 @@ export default {
             let postFiles = Array.prototype.slice.call(files);
 
             postFiles.forEach(file => {
-                this.uploadData.onStart();
+                this.uploadData.onStart(file);
                 if(this.uploadData.autoUpload) this.uploadFile(file);
             })
         },

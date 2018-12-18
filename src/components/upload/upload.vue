@@ -1,17 +1,24 @@
 <template>
     <div :class="prefix">
-        <vut-uploadBasic
+        <upload-basic
             :uploadData="uploadData"
         >
             <slot name="trigger"></slot>
             <slot></slot>
-        </vut-uploadBasic>
+        </upload-basic>
         <slot name="extra"></slot>
+        <upload-list
+            :fileList="uploadFiles"
+        ></upload-list>
     </div>
 </template>
 <script>
+import UploadBasic from './src/uploadBasic';
+import UploadList from './src/uploadList';
+
 export default {
     name: "vutUpload",
+    components: {UploadBasic, UploadList},
     props: {
         multiple: Boolean,
         autoUpload: {
@@ -29,13 +36,15 @@ export default {
                 multiple: this.multiple,
                 autoUpload: this.autoUpload,
                 action: this.action,
-                "on-start": this.handleStart
-            }
+                onStart: this.handleStart
+            },
+            uploadFiles: []
         }
     },
     methods: {
-        handleStart(){
-            console.log('start');
+        handleStart(file){
+            this.uploadFiles.push(file);
+
             this.onStart && this.onStart();
         },
         handleSuccess(){
