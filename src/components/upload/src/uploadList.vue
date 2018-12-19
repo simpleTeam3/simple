@@ -1,7 +1,7 @@
 <template>
-    <ul>
+    <ul :class="prefix">
         <li v-for="file in files" :key="file.uid">
-            <img :src="file.url"/>
+            <img v-if="listType !== 'text'" :src="file.url"/>
             <a>{{file.name}}</a>
         </li>
     </ul>
@@ -12,6 +12,7 @@ export default {
     name: "vutUploadList",
 
     props: {
+        listType: String,
         fileList: {
             type: Array,
             default(){
@@ -21,6 +22,7 @@ export default {
     },
     data(){
         return {
+            prefix: this.global.prefix + 'upload-list',
             files: this.fileList
         }
     },

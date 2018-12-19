@@ -1,5 +1,6 @@
 $upload-class-prefix: #{$class-prefix}upload;
 $upload-basic-class-prefix: #{$class-prefix}upload-basic;
+$upload-list-class-prefix: #{$class-prefix}upload-list;
 
 
 .#{$upload-class-prefix}{
@@ -7,5 +8,17 @@ $upload-basic-class-prefix: #{$class-prefix}upload-basic;
 
     .#{$upload-basic-class-prefix}{
         display: none;
+    }
+}
+
+.#{$upload-list-class-prefix}{
+
+    li{
+        padding: 3px 0;
+    }
+
+    a{
+        font-size: 14px;
+        color: $content-color;
     }
 }

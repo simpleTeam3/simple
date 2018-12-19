@@ -8,6 +8,7 @@
         </upload-basic>
         <slot name="extra"></slot>
         <upload-list
+            :listType="listType"
             :fileList="uploadFiles"
         ></upload-list>
     </div>
@@ -27,7 +28,11 @@ export default {
         },
         action: String,
         onSuccess: Function,
-        onStart: Function
+        onStart: Function,
+        listType: {
+            type: String,
+            default: 'text'
+        }
     },
     data(){
         return {
