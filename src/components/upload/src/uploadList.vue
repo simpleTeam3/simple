@@ -1,7 +1,7 @@
 <template>
     <ul>
         <li v-for="file in files" :key="file.uid">
-            <img />
+            <img :src="file.url"/>
             <a>{{file.name}}</a>
         </li>
     </ul>
@@ -27,18 +27,23 @@ export default {
     watch: {
         fileList(newVal){
             this.files = newVal;
+            newVal.forEach((item, index) => {
+                this.getFileUrl(item, index)
+            })
         }
     },
     methods: {
+        //两种方式, createObjectURL有更好的性能
         getFileUrl(file, index){
             const reader = new FileReader();
-
-            reader.onLoad = function(e) {
-                imgFile = e.target.result;
-            }
-
+            let that = this;
             reader.readAsDataURL(file)
-        }
+            reader.onload = function(e) {
+                const imgFile = e.target.result;
+                file.url = imgFile;
+                that.files.splice(index, 1, file);
+            }
+        },
     }
 }
 </script>
