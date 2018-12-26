@@ -22,9 +22,24 @@ $carousel-class-prefix: #{$class-prefix}carousel;
         height: 100%;
         display: inline-block;
         overflow: hidden;
+        z-index: 1;
+
+        &.is-animating{
+            transition: transform .4s ease-in-out;
+        }
+
+        &.is-active{
+            z-index: 2;
+        }
 
         &:nth-of-type(even){
             background: #777;
         }
+    }
+
+    &-button-next{
+        position: absolute;
+        top: 0;
+        z-index: 9;
     }
 }
