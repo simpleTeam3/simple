@@ -44,8 +44,8 @@ export default {
         translateItem(index, activeIndex, oldIndex){
             const parentWidth = this.$parent.$el.offsetWidth;
             const length = this.$parent.items.length
-            if(-this.translateX/parentWidth == 1){
-                this.translateX = (length - 2) * parentWidth;
+            if(this.translateX/parentWidth == -2){
+                this.translateX = (length - 3) * parentWidth;
             }else{
                 this.translateX = this.translateX - parentWidth;
             }

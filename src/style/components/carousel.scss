@@ -14,7 +14,6 @@ $carousel-class-prefix: #{$class-prefix}carousel;
     }
 
     &-item{
-        background: #bbb;
         position: absolute;
         top: 0;
         right: 0;
@@ -30,10 +29,6 @@ $carousel-class-prefix: #{$class-prefix}carousel;
 
         &.is-active{
             z-index: 2;
-        }
-
-        &:nth-of-type(even){
-            background: #777;
         }
     }
 
