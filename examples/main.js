@@ -115,6 +115,10 @@ const router = new VueRouter({
 		{
 			path: '/upload',
 			component: require('./routers/upload')
+		},
+		{
+			path: '/card',
+			component: require('./routers/card')
 		}
 	]
 });
