@@ -1,0 +1,23 @@
+$card-class-prefix: #{$class-prefix}card;
+
+.#{$card-class-prefix}{
+    display: inline-block;
+    border: $border-base;
+    transition: .3s;
+
+    &-header{
+        font-size: 20px;
+        padding: 10px $card-padding-horizontal;
+        border-bottom: $border-base;
+    }
+
+    &-content{
+        padding: 8px $card-padding-horizontal;
+    }
+
+    &.hover-shadow{
+        &:hover{
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+        }
+    }
+}
