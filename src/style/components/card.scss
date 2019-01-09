@@ -3,6 +3,7 @@ $card-class-prefix: #{$class-prefix}card;
 .#{$card-class-prefix}{
     display: inline-block;
     border: $border-base;
+    font-size: $font-size-normal;
     transition: .3s;
 
     &-header{
@@ -19,5 +20,14 @@ $card-class-prefix: #{$class-prefix}card;
         &:hover{
             box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
         }
+    }
+
+    img{
+        width: 100%;
+    }
+
+    &-meta-title{
+        font-size: $font-size-large;
+        font-weight: 500;
     }
 }
