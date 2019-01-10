@@ -8,7 +8,8 @@
 export default {
     name: 'vutCol',
     props: {
-        span: Number
+        span: Number,
+        offset: Number
     },
     data(){
         return {
@@ -17,10 +18,14 @@ export default {
     },
     computed: {
         colClass(){
-            return [
+            let classList = [
                 this.prefix,
-                `${this.prefix}-${this.span}`
+                `${this.prefix}-${this.span}`,
             ]
+            if(this.offset && this.offset !== 0){
+                classList.push(`${this.prefix}-offset-${this.offset}`);
+            }
+            return classList;
         },
         gutter(){
             let parent = this.$parent;

@@ -8,10 +8,17 @@ $col-class-prefix: #{$class-prefix}col;
         display: table;
         content: "";
     }
+    &:after{
+        clear: both;
+    }
 
     @for $i from 1 through 24 {
         .vut-col-#{$i}{
             width: ($i/24) * 100 * 1%;
+        }
+
+        .vut-col-offset-#{$i}{
+            margin-left: ($i/24) * 100 * 1%;
         }
     }
 

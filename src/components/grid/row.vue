@@ -8,11 +8,23 @@
 export default {
     name: 'vutRow',
     props: {
-        gutter: Number
+        gutter: Number,
+        flex: {
+            type: Boolean,
+            default: false
+        }
     },
     data(){
         return {
             prefix: this.global.prefix + 'row'
+        }
+    },
+    computed: {
+        rowClass(){
+            return [
+                this.prefix,
+                this.flex ? this.prefix + 'flex' : ""
+            ]
         }
     }
 }
