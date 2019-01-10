@@ -7,6 +7,9 @@
 <script>
 export default {
     name: 'vutRow',
+    props: {
+        gutter: Number
+    },
     data(){
         return {
             prefix: this.global.prefix + 'row'

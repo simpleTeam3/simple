@@ -1,5 +1,22 @@
 $row-class-prefix: #{$class-prefix}row;
+$col-class-prefix: #{$class-prefix}col;
 
 .#{$row-class-prefix}{
-    display: flex;
+    box-sizing: border-box;
+
+    &:before, &:after{
+        display: table;
+        content: "";
+    }
+
+    @for $i from 1 through 24 {
+        .vut-col-#{$i}{
+            width: ($i/24) * 100 * 1%;
+        }
+    }
+
+    [class*="vut-col-"]{
+        box-sizing: border-box;
+        float: left;
+    }
 }

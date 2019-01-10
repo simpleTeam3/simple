@@ -1,9 +1,25 @@
 <template>
     <div>
         <vut-row>
-            <vut-col :span="12">
-                <div class="h20 bg-purple-light"></div>
-            </vut-col>
+            <vut-col :span="12"><div class="text20 bg-purple">12</div></vut-col>
+            <vut-col :span="12"><div class="text20 bg-purple-light">12</div></vut-col>
+        </vut-row>
+        <vut-row>
+            <vut-col :span="6"><div class="text20 bg-purple">6</div></vut-col>
+            <vut-col :span="6"><div class="text20 bg-purple-light">6</div></vut-col>
+            <vut-col :span="6"><div class="text20 bg-purple">6</div></vut-col>
+            <vut-col :span="6"><div class="text20 bg-purple-light">6</div></vut-col>
+        </vut-row>
+        <vut-row>
+            <vut-col :span="7"><div class="text20 bg-purple">7</div></vut-col>
+            <vut-col :span="10"><div class="text20 bg-purple-light">10</div></vut-col>
+            <vut-col :span="7"><div class="text20 bg-purple">7</div></vut-col>
+        </vut-row>
+        <vut-row :gutter="20">
+            <vut-col :span="6"><div class="text20 bg-purple">6</div></vut-col>
+            <vut-col :span="6"><div class="text20 bg-purple-light">6</div></vut-col>
+            <vut-col :span="6"><div class="text20 bg-purple">6</div></vut-col>
+            <vut-col :span="6"><div class="text20 bg-purple-light">6</div></vut-col>
         </vut-row>
     </div>
 </template>
@@ -15,10 +31,18 @@ export default {
 </script>
 
 <style>
-.h20{
-    height: 30px;
+.text20{
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 20px 0;
+}
+.bg-purple{
+    background: #99a9bf;
+}
+.bg-purple-dark{
+    background: #677180;
 }
 .bg-purple-light{
-    background: #99a9bf;
+    background: #e2ebf3;
 }
 </style>

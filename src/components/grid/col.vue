@@ -1,5 +1,5 @@
 <template>
-    <div :class="prefix" :style="colStyle">
+    <div :class="colClass" :style="colStyle">
         <slot></slot>
     </div>
 </template>
@@ -16,9 +16,20 @@ export default {
         }
     },
     computed: {
+        colClass(){
+            return [
+                this.prefix,
+                `${this.prefix}-${this.span}`
+            ]
+        },
+        gutter(){
+            let parent = this.$parent;
+            return parent.$options.name === "vutRow" ? parent.gutter : 0;
+        },
         colStyle(){
             return {
-                flexGrow: this.span
+                paddingLeft: this.gutter/2 + 'px',
+                paddingRight: this.gutter/2 + 'px',
             }
         }
     }
