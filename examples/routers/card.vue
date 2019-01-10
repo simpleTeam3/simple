@@ -26,6 +26,7 @@
                 :cover="imgSrc"
                 imgTitle="猪年快乐"
                 imgDescription="不容易啊"
+                hoverabled
             >
             </vut-card>
             <vut-card :cardStyle="style" hoverabled>

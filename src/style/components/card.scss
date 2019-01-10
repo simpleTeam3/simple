@@ -27,7 +27,13 @@ $card-class-prefix: #{$class-prefix}card;
     }
 
     &-meta-title{
+        padding: 8px 0;
         font-size: $font-size-large;
         font-weight: 500;
+    }
+    &-meta-description{
+        padding: 6px 0;
+        color: $separator-color;
+        font-size: $font-size-normal;
     }
 }
