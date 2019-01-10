@@ -26,6 +26,7 @@ import Carousel from './components/carousel';
 import Tree from './components/tree';
 import Upload from './components/upload';
 import Card from './components/card';
+import Grid from './components/grid';
 
 const Simple = {
 	Radio,
@@ -59,7 +60,9 @@ const Simple = {
 	CarouselItem: Carousel.Item,
 	Tree,
 	Upload: Upload,
-	Card: Card
+	Card: Card,
+	Row: Grid.Row,
+	Col: Grid.Col
 };
 
 const install = function(Vue){

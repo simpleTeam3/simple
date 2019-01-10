@@ -78,7 +78,10 @@
 		data(){
 			return {
 				routeList: {
+
 					basic: [
+						{path: 'grid', name: 'Grid'},
+						{path: 'layout', name: 'Layout'},
 						{path: 'button', name: 'Button'},
 						{path: 'icon', name: 'Icon'},
 					],

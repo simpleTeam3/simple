@@ -119,6 +119,14 @@ const router = new VueRouter({
 		{
 			path: '/card',
 			component: require('./routers/card')
+		},
+		{
+			path: '/grid',
+			component: require('./routers/grid')
+		},
+		{
+			path: '/layout',
+			component: require('./routers/layout')
 		}
 	]
 });

@@ -1,0 +1,5 @@
+$row-class-prefix: #{$class-prefix}row;
+
+.#{$row-class-prefix}{
+    display: flex;
+}
