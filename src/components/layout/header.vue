@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="prefix">
         <slot></slot>
     </div>
 </template>
