@@ -1,5 +1,5 @@
 <template>
-    <div :class="prefix">
+    <div :class="rowClass" >
         <slot></slot>
     </div>
 </template>
@@ -12,7 +12,8 @@ export default {
         flex: {
             type: Boolean,
             default: false
-        }
+        },
+        justify: String
     },
     data(){
         return {
@@ -21,9 +22,10 @@ export default {
     },
     computed: {
         rowClass(){
+            let baseName = this.flex ? this.prefix + '-flex' : this.prefix;
             return [
-                this.prefix,
-                this.flex ? this.prefix + 'flex' : ""
+                baseName,
+                (this.flex && this.justify) ? `${baseName}-${this.justify}` : ""
             ]
         }
     }
