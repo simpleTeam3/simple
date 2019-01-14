@@ -25,7 +25,7 @@
             <vut-col :span="6"><div class="text20 bg-purple">6</div></vut-col>
             <vut-col :span="6" :offset="6"><div class="text20 bg-purple-light">6</div></vut-col>
         </vut-row>
-        <vut-row :gutter="20" flex justify="center">
+        <vut-row  flex justify="center">
             <vut-col :span="6"><div class="text20 bg-purple">6</div></vut-col>
             <vut-col :span="6"><div class="text20 bg-purple">6</div></vut-col>
             <vut-col :span="6"><div class="text20 bg-purple">6</div></vut-col>

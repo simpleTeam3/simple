@@ -27,6 +27,7 @@ import Tree from './components/tree';
 import Upload from './components/upload';
 import Card from './components/card';
 import Grid from './components/grid';
+import { Layout, Header, Sidebar, Main, Footer} from './components/layout';
 
 const Simple = {
 	Radio,
@@ -62,7 +63,12 @@ const Simple = {
 	Upload: Upload,
 	Card: Card,
 	Row: Grid.Row,
-	Col: Grid.Col
+	Col: Grid.Col,
+	Layout,
+	Header,
+	Sidebar,
+	Main,
+	Footer
 };
 
 const install = function(Vue){
