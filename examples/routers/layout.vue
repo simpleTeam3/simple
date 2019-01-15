@@ -3,8 +3,8 @@
         <vut-layout>
             <vut-header>header</vut-header>
             <vut-layout>
-                <vut-sidebar></vut-sidebar>
-                <vut-main></vut-main>
+                <vut-sidebar>sidebar</vut-sidebar>
+                <vut-main>main</vut-main>
             </vut-layout>
         </vut-layout>
     </div>

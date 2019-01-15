@@ -1,0 +1,5 @@
+$layout-class-prefix: #{class-prefix}layout;
+
+.#{$layout-class-prefix}{
+    display: flex;
+}

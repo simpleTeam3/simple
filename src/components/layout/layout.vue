@@ -1,11 +1,16 @@
 <template>
-    <div>
+    <div :class="prefix">
         <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'vutLayout'
+    name: 'vutLayout',
+    data(){
+        return {
+            prefix: this.global.prefix + 'layout'
+        }
+    }
 }
 </script>
