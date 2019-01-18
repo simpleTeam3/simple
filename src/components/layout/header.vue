@@ -1,7 +1,7 @@
 <template>
-    <div :class="prefix">
+    <header :class="prefix">
         <slot></slot>
-    </div>
+    </header>
 </template>
 
 <script>
