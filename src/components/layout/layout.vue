@@ -11,6 +11,14 @@ export default {
         return {
             prefix: this.global.prefix + 'layout'
         }
+    },
+    computed: {
+        layoutClass(){
+            return [
+                this.prefix,
+                
+            ]
+        }
     }
 }
 </script>
