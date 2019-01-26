@@ -91,7 +91,6 @@
 						{path: 'breadcrumb', name: 'Breadcrumb'},
 						{path: 'carousel', name: 'Carousel'},
 						{path: 'tree', name: 'Tree'},
-						{path: 'card', name: 'Card'}
 					],
 					form: [
 						{path: 'radio', name: 'Radio'},
@@ -115,7 +114,8 @@
 					data: [
 						{path: 'table', name: 'Table'},
 						{path: 'page', name: 'Page'},
-						{path: 'progress', name: 'Progress'}
+						{path: 'progress', name: 'Progress'},
+						{path: 'card', name: 'Card'}
 					],
 				}
 			}

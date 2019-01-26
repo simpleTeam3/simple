@@ -1,9 +1,9 @@
 {
-  "name": "simple",
+  "name": "simple-ui-for-vue",
   "version": "0.1.0",
   "title": "simple",
-  "description": "一个简单的Vue组件库，由simple出品",
-  "homepage": "对不起，没有主页",
+  "description": "A simple UI components Library with Vue.js",
+  "homepage": "https://github.com/simpleTeam3/simple",
   "keywords": [
     "simple",
     "vue",
@@ -21,7 +21,11 @@
     "dist:prod": "webpack --config build/webpack.dist.prod.config.js",
     "dist": "npm run dist:style && npm run dist:dev && npm run dist:prod"
   },
-  "author": "simpleTeam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simpleTeam3/simple.git"
+  },
+  "author": "sauce",
   "license": "MIT",
   "dependencies": {
     "async-validator": "^1.8.1",
