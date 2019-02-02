@@ -1,6 +1,3 @@
-<style>
-
-</style>
 <template>
 	<div>
 		<div class="demo-list">

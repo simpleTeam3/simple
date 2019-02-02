@@ -14,9 +14,11 @@
 import TreeStore from './store/tree-store';
 import { getNodeKey } from './store/tools';
 import emitter from '../../mixins/emit';
+import VutTreeNode from './tree-node.vue';
 
 export default {
     name: 'vutTree',
+    components: { VutTreeNode },
     props: {
         data: {
             type: Array,

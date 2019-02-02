@@ -1,6 +1,6 @@
 {
   "name": "simple-ui-for-vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "simple",
   "description": "A simple UI components Library with Vue.js",
   "homepage": "https://github.com/simpleTeam3/simple",
@@ -15,7 +15,7 @@
     "src"
   ],
   "scripts": {
-    "dev": "webpack-dev-server --content-base test/ --open --inline --hot --compress --history-api-fallback --port 8088 --config build/webpack.dev.config.js",
+    "dev": "webpack-dev-server --content-base test/ --open --inline --hot --compress --history-api-fallback --port 8888 --config build/webpack.dev.config.js",
     "dist:style": "gulp --gulpfile build/build-style.js",
     "dist:dev": "webpack --config build/webpack.dist.dev.config.js",
     "dist:prod": "webpack --config build/webpack.dist.prod.config.js",
@@ -89,7 +89,7 @@
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^3.1.11",
+    "webpack-dev-server": "2.8.2",
     "webpack-merge": "^3.0.0"
   },
   "engines": {

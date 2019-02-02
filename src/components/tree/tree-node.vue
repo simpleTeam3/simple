@@ -74,13 +74,11 @@ export default {
     },
     watch: {
         'node.expanded': function(newVal){
-            console.log(newVal);
             this.$nextTick(() => this.expanded = newVal);
         }
     },
     methods: {
         getNodeKey(node){
-            console.log(getNodeKey(this.nodeKey, node.data));
             return getNodeKey(this.nodeKey, node.data);
         },
         handleCollapse(){
