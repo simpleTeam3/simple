@@ -1,15 +1,12 @@
 <template>
     <ul :class="menuClass" :style="menuStyle">
-        <li :class="prefix + '-item'" v-for="m in data" :key="m.id">
-            {{m.name}}
-        </li>
+        <slot></slot>
     </ul>
 </template>
 <script>
 export default {
     name: 'vutMenu',
     props: {
-        data: Array,
         bgColor: String,
         textColor: String,
         mode: String

@@ -70,7 +70,8 @@ const Simple = {
 	Sidebar,
 	Main,
 	Footer,
-	Menu
+	Menu: Menu.Menu,
+	MenuItem: Menu.MenuItem
 };
 
 const install = function(Vue){

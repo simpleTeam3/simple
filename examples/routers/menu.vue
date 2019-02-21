@@ -1,11 +1,12 @@
 <template>
     <div>
         <vut-menu
-            :data="menuData"
             mode="horizontal"
             bg-color="#37495f"
             text-color="#fff"
         >
+            <vut-menu-item>简单</vut-menu-item>
+            <vut-menu-item>旧歌</vut-menu-item>
         </vut-menu>
     </div>
 </template>
@@ -14,10 +15,6 @@
 export default {
     data () {
         return {
-            menuData: [
-                {id: 1, name: '角落'},
-                {id: 2, name: '歌曲'}
-            ]
         }
     }
 }
