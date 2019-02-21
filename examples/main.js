@@ -6,7 +6,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './app.vue';
-import Simple from '../src/index';
+import Simple from '../src/index.js';
 
 Vue.use(VueRouter);
 Vue.use(Simple);

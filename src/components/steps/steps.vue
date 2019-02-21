@@ -7,7 +7,10 @@
 export default {
     name: 'vutSteps',
     props: {
-        activeStep: Number,
+        activeStep: {
+            type: Number,
+            default: 0
+        },
         direction: {
             type: String,
             default: 'horizontal'
