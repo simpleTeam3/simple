@@ -1,8 +1,3 @@
-<style>
-	p{
-		margin: 10px 0px;
-	}
-</style>
 <template>
 	<div>
 		<div class="demo-list">
@@ -77,3 +72,8 @@
 		}
 	}
 </script>
+<style>
+	p{
+		margin: 10px 0px;
+	}
+</style>

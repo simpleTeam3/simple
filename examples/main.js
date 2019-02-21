@@ -9,6 +9,7 @@ import App from './app.vue';
 import Simple from '../src/index.js';
 
 Vue.use(VueRouter);
+console.log(Simple);
 Vue.use(Simple);
 
 //开启debug

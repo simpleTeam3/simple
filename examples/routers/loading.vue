@@ -23,7 +23,6 @@
     </div>
 </template>
 <script>
-
 export default {
     data(){
         return {
@@ -32,9 +31,6 @@ export default {
     },
     mounted: function(){
         let load = this.$loading();
-        setTimeout(_ => {
-            load.close();
-        },1000);
     },
     methods: {
         toggle : function(){
