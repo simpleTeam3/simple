@@ -91,6 +91,7 @@
 						{path: 'breadcrumb', name: 'Breadcrumb'},
 						{path: 'carousel', name: 'Carousel'},
 						{path: 'tree', name: 'Tree'},
+						{path: 'menu', name: 'Menu'}
 					],
 					form: [
 						{path: 'radio', name: 'Radio'},

@@ -1,0 +1,17 @@
+$menu-class-prefix: #{$class-prefix}menu;
+
+.#{$menu-class-prefix}{
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: $border-radius-base;
+
+    li{
+        padding: 0 30px;
+    }
+}
+
+.#{$menu-class-prefix}-horizontal{
+    li{
+        display: inline-block;
+    }
+}
