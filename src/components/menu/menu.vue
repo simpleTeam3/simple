@@ -4,16 +4,22 @@
     </ul>
 </template>
 <script>
+import { handleColor } from '@/utils/utils';
 export default {
     name: 'vutMenu',
     props: {
-        bgColor: String,
+        backgroundColor: String,
         textColor: String,
         mode: String
     },
     data () {
         return {
             prefix: this.global.prefix + 'menu'
+        }
+    },
+    provide () {
+        return {
+            rootMenu: this
         }
     },
     computed: {
@@ -25,10 +31,13 @@ export default {
         },
         menuStyle () {
             let style = {};
-            this.bgColor && (style.backgroundColor = this.bgColor);
+            this.backgroundColor && (style.backgroundColor = this.backgroundColor);
             this.textColor && (style.color = this.textColor)
 
             return style;
+        },
+        hoverBackgroundColor(){
+            return this.backgroundColor ? handleColor(this.backgroundColor, 0.2) : ''
         }
     }
 }

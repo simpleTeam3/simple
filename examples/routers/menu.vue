@@ -2,7 +2,7 @@
     <div>
         <vut-menu
             mode="horizontal"
-            bg-color="#37495f"
+            background-color="#37495f"
             text-color="#fff"
         >
             <vut-menu-item>简单</vut-menu-item>

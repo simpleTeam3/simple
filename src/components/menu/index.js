@@ -1,5 +1,5 @@
 import Menu from './menu';
-import MenuItem from './menuItem';
+import MenuItem from './menu-item';
 
 export default {
     Menu,
