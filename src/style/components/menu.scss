@@ -15,3 +15,7 @@ $menu-class-prefix: #{$class-prefix}menu;
         display: inline-block;
     }
 }
+
+.#{$menu-class-prefix}-item{
+    cursor: pointer;
+}

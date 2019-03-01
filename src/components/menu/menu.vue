@@ -9,12 +9,15 @@ export default {
     name: 'vutMenu',
     props: {
         backgroundColor: String,
-        textColor: String,
-        mode: String
+		textColor: String,
+		activeTextColor: String,
+        mode: String,
+        active: [String, Number]
     },
     data () {
         return {
-            prefix: this.global.prefix + 'menu'
+            prefix: this.global.prefix + 'menu',
+            activeMenu: this.active || 1
         }
     },
     provide () {
@@ -38,7 +41,18 @@ export default {
         },
         hoverBackgroundColor(){
             return this.backgroundColor ? handleColor(this.backgroundColor, 0.2) : ''
-        }
-    }
+		},
+		activeColor () {
+			return this.activeTextColor ? this.activeTextColor : '#2d8cf0'
+		}
+	},
+	mounted () {
+		this.$on('itemClick', this.changeActive);
+	},
+	methods: {
+		changeActive (itemNum) {
+			this.activeMenu = itemNum
+		}
+	}
 }
 </script>
