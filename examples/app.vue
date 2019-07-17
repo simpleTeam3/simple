@@ -94,6 +94,7 @@
 						{path: 'menu', name: 'Menu'}
 					],
 					form: [
+						{path: 'form', name: 'Form'},
 						{path: 'radio', name: 'Radio'},
 						{path: 'input', name: 'Input'},
 						{path: 'switch', name: 'Switch'},

@@ -132,6 +132,10 @@ const router = new VueRouter({
 		{
 			path: '/menu',
 			component: require('./routers/menu')
+		},
+		{
+			path: '/form',
+			component: require('./routers/form')
 		}
 	]
 });

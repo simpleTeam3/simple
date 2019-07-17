@@ -29,6 +29,7 @@ import Card from './components/card';
 import Grid from './components/grid';
 import { Layout, Header, Sidebar, Main, Footer} from './components/layout';
 import Menu from './components/menu';
+import Form from './components/form';
 
 const Simple = {
 	Radio,
@@ -71,7 +72,9 @@ const Simple = {
 	Main,
 	Footer,
 	Menu: Menu.Menu,
-	MenuItem: Menu.MenuItem
+	MenuItem: Menu.MenuItem,
+	Form: Form,
+	FormItem: Form.FormItem
 };
 
 const install = function(Vue){
