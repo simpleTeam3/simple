@@ -6,6 +6,19 @@
 <script>
 export default {
     name: 'vutForm',
+    provide() {
+        return {
+            form: this
+        }
+    },
+    props: {
+        model: {
+            type: Object
+        },
+        rules: {
+            type: Object
+        }
+    },
     data() {
         return {
             formItemList: []
