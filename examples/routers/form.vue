@@ -1,7 +1,10 @@
 <template>
     <div class="ex-form">
-        <vut-form>
-            <vut-form-item>
+        <vut-form :model="form" :rules="rules">
+            <vut-form-item prop='name'>
+                <vut-input />
+            </vut-form-item>
+            <vut-form-item prop='mobile'>
                 <vut-input />
             </vut-form-item>
             <vut-form-item>
@@ -13,7 +16,22 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            form: {
+                name: '',
+                mobile: ''
+            },
+            rules: {
+                name: [
+                    { required: true, message: '请输入姓名', }
+                ],
+                mobile: [
+                    { required: true, message: '请输入手机号', trigger: 'blur' }
+                ]
+            }
+        }
+    }
 }
 </script>
 
