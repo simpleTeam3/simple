@@ -1,7 +1,8 @@
 <template>
     <div>
-        <label v-if="label">{{label}}</label>
+        <label v-if="label" :class="{'vut-form-item-required': required}" >{{label}}</label>
         <slot></slot>
+        <div v-if="validateStatus === 'error'">{{validateMessage}}</div>
     </div>
 </template>
 <script>
@@ -22,6 +23,8 @@ export default {
     },
     data() {
         return {
+            initialValue: '',
+            required: false,
             validateStatus: '',
             validateMessage: ''
         }
@@ -34,13 +37,27 @@ export default {
     },
     mounted() {
         this.dispatch('vutForm', 'on-form-item-add', this);
-        this.$on('on-change-item', this.handleFieldChange);
-        this.$on('on-blur-item', this.handleFieldBlur);
+        this.initialValue = this.fieldValue;
+        this.initRules();
     },
     destroyed() {
         this.dispatch('vutForm', 'on-form-item-remove', this);
     },
     methods: {
+        // 初始化监听校验
+        initRules() {
+            const rules = this.getRules();
+            if (rules.length) {
+                rules.some(rule => {
+                    if (rule.required) {
+                        this.required = true;
+                        return true;
+                    }
+                })
+            }
+            this.$on('on-change-item', this.handleFieldChange);
+            this.$on('on-blur-item', this.handleFieldBlur);
+        },
         getRules() {
             let formRules = this.props.form.rules;
             itemRules = formRules ? formRules[this.prop] : []
@@ -70,6 +87,12 @@ export default {
 
                 callback(this.validateMessage);
             })
+        },
+        // 重置数据及校验状态
+        resetField() {
+            this.validateStatus = '';
+            this.validateMessage = '';
+            this.form.model[this.prop] = this.initialValue;
         },
         handleFieldChange(value) {
             this.validate('input');
