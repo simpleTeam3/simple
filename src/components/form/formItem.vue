@@ -34,6 +34,8 @@ export default {
     },
     mounted() {
         this.dispatch('vutForm', 'on-form-item-add', this);
+        this.$on('on-change-item', this.handleFieldChange);
+        this.$on('on-blur-item', this.handleFieldBlur);
     },
     destroyed() {
         this.dispatch('vutForm', 'on-form-item-remove', this);
@@ -68,6 +70,12 @@ export default {
 
                 callback(this.validateMessage);
             })
+        },
+        handleFieldChange(value) {
+            this.validate('input');
+        },
+        handleFieldBlur(value) {
+            this.validate('blur');
         }
     }
 }

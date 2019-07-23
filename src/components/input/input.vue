@@ -54,7 +54,8 @@
 </template>
 
 <script>
-  const prefixClass = "vut-input";
+import emit from '../../mixins/emit';
+const prefixClass = "vut-input";
 	export default {
 		name: 'vut-input',
 		props: {
@@ -122,6 +123,7 @@
 				];
 			}
 		},
+		mixins: [emit],
 		mounted() {
 			if(this.type !== 'textarea'){
 				this.prepend = !!this.$slots.prepend;
@@ -140,11 +142,14 @@
 			},
 			handleBlurFn(event) {
 				this.$emit('on-blur', event);
+				this.dispatch('vutFormItem', 'on-blur-item', event);
 			},
 			handleInputFn(event) {
 				let value = event.target.value;
 				this.$emit('input', value);
 				this.$emit('on-change', event);
+				// 触发formItem里的监听
+				this.dispatch('vutFormItem','on-change-item', value)
 			}
 		}
 	}
