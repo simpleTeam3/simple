@@ -2,7 +2,13 @@
     <div :class="checkboxClass" @click="triggerCheck">
         <div :class="inputClass">
             <div :class="prefix+'-inner'"></div>
-            <input type="checkbox" v-show="false"/>
+            <input
+                v-if="isGroup"
+                type="checkbox"
+                v-show="false"
+
+            />
+            <input v-else type="checkbox" v-show="false" :check="value"/>
         </div>
         <div :class="prefix+'-label'">
             <slot></slot>
@@ -14,30 +20,51 @@
 export default {
     name: 'vutCheckbox',
     props:{
-        value:{}
+        value:{
+            type: [String, Boolean, Number],
+            default: false
+        },
+        label: [String, Boolean, Number]
     },
     data(){
         return {
-            prefix: this.global.prefix + 'checkbox'
+            prefix: this.global.prefix + 'checkbox',
+            model: [],
+            currentValue: false
         }
     },
     computed: {
         checkboxClass(){
             return [
                 this.prefix,
-                {'is-checked': this.value}
+                {'is-checked': this.isGroup ? this.model.indexOf(this.label) : this.value}
             ]
         },
         inputClass(){
             return [
                 this.prefix + '-input',
-                {'is-checked': this.value}
+                {'is-checked': this.isGroup ? this.model.indexOf(this.label) : this.value}
             ]
+        },
+        isGroup() {
+            let parent = this.$parent;
+
+            while(parent) {
+                if (parent.name !== 'vutCheckboxGroup') {
+                    parent = parent.$parent;
+                } else {
+                    this_checkGroup = parent;
+                    return true;
+                }
+            }
+            return false;
         }
     },
     methods: {
         triggerCheck(){
             this.$emit('input', !this.value);
+            this.$emit('on-change', !this.value);
+            this.$emit('on-change-item', !this.value);
         }
     }
 }

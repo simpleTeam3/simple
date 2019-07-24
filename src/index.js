@@ -56,6 +56,7 @@ const Simple = {
 	Steps: Steps,
 	Step: Steps.Step,
 	Checkbox,
+	CheckboxGroup: Checkbox.CheckboxGroup,
 	Progress,
 	Notification: Notification,
 	Modal,
