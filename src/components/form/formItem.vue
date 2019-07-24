@@ -11,7 +11,7 @@ import emit from '../../mixins/emit.js';
 
 export default {
     name: 'vutFormItem',
-    reject: ['form'],
+    inject: ['form'],
     props: {
         label: {
             type: String,
@@ -32,7 +32,7 @@ export default {
     mixins: [ emit ],
     computed: {
         fieldValue() {
-            return this.form.model[this.prop]
+            return this.form.model[this.prop];
         }
     },
     mounted() {
@@ -59,9 +59,9 @@ export default {
             this.$on('on-blur-item', this.handleFieldBlur);
         },
         getRules() {
-            let formRules = this.props.form.rules;
-            itemRules = formRules ? formRules[this.prop] : []
-            return [].concat(formRules || []);
+            let formRules = this.form.rules;
+            let itemRules = formRules ? formRules[this.prop] : []
+            return [].concat(itemRules || []);
         },
         filterTriggerRule(trigger) {
             return this.getRules().filter(r => {
@@ -85,7 +85,7 @@ export default {
                 this.validateStatus = !errors ? 'success' : 'error';
                 this.validateMessage = errors ? errors[0].message : '';
 
-                callback(this.validateMessage);
+                callback(errors, this.validateMessage);
             })
         },
         // 重置数据及校验状态

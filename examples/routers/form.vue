@@ -1,10 +1,10 @@
 <template>
     <div class="ex-form">
         <vut-form :model="form" :rules="rules">
-            <vut-form-item prop='name'>
+            <vut-form-item label="姓名" prop='name'>
                 <vut-input />
             </vut-form-item>
-            <vut-form-item prop='mobile'>
+            <vut-form-item label="手机" prop='mobile'>
                 <vut-input />
             </vut-form-item>
             <vut-form-item>

@@ -34,6 +34,24 @@ export default {
         },
         handleRemoveItem(item) {
             this.formItemList.splice(this.formItemList.indexOf(item), 1);
+        },
+        validate(callback) {
+            return new Promise((resolve, reject) => {
+                let valid = true;
+                this.formItemList.forEach((formItem, index) => {
+                    formItem.validate('', (errors) => {
+                        if (errors) {
+                            valid = false;
+                        }
+                        if (index === this.formItemList.length - 1) {
+                            resolve(valid)
+                            if(typeof callback === 'function') {
+                                callback(valid);
+                            }
+                        }
+                    });
+                });
+            });
         }
     }
 }
