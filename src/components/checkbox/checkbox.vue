@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import emit from '../../mixins/emit';
+
 export default {
     name: 'vutCheckbox',
     props:{
@@ -26,6 +28,7 @@ export default {
         },
         label: [String, Boolean, Number]
     },
+    mixins: [emit],
     data(){
         return {
             prefix: this.global.prefix + 'checkbox',
@@ -50,7 +53,7 @@ export default {
             let parent = this.$parent;
 
             while(parent) {
-                if (parent.name !== 'vutCheckboxGroup') {
+                if (parent.$options.componentName !== 'vutCheckboxGroup') {
                     parent = parent.$parent;
                 } else {
                     this_checkGroup = parent;
@@ -64,7 +67,12 @@ export default {
         triggerCheck(){
             this.$emit('input', !this.value);
             this.$emit('on-change', !this.value);
-            this.$emit('on-change-item', !this.value);
+            if (this.isGroup) {
+                this.dispatch('on-check', this.label);
+            } else {
+                this.dispatch('on-change-item', !this.value);
+            }
+            
         }
     }
 }
