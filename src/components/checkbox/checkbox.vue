@@ -40,23 +40,23 @@ export default {
         checkboxClass(){
             return [
                 this.prefix,
-                {'is-checked': this.isGroup ? this.model.indexOf(this.label) : this.value}
+                {'is-checked': this.isGroup ? this.model.indexOf(this.label) !== -1 : this.value}
             ]
         },
         inputClass(){
             return [
                 this.prefix + '-input',
-                {'is-checked': this.isGroup ? this.model.indexOf(this.label) : this.value}
+                {'is-checked': this.isGroup ? this.model.indexOf(this.label) !== -1 : this.value}
             ]
         },
         isGroup() {
             let parent = this.$parent;
 
             while(parent) {
-                if (parent.$options.componentName !== 'vutCheckboxGroup') {
+                if (parent.$options.name !== 'vutCheckboxGroup') {
                     parent = parent.$parent;
                 } else {
-                    this_checkGroup = parent;
+                    this._checkGroup = parent;
                     return true;
                 }
             }
@@ -68,8 +68,9 @@ export default {
             this.$emit('input', !this.value);
             this.$emit('on-change', !this.value);
             if (this.isGroup) {
-                this.dispatch('on-check', this.label);
+                this.dispatch('vutCheckboxGroup', 'on-check', this.label);
             } else {
+                // checkbox 触发 form 校验
                 this.dispatch('on-change-item', !this.value);
             }
             

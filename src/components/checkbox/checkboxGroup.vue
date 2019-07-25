@@ -4,29 +4,46 @@
     </div>
 </template>
 <script>
+import emit from '../../mixins/emit';
+
 export default {
     name: 'vutCheckboxGroup',
-    data() {
-        return {
-            values: []
+    props: {
+        value: {
+            type: Array,
+            default () {
+                return [];
+            }
         }
     },
+    data() {
+        return {
+            model: this.value
+        }
+    },
+    mixins: [emit],
     created() {
         this.$on('on-check', this.onCheck)
+    },
+    mounted() {
+        this.updateChildModel();
     },
     methods: {
         updateChildModel() {
             this.$children.forEach(child => {
-                child.model = this.values;
+                child.model = this.model;
             })
         },
         onCheck(label) {
-            if (this.values.includes(label)) {
-                this.values = this.values.filter(v => v !== label)
+            if (this.model.includes(label)) {
+                this.model = this.model.filter(v => v !== label)
             } else {
-                this.values = this.values.concat([label]);
+                this.model = this.model.concat([label]);
             }
             this.updateChildModel();
+
+            // 由checkboxGroup 触发 formItem 校验
+            this.dispatch('vutFormItem', 'on-change-form', this.model)
         }
     }
 }
