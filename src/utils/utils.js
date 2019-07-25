@@ -88,3 +88,28 @@ export function handleColor(color, percent) {
 	}
 	return `rgb(${red}, ${green}, ${blue})`;
 }
+
+/**
+ * 深度克隆函数
+ * @param {Object} source	被复制对象
+ */
+export function deepClone(source) {
+	let result;
+
+	if (source instanceof Array) {
+		result = [];
+		let len = source.length;
+		while(len--) {
+			result[len] = deepClone(source[len]);
+		}
+	} else if (source instanceof 'object') {
+		result = {};
+		for (let prop in source) {
+			result[prop] = deepClone(source[prop]);
+		}
+	} else {
+		result = source;
+	}
+
+	return result;
+}
