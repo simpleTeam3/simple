@@ -2,7 +2,7 @@
     <div>
         <vut-button @click="test1()">试试括号</vut-button>
         <vut-button @click="test2">试试</vut-button>
-        <vut-tree :data="tree"></vut-tree>
+        <vut-tree :data="tree" :showCheckbox="true"></vut-tree>
     </div>
 </template>
 
@@ -13,17 +13,21 @@ export default {
         return {
             tree: [
                 {
+                    id: 'key1',
                     label: '一级1',
                     children: [{
+                        id: 'key11',
                         label: '二级1-1',
                         children: [
-                            {label: '三级1-1-1'},
-                            {label: '三级1-1-2'}
+                            {id: 'key111', label: '三级1-1-1'},
+                            {id: 'key112', label: '三级1-1-2'}
                         ]
                     },{
+                        id: 'key12',
                         label: '二级1-2'
                     }]
                 },{
+                    id: 'key2',
                     label: '一级2'
                 }
             ],

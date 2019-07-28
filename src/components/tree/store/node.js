@@ -10,6 +10,7 @@ export default class Node {
         this.data = null;
         this.parent = null;
         this.expanded = true;
+        this.checked = false;
 
         for(let opt in options){
             options.hasOwnProperty(opt) && (this[opt] = options[opt])

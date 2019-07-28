@@ -40,11 +40,16 @@ export default {
         lazy: {                                            //懒加载
             type: Boolean,
             default: false
+        },
+        showCheckbox: {
+            type: Boolean,
+            default: false                      // 是否可选
         }
     },
     data(){
         return {
-            prefix: this.global.prefix + 'tree'
+            prefix: this.global.prefix + 'tree',
+            checkedList: []
         }
     },
     created(){
@@ -56,10 +61,19 @@ export default {
         })
 
         this.rootNode = this.store.rootNode;
+
+        this.$on('tree-node-check', this.nodeCheckedChange)
     },
     methods: {
         getNodeKey(node){
             return getNodeKey(this.nodeKey, node.data)
+        },
+        nodeCheckedChange(nodeId) {
+            if (this.checkedList.includes(nodeId)) {
+                this.checkedList = this.checkedList.filter(v => v !== nodeId);
+            } else {
+                this.checkedList = this.checkedList.concat([nodeId]);
+            }
         }
     }
 }

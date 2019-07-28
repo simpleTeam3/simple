@@ -14,9 +14,13 @@
                 v-if="node.childNodes.length"
                 @click="handleCollapse"
             ></span>
+            <vut-checkbox
+                v-if="tree.showCheckbox"
+                v-model="checked"
+                @on-change="handleCheck"
+            ></vut-checkbox>
             <p class="vut-tree-label">{{node.data.label}}</p>
         </div>
-
         <div 
             :class="prefix + '-children'"
             v-show="expanded"
@@ -33,6 +37,7 @@
 </template>
 
 <script>
+import vutCheckbox from '../checkbox';
 import { getNodeKey } from './store/tools';
 
 export default {
@@ -44,11 +49,13 @@ export default {
             }
         },
     },
+    components: { vutCheckbox },
     data(){
         return {
             prefix: this.global.prefix + 'tree-node',
             tree: null,
-            expanded: this.node.expanded
+            expanded: this.node.expanded,
+            checked: this.node.checked
         }
     },
     created(){
@@ -62,6 +69,10 @@ export default {
 
         if(this.node.expanded){
             this.expanded = true;
+        }
+
+        if (this.tree.checkedList.indexOf(this.node.id) !== -1) {
+            this.checked = true;
         }
         
     },
@@ -81,7 +92,7 @@ export default {
         getNodeKey(node){
             return getNodeKey(this.nodeKey, node.data);
         },
-        handleCollapse(){
+        handleCollapse() {
             if(this.node.expanded){
                 this.expanded = false;
                 this.node.collapse();
@@ -89,6 +100,9 @@ export default {
                 this.expanded = true;
                 this.node.expand();
             }
+        },
+        handleCheck() {
+            this.tree.$emit('tree-node-check', this.node.data.id)
         }
     }
 }
