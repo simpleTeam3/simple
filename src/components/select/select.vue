@@ -16,6 +16,7 @@
 </template>
 <script>
     import VutInput from '../input';
+    import emit from '../../mixins/emit';
     export default {
         name: 'vutSelect',
         props: {
@@ -37,6 +38,7 @@
         computed: {
 
         },
+        mixins: [emit],
         mounted(){
             this.$on('select', this.beSelect)
         },
@@ -54,6 +56,7 @@
                 this.activeLabel = payload.label;
                 this.activeValue = payload.value;
                 this.visible = false;
+                this.dispatch('vutForm', 'on-change-item', payload);
             }
         }
     }

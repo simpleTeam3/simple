@@ -15,6 +15,8 @@
     </label>
 </template>
 <script>
+import emit from '../../mixins/emit';
+
 const prefix = 'vut-radio'
 export default {
     name: 'vut-radio',
@@ -24,6 +26,7 @@ export default {
         },
         label: {}
     },
+    mixins: [emit],
     data(){
         return {
             prefix
@@ -32,6 +35,7 @@ export default {
     methods: {
         handleInput: function(e){
             this.$emit('input', e.target.value);
+            this.dispatch('vutForm', 'on-change-item', e.target.value);
         }
     },
     computed: {
@@ -40,7 +44,8 @@ export default {
                 return this.value;
 			},
 			set: function(newValue){
-				this.$emit('input', newValue);
+                this.$emit('input', newValue);
+                this.dispatch('vutForm', 'on-change-item', newValue);
 			}
         }
     }
