@@ -33,6 +33,7 @@ import Form from './components/form';
 
 const Simple = {
 	Radio,
+	RadioGroup: Radio.RadioGroup,
 	Input,
 	Button,
 	Table,

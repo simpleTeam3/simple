@@ -1,11 +1,6 @@
 <template>
     <label :class="prefix">
-        <span :class="[
-            prefix + '-input',
-            {
-                'is-checked' : value == label,
-            }
-        ]">
+        <span :class="inputClass">
             <span :class="prefix + '-inner'"></span>
             <input type="radio" :class="prefix + '-original'" :value="label" v-model="checkActive"/>
         </span>
@@ -29,24 +24,45 @@ export default {
     mixins: [emit],
     data(){
         return {
-            prefix
-        }
-    },
-    methods: {
-        handleInput: function(e){
-            this.$emit('input', e.target.value);
-            this.dispatch('vutForm', 'on-change-item', e.target.value);
+            prefix,
+            model: ''
         }
     },
     computed: {
+        inputClass() {
+            return [
+                this.prefix + '-input',
+                {
+                    'is-checked': this.isGroup ? this.model === this.label : this.value === this.label
+                }
+            ]
+        },
         checkActive: {
             get: function(){
                 return this.value;
 			},
 			set: function(newValue){
                 this.$emit('input', newValue);
-                this.dispatch('vutForm', 'on-change-item', newValue);
+                // 如果有group父组件，由Group触发校验
+                if (this.isGroup) {
+                    this.dispatch('vutRadioGroup', 'on-change', newValue);
+                } else {
+                    this.dispatch('vutForm', 'on-change-item', newValue);
+                }
 			}
+        },
+        isGroup() {
+            let parent = this.$parent;
+
+            while (parent) {
+                if (parent.$options.name === 'vutRadioGroup') {
+                    this._radioGroup = parent;
+                    return true;
+                } else {
+                    parent = parent.$parent;
+                }
+            }
+            return false;
         }
     }
 }
