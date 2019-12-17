@@ -93,6 +93,9 @@ export default {
 			if(newPos > this.max){
 				if(this.currentValue == this.max) return;
 				this.currentValue = this.max;
+			} else if (newPos <= 0) {
+				if (this.currentValue === 0) return;
+				this.currentValue = 0;
 			}else{
 				this.currentValue = newPos;
 				this.startX = this.currentX;
