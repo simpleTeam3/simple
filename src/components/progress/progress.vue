@@ -1,8 +1,9 @@
 <template>
     <div :class="prefix">
-        <div :class="prefix + '-wrap'">
+        <div :class="prefix + '-bar-wrap'" v-if="type === 'line'">
             <div :class="prefix + '-bar'" :style="barStyle"></div>
         </div>
+        <div :class="prefix + '-circle'" v-else></div>
         <div :class="labelClass">
             <span v-if="percent < 100">{{percent}}%</span>
             <i v-else class="vut-icon-roundcheckfill"></i>
@@ -14,7 +15,14 @@
 export default {
     name: 'vutProgress',
     props: {
-        value: Number
+        value: {
+            type: Number,
+            default: 0
+        },
+        type: {
+            type: String,
+            default: 'line'
+        }
     },
     data(){
         return {

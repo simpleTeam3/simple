@@ -1,6 +1,6 @@
 $progress-class-prefix: #{$class-prefix}progress;
 
-.#{$progress-class-prefix}-wrap{
+.#{$progress-class-prefix}-bar-wrap{
     position: relative;
     display: inline-block;
     width: 88%;

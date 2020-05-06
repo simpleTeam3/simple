@@ -54,12 +54,12 @@ export default {
             ]
         },
         navItemClass(){
-            return function(item){
+            return function(item) {
                 return [
                     this.prefix + '-nav-item',
                     this.activeValue == item.name ? this.prefix + '-nav-item-active' : '' 
-                ]
-            }
+                ];
+            };
         },
         contentClass(){
             return [
