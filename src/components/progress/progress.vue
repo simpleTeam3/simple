@@ -16,7 +16,7 @@ export default {
     name: 'vutProgress',
     props: {
         value: {
-            type: Number,
+            type: [Number, String],
             default: 0
         },
         type: {
