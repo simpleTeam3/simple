@@ -1,5 +1,9 @@
 $progress-class-prefix: #{$class-prefix}progress;
 
+.#{$progress-class-prefix} {
+    position: relative;
+}
+
 .#{$progress-class-prefix}-bar-wrap{
     position: relative;
     display: inline-block;
@@ -21,4 +25,8 @@ $progress-class-prefix: #{$class-prefix}progress;
     &.is-success{
         color: $success-color;
     }
+}
+
+.#{$progress-class-prefix}-type-circle {
+    display: inline-block;
 }
