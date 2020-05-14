@@ -15,7 +15,7 @@
                 <path
                     :class="prefix + '-circle__path'"
                     :d="trackPath"
-                    stroke="#20a0ff"
+                    :stroke="strokeColor"
                     :stroke-width="relativeStrokeWidth"
                     stroke-linecap="round"
                     fill="none"
@@ -33,6 +33,10 @@
 export default {
     name: 'vutProgress',
     props: {
+        color: {
+            type: String,
+            default: ''
+        },
         value: {
             type: [Number, String],
             default: 0
@@ -48,7 +52,8 @@ export default {
         strokeWidth: {
             type: Number,
             default: 6
-        }
+        },
+
     },
     data(){
         return {
@@ -65,12 +70,19 @@ export default {
         barStyle(){
             let style={
                 width: this.percent + "%",
-                backgroundColor: this.percent >= 100 ? "#19be6b" : ""
+                backgroundColor: this.percent >= 100 ? "#19be6b" : this.color
             }
             return style;
         },
         circleStyle() {
-            return {width: this.width + 'px', height: this.width + 'px'}
+            return { width: this.width + 'px', height: this.width + 'px' }
+        },
+        strokeColor() {
+            if (this.percent >= 100) {
+                return "#19be6b"
+            } else {
+                return this.color || "#2d8cf0"
+            }
         },
         // 相对线条宽度
         relativeStrokeWidth() {
