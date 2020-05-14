@@ -6,12 +6,20 @@
         <div :class="prefix + '-circle'" :style="circleStyle" v-else>
             <svg viewBox="0 0 100 100">
                 <path
-                    class="el-progress-circle__track"
+                    :class="prefix + '-circle__track'"
                     :d="trackPath"
                     stroke="#e5e9f2"
                     :stroke-width="relativeStrokeWidth"
                     fill="none"
                     :style="trailPathStyle"></path>
+                <path
+                    :class="prefix + '-circle__path'"
+                    :d="trackPath"
+                    stroke="#20a0ff"
+                    :stroke-width="relativeStrokeWidth"
+                    stroke-linecap="round"
+                    fill="none"
+                    :style="percentPathStyle"></path>
             </svg>
         </div>
         <div :class="labelClass">
@@ -35,11 +43,11 @@ export default {
         },
         width: {
             type: Number,
-            default: 130
+            default: 150
         },
-        relativeStrokeWidth: {
+        strokeWidth: {
             type: Number,
-            default: 5
+            default: 6
         }
     },
     data(){
@@ -64,6 +72,19 @@ export default {
         circleStyle() {
             return {width: this.width + 'px', height: this.width + 'px'}
         },
+        // 相对线条宽度
+        relativeStrokeWidth() {
+            return (this.strokeWidth / this.width * 100).toFixed(1);
+            // return this.strokeWidth
+        },
+        // 圆周长
+        perimeter() {
+            return 2 * Math.PI * this.radius;
+        },
+        // 类型
+        rate() {
+            return this.type === 'dashboard' ? 0.75 : 1;
+        },
         percent(){
             return this.value <= 100 ? Math.floor(this.value) : 100;
         },
@@ -86,10 +107,16 @@ export default {
         },
         trailPathStyle() {
             return {
-            strokeDasharray: `${(this.perimeter * this.rate)}px, ${this.perimeter}px`,
-            strokeDashoffset: this.strokeDashoffset
+                strokeDasharray: `${(this.perimeter * this.rate)}px, ${this.perimeter}px`,
+                strokeDashoffset: this.strokeDashoffset
             };
         },
+        percentPathStyle() {
+            return {
+                strokeDasharray: `${(this.percent / 100) * this.perimeter * this.rate}px, ${this.perimeter}px`,
+                strokeDashoffset: this.strokeDashoffset
+            }
+        }
     }
 }
 </script>
