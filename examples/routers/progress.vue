@@ -4,6 +4,7 @@
         <div class="progress-box">
             <vut-progress :value="value"></vut-progress>
             <vut-progress value="75" color="#BB1"></vut-progress>
+            <vut-progress value="75" text-inside strokeWidth="20"></vut-progress>
         </div>
         <div class="progress-box-circle">
             <vut-progress :value="value" type="circle"></vut-progress>

@@ -8,15 +8,12 @@ $progress-class-prefix: #{$class-prefix}progress;
     position: relative;
     display: inline-block;
     width: 88%;
-    height: $progress-bar-height;
     background-color: $slider-fill;
     border-radius: $progress-border-radius;
 }
 
 .#{$progress-class-prefix}-bar{
-    position: absolute;
     background-color: $primary-color;
-    height: $progress-bar-height;
     border-radius: $progress-border-radius;
 }
 .#{$progress-class-prefix}-label{

@@ -22,9 +22,9 @@
                     :style="percentPathStyle"></path>
             </svg>
         </div>
-        <div :class="labelClass">
-            <span v-if="percent < 100">{{percent}}%</span>
-            <i v-else class="vut-icon-roundcheckfill"></i>
+        <div :class="labelClass" v-if="!textInside">
+                <span v-if="percent < 100">{{percent}}%</span>
+                <i v-else class="vut-icon-roundcheckfill"></i>
         </div>
     </div>
 </template>
@@ -53,7 +53,10 @@ export default {
             type: Number,
             default: 6
         },
-
+        textInside: {
+            type: Boolean,
+            default: false
+        }
     },
     data(){
         return {
@@ -70,7 +73,8 @@ export default {
         barStyle(){
             let style={
                 width: this.percent + "%",
-                backgroundColor: this.percent >= 100 ? "#19be6b" : this.color
+                backgroundColor: this.percent >= 100 ? "#19be6b" : this.color,
+                height: this.strokeWidth + 'px'
             }
             return style;
         },
