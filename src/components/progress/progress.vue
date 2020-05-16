@@ -1,7 +1,9 @@
 <template>
     <div :class="[prefix, prefix + '-type-' + type]">
-        <div :class="prefix + '-bar-wrap'" v-if="type === 'line'">
-            <div :class="prefix + '-bar'" :style="barStyle"></div>
+        <div :class="prefix + '-bar-wrap'" :style="wrapStyle" v-if="type === 'line'">
+            <div :class="prefix + '-bar'" :style="barStyle">
+                <div :class="prefix + '-inner-text'" v-if="textInside">{{percent}}%</div>
+            </div>
         </div>
         <div :class="prefix + '-circle'" :style="circleStyle" v-else>
             <svg viewBox="0 0 100 100">
@@ -69,6 +71,9 @@ export default {
                 this.prefix + '-label',
                 {"is-success": this.percent >= 100}
             ]
+        },
+        wrapStyle() {
+            return { width: this.textInside ? '100%' : '88%'}
         },
         barStyle(){
             let style={

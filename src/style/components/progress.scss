@@ -7,7 +7,6 @@ $progress-class-prefix: #{$class-prefix}progress;
 .#{$progress-class-prefix}-bar-wrap{
     position: relative;
     display: inline-block;
-    width: 88%;
     background-color: $slider-fill;
     border-radius: $progress-border-radius;
 }
@@ -15,6 +14,23 @@ $progress-class-prefix: #{$class-prefix}progress;
 .#{$progress-class-prefix}-bar{
     background-color: $primary-color;
     border-radius: $progress-border-radius;
+    vertical-align: middle;
+    text-align: right;
+    transition: width 1s ease;
+
+    .#{$progress-class-prefix}-inner-text {
+        color: $white-color;
+        font-size: 12px;
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    &:after {
+        height: 100%;
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
 .#{$progress-class-prefix}-label{
     display: inline-block;
