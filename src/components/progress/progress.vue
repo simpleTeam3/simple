@@ -25,8 +25,8 @@
             </svg>
         </div>
         <div :class="labelClass" v-if="!textInside">
-                <span v-if="percent < 100">{{percent}}%</span>
-                <i v-else class="vut-icon-roundcheckfill"></i>
+            <span v-if="!status && percent < 100">{{percent}}%</span>
+            <i v-else class="vut-icon-roundcheckfill"></i>
         </div>
     </div>
 </template>
@@ -58,6 +58,10 @@ export default {
         textInside: {
             type: Boolean,
             default: false
+        },
+        status: {
+            type: String,
+            validator: val => ['success', 'fail', 'text'].indexOf(val) > -1
         }
     },
     data(){
@@ -69,16 +73,20 @@ export default {
         labelClass(){
             return [
                 this.prefix + '-label',
-                {"is-success": this.percent >= 100}
+                {"is-success": this.percent >= 100},
+                {"is-fail": this.status === 'fail'}
             ]
         },
         wrapStyle() {
             return { width: this.textInside ? '100%' : '88%'}
         },
+        statusClass() {
+            return this.status === 'fail' ? 'vut-icon-roundclosefill' : 'vut-icon-roundcheckfill'
+        },
         barStyle(){
             let style={
                 width: this.percent + "%",
-                backgroundColor: this.percent >= 100 ? "#19be6b" : this.color,
+                backgroundColor: this.percent >= 100 ? "#19be6b" : this.strokeColor,
                 height: this.strokeWidth + 'px'
             }
             return style;
@@ -87,11 +95,16 @@ export default {
             return { width: this.width + 'px', height: this.width + 'px' }
         },
         strokeColor() {
-            if (this.percent >= 100) {
-                return "#19be6b"
-            } else {
-                return this.color || "#2d8cf0"
+            let color = "#2d8cf0";
+            if (this.color) {
+                color = this.color;
+            } else if (this.status === 'fail') {
+                color = "#ed3f14";
+            } else if (this.percent >= 100) {
+                color = "#19be6b";
             }
+            
+            return color;
         },
         // 相对线条宽度
         relativeStrokeWidth() {

@@ -9,6 +9,7 @@ $progress-class-prefix: #{$class-prefix}progress;
     display: inline-block;
     background-color: $slider-fill;
     border-radius: $progress-border-radius;
+    vertical-align: middle;
 }
 
 .#{$progress-class-prefix}-bar{
@@ -34,9 +35,15 @@ $progress-class-prefix: #{$class-prefix}progress;
 }
 .#{$progress-class-prefix}-label{
     display: inline-block;
+    vertical-align: middle;
+    color: $content-color;
 
     &.is-success{
         color: $success-color;
+    }
+
+    &.is-fail {
+        color: $error-color;
     }
 }
 
