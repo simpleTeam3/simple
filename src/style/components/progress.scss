@@ -32,6 +32,22 @@ $progress-class-prefix: #{$class-prefix}progress;
         display: inline-block;
         vertical-align: middle;
     }
+
+    &.#{$progress-class-prefix}-status-active {
+        position: relative;
+
+        &:before {
+            content: '';
+            animation: vut-progress-active 2s ease-in-out infinite;
+            background: #fff;
+            position: absolute;
+            border-radius: 20px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    }
 }
 .#{$progress-class-prefix}-label{
     display: inline-block;
@@ -61,5 +77,16 @@ $progress-class-prefix: #{$class-prefix}progress;
         width: 100%;
         text-align: center;
         transform: translateY(-50%);
+    }
+}
+
+@keyframes vut-progress-active{
+    0% {
+        opacity: .5;
+        width: 0;
+    }
+    100% {
+        opacity: 0;
+        width: 100%;
     }
 }

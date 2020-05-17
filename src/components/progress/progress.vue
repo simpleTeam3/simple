@@ -1,7 +1,7 @@
 <template>
     <div :class="[prefix, prefix + '-type-' + type]">
         <div :class="prefix + '-bar-wrap'" :style="wrapStyle" v-if="type === 'line'">
-            <div :class="prefix + '-bar'" :style="barStyle">
+            <div :class="[prefix + '-bar', prefix + '-status-' + status]" :style="barStyle">
                 <div :class="prefix + '-inner-text'" v-if="textInside">{{percent}}%</div>
             </div>
         </div>
@@ -25,7 +25,7 @@
             </svg>
         </div>
         <div :class="labelClass" v-if="!textInside">
-            <span v-if="!status && percent < 100">{{percent}}%</span>
+            <span v-if="showPercent">{{percent}}%</span>
             <i v-else class="vut-icon-roundcheckfill"></i>
         </div>
     </div>
@@ -52,8 +52,8 @@ export default {
             default: 150
         },
         strokeWidth: {
-            type: Number,
-            default: 6
+            type: [Number, String],
+            default: 8
         },
         textInside: {
             type: Boolean,
@@ -61,7 +61,7 @@ export default {
         },
         status: {
             type: String,
-            validator: val => ['success', 'fail', 'text'].indexOf(val) > -1
+            validator: val => ['success', 'fail', 'text', 'active'].indexOf(val) > -1
         }
     },
     data(){
@@ -93,6 +93,18 @@ export default {
         },
         circleStyle() {
             return { width: this.width + 'px', height: this.width + 'px' }
+        },
+        trailPathStyle() {
+            return {
+                strokeDasharray: `${(this.perimeter * this.rate)}px, ${this.perimeter}px`,
+                strokeDashoffset: this.strokeDashoffset
+            };
+        },
+        percentPathStyle() {
+            return {
+                strokeDasharray: `${(this.percent / 100) * this.perimeter * this.rate}px, ${this.perimeter}px`,
+                strokeDashoffset: this.strokeDashoffset
+            }
         },
         strokeColor() {
             let color = "#2d8cf0";
@@ -139,17 +151,8 @@ export default {
                 a ${radius} ${radius} 0 1 1 0 ${isDashboard ? '' : '-'}${radius * 2}
             `;
         },
-        trailPathStyle() {
-            return {
-                strokeDasharray: `${(this.perimeter * this.rate)}px, ${this.perimeter}px`,
-                strokeDashoffset: this.strokeDashoffset
-            };
-        },
-        percentPathStyle() {
-            return {
-                strokeDasharray: `${(this.percent / 100) * this.perimeter * this.rate}px, ${this.perimeter}px`,
-                strokeDashoffset: this.strokeDashoffset
-            }
+        showPercent() {
+            return !['fail', 'success'].includes(this.status) && this.percent < 100
         }
     }
 }
