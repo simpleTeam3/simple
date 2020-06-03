@@ -24,7 +24,8 @@
                 type: String,
                 default: 'smaller'
             },
-            width: Number
+            width: Number,
+            filterable: Boolean
         },
         data(){
             return{
