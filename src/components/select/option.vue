@@ -1,5 +1,5 @@
 <template>
-    <li :class="prefix" @click="selectSelf">
+    <li :class="prefix" @click="selectSelf" v-show="visible">
         <slot>
             <span>{{label}}</span>
         </slot>
@@ -16,7 +16,8 @@ export default {
     },
     data(){
         return {
-            prefix: this.global.prefix + 'select-dropdown-item'
+            prefix: this.global.prefix + 'select-dropdown-item',
+            visible: true,
         }
     },
     methods: {

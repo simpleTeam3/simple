@@ -1,11 +1,11 @@
 <template>
     <div :class="prefix" :style="{width: width + 'px'}" @blur="closeDropdown">
         <vut-input
-            :readonly="true"
+            :readonly="readonly"
             :size="size"
             :suffixIcon="suffixIcon"
             @click.stop.native="openDropdown"
-            :value="activeLabel"
+            v-model="activeLabel"
         ></vut-input>
         <transition name="vut-zoom-in-top">
             <vut-select-dropdown v-show="visible">
@@ -19,6 +19,7 @@
     import emit from '../../mixins/emit';
     export default {
         name: 'vutSelect',
+        mixins: [emit],
         props: {
             size: {
                 type: String,
@@ -37,14 +38,20 @@
             }
         },
         computed: {
-
+            readonly() {
+                return !this.filterable
+            }
         },
-        mixins: [emit],
         mounted(){
             this.$on('select', this.beSelect)
         },
         components: {
             VutInput
+        },
+        watch: {
+            activeLabel: function (newVal, preVal) {
+                console.log(newVal, preVal)
+            } 
         },
         methods: {
             openDropdown(){

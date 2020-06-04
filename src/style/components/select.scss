@@ -3,6 +3,7 @@ $dropdown-class-prefix: #{$select-class-prefix}-dropdown;
 
 .#{$select-class-prefix}{
     position: relative;
+    display: inline-block;
 
     .vut-input{
         cursor: pointer;

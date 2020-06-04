@@ -2,12 +2,20 @@
     <div class="select-box">
         <vut-select @select="handleSelect">
             <vut-option
-            v-for="(o, index) in options"
-            :key="index"
-            :label="o.label"
-            :value="o.value"
-        ></vut-option>
+                v-for="(o, index) in options"
+                :key="index"
+                :label="o.label"
+                :value="o.value"
+            ></vut-option>
         </vut-select>
+            <vut-select @select="handleSelect" :filterable="true">
+                <vut-option
+                    v-for="(o, index) in options"
+                    :key="index"
+                    :label="o.label"
+                    :value="o.value"
+                ></vut-option>
+            </vut-select>
     </div>
 </template>
 <script>
@@ -46,6 +54,10 @@
 </script>
 <style>
 .select-box{
-    width: 200px;
+    width: 800px;
+}
+.select-item {
+    display: inline-block;
+    margin-right: 50px;
 }
 </style>
